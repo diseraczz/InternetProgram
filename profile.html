@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <style>
+    html {
+      font-size: 16px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-block-start: 0px;
+      margin-block-end: 0px;
+    }
+
+    .profile-page {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      background: rgb(2,0,36);
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 46%, rgba(0,212,255,1) 100%);
+    }
+
+    .profile-page-content {
+      padding: 2rem;
+      margin-top: 6rem;
+      width: 75%;
+      background-color: white;
+      border-radius: 50px;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .employee-descriptions {
+      padding: 2rem;
+      flex-grow: 1;
+      background-color: #c3c3c3;
+      border-radius: 50px;
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: 54px 54px 54px 100px 54px 54px; 
+    }
+
+    .employee-description-box {
+      grid-column: span 2 / span 2;
+      background-color: white;
+      width: 100%;
+      border-radius: 15px;
+    }
+    .employee-edit{
+      background-color: rgb(69, 69, 153);
+      width: 100%;
+      border-radius: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-page">
+    <div class="profile-page-content">
+      <div class="employee-profile">
+        <h1>Profile ผู้ว่าจ้าง</h1>
+        <div class="employee-img"><img src="D:\ปี3-2\IP\images\5.png"width="200"></div>
+        <div class="employee-img"><img src="D:\ปี3-2\IP\images\2.png"width="200"></div>
+        <div><input class="employee-edit" type="button" value="แก้ไขข้อมูล" style="color: white; font-size: 25px;"></div>
+      </div>
+      <div class="employee-descriptions">
+        <h4 class="employee-description-title">
+          ชื่อ-นามสกุล
+        </h4>
+        <div class="employee-description-box">
+          <h4 class="employee-description-text">
+            
+          </h4>
+        </div>
+        <h4 class="employee-description-title">
+          บริษัท
+        </h4>
+        <div class="employee-description-box">
+          <h4 class="employee-description-text">
+            
+          </h4>
+        </div>
+        <h4 class="employee-description-title">
+          เว็บไซต์บริษัท
+        </h4>
+        <div class="employee-description-box">
+          <h4 class="employee-description-text">
+            
+          </h4>
+        </div>
+        <h4 class="employee-description-title">
+          รายละเอียดบริษัท
+        </h4>
+        <div class="employee-description-box">
+          <h4 class="employee-description-text">
+            
+          </h4>
+        </div>
+        <h4 class="employee-description-title">
+          เบอร์โทรศัพท์บริษัท
+        </h4>
+        <div class="employee-description-box">
+          <h4 class="employee-description-text">
+            
+          </h4>
+        </div>
+        <h4 class="employee-description-title">
+          ที่อยู่บริษัท
+        </h4>
+        <div class="employee-description-box">
+          <h4 class="employee-description-text">
+            
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
