@@ -16,32 +16,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <!-- CSS here -->
 
-  <!-- <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="dist/css/bootstrap.css">  -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- <link rel="stylesheet" href="dist/css/bootstrap.css">  -->
 </head>
 
 <body>
-  <header class="p-3 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356);">
+  <header class="p-2 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
     <div class="container-header">
       <div class="d-flex flex-wrap align-items-center justify-content-start">
         <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-          <img src="images/meIT2.png" alt="" width="320" height="90">
+          <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.35rem ;">
         </a>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
-            Dropdown button
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <div class="dropdown" style="margin-right: 2.5rem;">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="images/meIT.png" alt="mdo" width="35" height="auto" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
+            <li><a class="dropdown-item" href="#">My work</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign Out</a></li>
           </ul>
         </div>
         <ul class="nav nav-pills">
           <a class="btn btn-primary-search" href="main.html" role="button">ค้นหางาน</a>
         </ul>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a class="btn btn-primary-chat" href="#" role="button">ติดต่องาน</a>
+          <a class="btn btn-primary-search" href="#" role="button">ติดต่องาน</a>
         </div>
       </div>
     </div>
@@ -99,22 +100,22 @@
       </div>
       <div class="work-content">
         <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h6>ค</h6>
+          <h6>insert work</h6>
         </div>
         <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h6>ว</h6>
+          <h6>insert work</h6>
         </div>
         <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h6>ย</h6>
+          <h6>insert work</h6>
         </div>
         <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h6>-</h6>
+          <h6>insert work</h6>
         </div>
         <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h6>_</h6>
+          <h6>insert work</h6>
         </div>
         <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h6>-</h6>
+          <h6>insert work</h6>
         </div>
       </div>
     </div>
@@ -150,84 +151,9 @@
         </div>
       </div>
     </div>
-
   </section>
 
   <style>
-
-    .btn-primary{
-      background: rgb(84,84,197);
-    background: linear-gradient(90deg, rgba(84,84,197,1) 0%, rgb(77, 180, 248) 100%);
-    }
-
-    .col-work {
-      cursor: pointer;
-      margin: 30px;
-      display: block;
-      height: 350px; 
-      padding: 40px;
-      background-color: #0b0142;
-      border-radius: 40px;
-    }
-
-    .page-header {
-      background-image: url('https://i.imgur.com/vEDvmrG.jpg');
-      background-position: top;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-color: #090909;
-      background-attachment: fixed;
-      color: #fff;
-      min-height: 700px;
-    }
-
-    .btn-primary{
-      border-radius: 10px;
-    }
-
-    h6{
-      color: white;
-      font-size: 15rem;
-      text-align: center;
-    }
-
-    body {
-      min-height: 200vh;
-      background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/91.webp'); background-repeat: no-repeat; background-size: cover; background-position: center center; 
-    }
-    
-    .work-content {
-      display: grid;
-      grid-gap: 16px;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    @media only screen and (min-width: 768px) {
-      .work-content {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .modal-dialog-centered {
-      min-height: calc(100% - 20rem);
-      align-items: inherit;
-      max-height: calc(100% - 700px);
-    }
-
-    .modal-dialog {
-      max-width: 2500px;
-      margin: 10rem;
-    }
-
-    .modal-body{
-
-    }
-
-    .modal-content{
-      border-radius: 40px;
-      padding: 1.75rem;
-      background-color: #797979;
-    }
   </style>
 
 </body>
