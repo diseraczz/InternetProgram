@@ -53,9 +53,9 @@ body {
   color: #fff;
   background-color: #434394;
   border-radius: 20px;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-top: 100px;
-  margin-left: -10px;
+  margin-left: 10px;
 }
 
 .btn-createJobs-addUser {
@@ -70,22 +70,21 @@ body {
 
 .content-boxBlack {
   background-color: #10121485;
-  border-radius: 50px;
-  padding: 50px;
+  border-radius: 20px 20px 0px 0px;
+  padding: 30px 0px 20px 0px;
   margin-top: -30px;
 }
 
 .content-boxWhite {
   background-color: #fff;
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 20px 20px 0px 0px;
+  padding: 30px ;
   margin-top: -30px;
 }
 .content-boxWhite2 {
   background-color: #fff;
-  border-radius: 50px;
-  padding: 30px;
-  margin-top: -30px;
+  border-radius: 0px 0px 30px 30px;
+  padding: 0px 30px 10px 30px;
 }
 
 .content-boxWork{
@@ -93,16 +92,17 @@ body {
   border-radius: 50px;
   padding: 10px;
   margin-top: 0px;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .col-heading{
-  margin: 15px;
-  height: 30px;
+  margin: 15px 45px 0px 25px;
+  height: 70px;
   width: 300px;
   background-color:#fff;
-  border-radius: 20px;
-  font-size: 1rem;
-  padding: .5rem 1.35rem ;
+  border-radius: 20px 20px 0px 0px;
+  font-size: 1.75rem;
 }
 .form-control {
   display: block;
@@ -179,7 +179,7 @@ body {
 
 .col-user {
   cursor: pointer;
-  margin: 15px;
+  margin: 0px 15px 15px 15px;
   display: block;
   width: 500px;
   height: 100px; 
