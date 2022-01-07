@@ -1,11 +1,17 @@
+@font-face {
+    font-family: 'Anakotmai-medium';
+    src: url('font/Anakotmai-Medium.ttf');
+}
+
 html {
     font-size: 16px;
+    font-family: 'Anakotmai-medium';
 }
 
 h1 {
+    font-family: 'Anakotmai-medium';
     margin-block-start: 0px;
     margin-block-end: 0px;
-    font-size: 35px;
 }
 
 h2,
@@ -30,6 +36,7 @@ h7 {
 }
 
 .context {
+    font-family: 'Anakotmai-medium';
     margin: 0 auto;
     margin-left: 50px;
     padding-top: 5px;
@@ -40,134 +47,95 @@ h7 {
     max-width: auto;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 30px
-}
-
 body {
+    font-family: 'Anakotmai-medium';
     margin: 0;
+    background: rgb(255, 255, 255);
+}
+
+
+/* sidebar */
+
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anakotmai-medium';
+}
+
+.wrapper .sidebar {
+    background: rgb(5, 68, 104);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+
+.wrapper .sidebar ul li a {
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #10558d;
+    color: rgb(241, 237, 237);
+    font-size: 16px;
+    position: relative;
+}
+
+.wrapper .sidebar ul li a .icon {
+    color: #dee4ec;
+    width: 30px;
+    display: inline-block;
+}
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active {
+    color: #0c7db1;
+    background: white;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon {
+    color: #0c7db1;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before {
+    display: block;
+}
+
+.wrapper .section {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar {
     background: rgba(255, 219, 92);
-}
-
-.profile-page {
-    width: 100%;
-    height: 100vh;
+    height: 50px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
 }
 
-.profile-page-content {
-    padding: 2rem;
-    margin-top: 6rem;
-    width: 75%;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    margin: auto;
+.wrapper .section .top_navbar .hamburger a {
+    font-size: 28px;
+    color: #f4fbff;
 }
 
-.employer-descriptions {
-    padding: 2rem;
-    flex-grow: 1;
-    background-color: #c3c3c3;
-    border-radius: 50px;
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: 40px 40px 60px 100px 40px 100px;
+.wrapper .section .top_navbar .hamburger a:hover {
+    color: #a2ecff;
 }
 
-.employer-description-box {
-    grid-column: span 2 / span 2;
-    background-color: white;
+body.active .wrapper .sidebar {
+    left: -225px;
+}
+
+body.active .wrapper .section {
+    margin-left: 0;
     width: 100%;
-}
-
-.employer-description-box-1 {
-    grid-column: span 2 / span 2;
-    background-color: rgba(254, 119, 119);
-    ;
-    width: 60%;
-    border-radius: 15px;
-}
-
-.employer-description-box-2 {
-    grid-column: span 2 / span 2;
-    background-color: white;
-    width: 60%;
-    border-radius: 15px;
-}
-
-.static-page {
-    background-color: white;
-    width: 100%;
-    height: 50rem;
-    border: 5px solid gray;
-    margin: 0;
-}
-
-.static {}
-
-.applicant {
-    position: absolute;
-    width: 466.77px;
-    height: 380px;
-}
-
-.employer {
-    background-color: rgb(209, 36, 36);
-    width: 10rem;
-    height: 10rem;
-    border: 5px solid gray;
-    margin: 0;
-}
-
-.viewer {
-    background-color: rgb(209, 36, 36);
-    width: 10rem;
-    height: 10rem;
-    border: 5px solid gray;
-    margin: 0;
-}
-
-.workload {
-    background-color: rgb(209, 36, 36);
-    width: 10rem;
-    height: 10rem;
-    border: 5px solid gray;
-    margin: 0;
-}
-
-.workload_complete {}
-
-.box {
-    position: absolute;
-    width: 466.77px;
-    height: 380px;
-    background: #FFDB5C;
-    border-radius: 30px;
-}
-
-.boxin {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    width: 440.93px;
-    height: 310.47px;
-    background: #FFFFFF;
-    border-radius: 30px;
-}
-
-.more {
-    position: absolute;
-    width: 154.2px;
-    height: 46.89px;
-    background: #000000;
-    border-radius: 30px;
 }
