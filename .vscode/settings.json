@@ -1,10 +1,16 @@
 {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.renderFinalNewline": true,
-    "editor.multiCursorModifier": "alt",
-    "files.autoSave": "onFocusChange",
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "editor.detectIndentation": false
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.renderFinalNewline": true,
+  "editor.multiCursorModifier": "alt",
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.detectIndentation": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  }
 }
