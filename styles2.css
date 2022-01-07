@@ -1,0 +1,100 @@
+html {
+  font-size: 16px;
+}
+
+h1 {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  font-size: 35px;
+}
+
+h2, h3, h4, h5, h6 {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  font-size: 20px;
+}
+
+h7 {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  font-size: 30px;
+}
+
+.header-bar {
+  background-color: rgba(255,219,92);
+  border-radius: 0rem 0rem 1.35rem 1.35rem;
+}
+
+.context {
+margin: 0 auto;
+margin-left: 50px;
+padding-top: 5px;
+}
+
+.container-header {
+  margin: auto;
+  max-width: auto;
+}
+
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding-top: 30px
+}
+
+body {
+  margin: 0;
+  background: rgba(255,219,92);
+}
+
+.profile-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.profile-page-content {
+  padding: 2rem;
+  margin-top: 6rem;
+  width: 75%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: auto;
+}
+
+.employer-descriptions {
+  padding: 2rem;
+  flex-grow: 1;
+  background-color: #d4d4d4;
+  border-radius: 50px;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 40px 40px 60px 100px 40px 100px;
+}
+
+.employer-description-box {
+  grid-column: span 2 / span 2;
+  background-color: white;
+  width: 100%;
+}
+
+.employer-description-box-1 {
+  grid-column: span 2 / span 2;
+  background-color: rgba(254,119,119);;
+  width: 60%;
+  border-radius: 15px;
+}
+
+.employer-description-box-2 {
+  grid-column: span 2 / span 2;
+  background-color: white;
+  width: 60%;
+  border-radius: 15px;
+}
