@@ -50,63 +50,198 @@
     <main class="container">
       <div class="p-5" style="background-color: white; border-radius: 2rem 2rem 2rem 2rem;">
         <div class="row">
-          <div class="col-3 text-center">
-            <p style="font-size: 3rem;"><strong>Profile</strong></p>
+          <h1><strong>Profile Settings</strong></h1>
+          <div class="col-4">
             <br>
-            <img src="images/man__3__2.png" alt="pic" width="200" height="200" class="rounded-circle" style="border: .5rem solid;border-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1);">
+            <div class="text-center">
+              <img src="images/man__3__2.png" alt="pic" width="250" height="250" class="rounded-circle" style="border: .5rem solid;border-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1);">
+            </div>
+            <br>
+            <div class="col">
+              <label class="form-label">อัปโปรไฟล์</label>
+              <input type="file" class="form-control" accept="image/png, image/jpeg">
+            </div>
+            <div class="col">
+              <label class="form-label">อัป Resume (file.pdf)</label>
+              <input type="file" class="form-control" accept="application/pdf">
+            </div>
+            <div class="col">
+              <label class="form-label">เงินเดือนที่ต้องการ</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="col">
+              <label class="form-label">แนะนำตัวเอง</label>
+              <textarea class="form-control"></textarea>
+            </div>
           </div>
-          <div class="col-9">
-            <div class="p-5 bg-light" style="border-radius: 2rem 2rem 2rem 2rem;">
-              <div class="row g-3 align-items-center">
-                <div class="col-2">
-                  <label for="input" class="col-form-label">ชื่อ-นามสกุล</label>
-                </div>
-                <div class="col-10">
-                  <div class="box">นายทำงาน ทำดี</div>
-                </div>
+          <div class="col-8">
+            <div class="row g-3">
+              <div class="col-12">
                 <br>
-                <div class="col-2">
-                  <label for="input" class="col-form-label">รายละเอียด</label>
+                <h4>ประวัติส่วนตัว</h4>
+              </div>
+              <div class="col-6">
+                <label class="form-label">ชื่อ</label>
+                <input type="text" class="form-control" placeholder="" value="" required="">
+              </div>
+              <div class="col-6">
+                <label class="form-label">นามสกุล</label>
+                <input type="text" class="form-control" value="" required="">
+              </div>
+              <div class="col-4">
+                <label class="form-label">วันเกิด</label>
+                <input type="date" class="form-control"  value="" required="">
+              </div>
+              <div class="col-4">
+                <label class="form-label">เบอร์โทรศัพท์</label>
+                <input type="tel" class="form-control"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="000-000-0000">
+              </div>
+              <div class="col-4">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control"  value="" required="">
+              </div>
+              <div class="col-12">
+                <label class="form-label">ที่อยู่</label>
+                <input type="text" class="form-control"  value="" required="">
+              </div>
+              <div class="col-4">
+                <label class="form-label">จังหวัด</label>
+                <select class="form-select">
+                  <option selected>เลือกจังหวัด</option>
+                  <option>กรุงเทพ</option>
+                  <option>นครสวรรค์</option>
+                  <option>พิษณุโลก</option>
+                  <option>เชียงใหม่</option>
+                </select>
+              </div>
+              <div class="col-4">
+                <label class="form-label">อำเภอ</label>
+                <select class="form-select">
+                  <option selected>เลือกอำเภอ</option>
+                  <option></option>
+                </select>
+              </div>
+              <div class="col-4">
+                <label class="form-label">ตำบล</label>
+                <select class="form-select">
+                  <option selected>เลือกตำบล</option>
+                  <option></option>
+                </select>
+              </div>
+              <div class="col-12">
+                <h4>การศึกษา</h4>
+              </div>
+              <div class="col-8">
+                <label class="form-label">มหาวิทยาลัย</label>
+                <input type="text" class="form-control"  value="" required="">
+              </div>
+              <div class="col-4">
+                <label class="form-label">จังหวัด</label>
+                <input type="text" class="form-control"  value="" required="">
+              </div>
+              <div class="col-5">
+                <label class="form-label">คณะ</label>
+                <input type="text" class="form-control"  value="" required="">
+              </div>
+              <div class="col-5">
+                <label class="form-label">สาขา</label>
+                <input type="text" class="form-control"  value="" required="">
+              </div>
+              <div class="col-2">
+                <label class="form-label">GPAX</label>
+                <input type="text" class="form-control"  value="" required="">
+              </div>
+              <div class="col-12">
+                <h4>ทักษะ</h4>
+              </div>
+              <div class="col-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    HTML
+                  </label>
                 </div>
-                <div class="col-10">
-                  <div class="box" style="padding: 60px;"></div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    CSS
+                  </label>
                 </div>
-                <br>
-                <div class="col-2">
-                  <label for="input" class="col-form-label">ประวัติ</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    JavaScript
+                  </label>
                 </div>
-                <div class="col-10">
-                  <div class="box" style="padding: 60px;"></div>
-                </div>
-                <br>
-                <div class="col-2">
-                  <label for="input" class="col-form-label">ความสามารถ</label>
-                </div>
-                <div class="col-10">
-                  <div class="box">
-                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">HTML</button>
-                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">JAVA</button>
-                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">SQL</button>
-                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">Back End</button>
-                  </div>
-                </div>
-                <br>
-                <div class="col-2">
-                  <label for="input" class="col-form-label">เงินเดือนที่ต้องการ</label>
-                </div>
-                <div class="col-10">
-                  <div class="box">25,000</div>
-                </div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <a class="btn btn-success" href="user-profile.html" role="button">บันทึก</a>
-                  <a class="btn btn-danger" href="#" role="button">ยกเลิก</a>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    SQL
+                  </label>
                 </div>
               </div>
+              <div class="col-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    PHP
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    Python
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    Java
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    Back End
+                  </label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    Web page Design
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    MS.Office
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    OS
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox">
+                  <label class="form-check-label">
+                    Network
+                  </label>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-danger" type="reset">รีเซ็ต</button>
+              <button class="btn btn-success" type="submit">บันทึก</button>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <br><br>
+    <br>
 </body>
 </html>
