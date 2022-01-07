@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- action here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="js/action.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +18,8 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="styles2.css">
+
+
 </head>
 
 <body>
@@ -31,7 +36,7 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-start">
                     <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto"></a>
                     <div class="context">
-                        <h1>สถิติการเข้าใช้งาน</h1>
+                        <h1>สถิติโดยรวม</h1>
                     </div>
                 </div>
             </div>
@@ -55,41 +60,48 @@
             <!--menu item-->
             <ul>
                 <li>
-                    <a href="#" class="active">
+                    <a href="admin_page.html" class="active">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">สถิติโดยรวม</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <span class="icon"><i class="fas fa-home"></i></span>
-                        <span class="item">n1</span>
+                        <span class="item">สถิติการศึกษา</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">n2</span>
+                        <span class="item">สถิติสถานที่ตั้งบริษัท</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-user-friends"></i></span>
-                        <span class="item">n3</span>
+                        <span class="item">สถิติตำแหน่ง</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                        <span class="item">n4</span>
+                        <span class="item">สถิติตามความสามารถ</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-database"></i></span>
-                        <span class="item">n5</span>
+                        <span class="item">สถิติเงินเดือน</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="listprofile.html">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="item">n6</span>
+                        <span class="item">โปรไฟล์ผู้ใช้งาน</span>
                     </a>
                 </li>
+                <!--
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-user-shield"></i></span>
@@ -101,53 +113,141 @@
                         <span class="icon"><i class="fas fa-cog"></i></span>
                         <span class="item">n8</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </header>
     <!-- body web -->
     <div class="mainContent">
-        <div class="leftcolumn">
-            <div class="card">
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Dec 7, 2017</h5>
-                <div class="fakeimg" style="height:200px;">Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <div class="column">
+            <div class="jobsearch">
+                <h2>บริษัท</h2>
+                <div class="jobsearch_all">
+                    <canvas id="skillChart" style="width:100%;max-width:600px"></canvas>
+                    <script>
+                        var xValues = ["HTML", "PHP", "JavaScript", "Java", "SQL"];
+                        var yValues = [55, 49, 44, 24, 15];
+                        var barColors = ["red", "green", "blue", "orange", "brown"];
+                        new Chart("skillChart", {
+                            type: "bar",
+                            data: {
+                                labels: xValues,
+                                datasets: [{
+                                    backgroundColor: barColors,
+                                    data: yValues
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: "ภาพรวมความสามารถที่บริษัทต้องการ"
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="jobsearch_want">
+                    <canvas id="jobChart" style="width:100%;max-width:600px"></canvas>
+                    <script>
+                        var xValues = ["UX/UI", "Beck-end Dev.", "Font-end Dev.", "Android Dev.", "IOS Dev."];
+                        var yValues = [60, 40, 36, 55, 50];
+                        var barColors = ["red", "green", "blue", "orange", "brown"];
+                        new Chart("jobChart", {
+                            type: "bar",
+                            data: {
+                                labels: xValues,
+                                datasets: [{
+                                    backgroundColor: barColors,
+                                    data: yValues
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: "ภาพรวมตำแหน่งที่บริษัทต้องการ"
+                                }
+                            }
+                        });
+                    </script>
+                </div>
             </div>
-            <div class="card">
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <div class="fakeimg" style="height:200px;">Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+        </div>
+        <div class="column">
+            <div class="candidate">
+                <h2>หางาน</h2>
+                <div class="candidate_all">
+                    <canvas id="skillcandidateChart" style="width:100%;max-width:600px"></canvas>
+                    <script>
+                        var xValues = ["HTML", "PHP", "JavaScript", "Java", "SQL"];
+                        var yValues = [40, 49, 20, 30, 25];
+                        var barColors = ["red", "green", "blue", "orange", "brown"];
+                        new Chart("skillcandidateChart", {
+                            type: "bar",
+                            data: {
+                                labels: xValues,
+                                datasets: [{
+                                    backgroundColor: barColors,
+                                    data: yValues
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: "ภาพรวมความสามารถผู้สมัครงาน"
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="candidate_want">
+                    <canvas id="jobcandidateChart" style="width:100%;max-width:600px"></canvas>
+                    <script>
+                        var xValues = ["UX/UI", "Beck-end Dev.", "Font-end Dev.", "Android Dev.", "IOS Dev."];
+                        var yValues = [50, 30, 25, 30, 20];
+                        var barColors = ["red", "green", "blue", "orange", "brown"];
+                        new Chart("jobcandidateChart", {
+                            type: "bar",
+                            data: {
+                                labels: xValues,
+                                datasets: [{
+                                    backgroundColor: barColors,
+                                    data: yValues
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: "ภาพรวมตำแหน่งที่ผู้หางานสนใจ"
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
             </div>
         </div>
-        <!-- <div class="rightcolumn">
-            <div class="card">
-                <h2>About Me</h2>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-            </div>
-            <div class="card">
-                <h3>Popular Post</h3>
-                <div class="fakeimg">Image</div><br>
-                <div class="fakeimg">Image</div><br>
-                <div class="fakeimg">Image</div>
-            </div>
-            <div class="card">
-                <h3>Follow Me</h3>
-                <p>Some text..</p>
-            </div> -->
     </div>
     </div>
     <!--js active -->
-    <script>
+    <!--     <script>
         var hamburger = document.querySelector(".hamburger");
         hamburger.addEventListener("click", function() {
             document.querySelector("body").classList.toggle("active");
         })
-    </script>
+    </script> -->
 </body>
 
 </html>

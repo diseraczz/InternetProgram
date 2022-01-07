@@ -54,61 +54,269 @@ body {
 }
 
 
-/* content */
+/* maincontent */
+
+.mainContent {
+    display: flex;
+}
 
 
 /* Left column */
 
-.leftcolumn {
-    float: left;
-    width: 75%;
+.column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px;
 }
 
 
-/* Right column */
-
-.rightcolumn {
-    float: left;
-    width: 25%;
-    padding-left: 20px;
-}
+/*++++++++++++++++++ company ++++++++++++++++++*/
 
 
-/* Fake image */
+/* jobsearch */
 
-.fakeimg {
-    background-color: #aaa;
-    width: 100%;
+.jobsearch_all {
+    background-color: rgb(255, 255, 255);
     padding: 20px;
+    margin-top: 5px;
+    border: 2px solid #000000;
 }
 
+.jobsearch_want {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 5px;
+    border: 2px solid #000000;
+}
 
-/* Add a card effect for articles */
-
-.card {
-    background-color: white;
+.jobsearch {
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     margin-top: 20px;
+    border: 2px solid #000000;
+    text-align: center;
+}
+
+.button_company {
+    padding: 20px;
+}
+
+.buttoncompany_all {
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 
-/* Clear floats after the columns */
+/* pop up company*/
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
 
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+/* Modal Content */
 
-@media screen and (max-width: 800px) {
-    .leftcolumn,
-    .rightcolumn {
-        width: 100%;
-        padding: 0;
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
     }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: rgba(255, 219, 92);
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    background-color: #ffffff;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: rgba(255, 219, 92);
+    color: white;
+}
+
+
+/*++++++++++++++++++ 000000000 ++++++++++++++++++*/
+
+
+/*++++++++++++++++++ candidate ++++++++++++++++++*/
+
+.modal-content-candidate {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.closecan {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closecan:hover,
+.closecan:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header-candidate {
+    padding: 2px 16px;
+    background-color: rgba(255, 219, 92);
+    color: white;
+}
+
+.modal-body-candidate {
+    padding: 2px 16px;
+    background-color: #ffffff;
+}
+
+.modal-footer-candidate {
+    padding: 2px 16px;
+    background-color: rgba(255, 219, 92);
+    color: white;
+}
+
+.candidate {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #000000;
+    text-align: center;
+}
+
+.candidate_all {
+    background-color: rgb(25 5, 255, 255);
+    padding: 20px;
+    margin-top: 5 px;
+    border: 2px solid #000000;
+}
+
+.candidate_want {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 5px;
+    border: 2px solid #000000;
+}
+
+.button_candidate {
+    padding: 20px;
+}
+
+.buttoncandidate_all {
+    padding: 10px;
+    background-color: #4c87af;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/* table */
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
 }
 
 
@@ -136,7 +344,7 @@ body {
 
 .sidebar ul li a {
     display: block;
-    padding: 13px 30px;
+    padding: 15px 10px;
     border-bottom: 1px solid #ffffff;
     color: rgb(255, 255, 255);
     font-size: 16px;
@@ -145,7 +353,7 @@ body {
 
 .sidebar ul li a .icon {
     color: #ffffff;
-    width: 30px;
+    width: 20px;
     display: inline-block;
 }
 
@@ -177,24 +385,5 @@ body {
     background: rgba(255, 219, 92);
     height: 50px;
     display: flex;
-    align-items: center;
     padding: 0 30px;
-}
-
-.section .top_navbar .hamburger a {
-    font-size: 28px;
-    color: #f4fbff;
-}
-
-.section .top_navbar .hamburger a:hover {
-    color: #a2ecff;
-}
-
-body.active .sidebar {
-    left: -225px;
-}
-
-body.active .section {
-    margin-left: 0;
-    width: 100%;
 }

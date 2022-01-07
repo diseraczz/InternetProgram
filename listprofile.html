@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- action here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="js/action.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <title>Admin_page</title>
+    <!-- bootstrap 5.1.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="styles2.css">
+
+
+</head>
+
+<body>
+    <!--Top menu -->
+    <header class="section">
+        <div class="top_navbar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
+            <div class="hamburger">
+                <a href="#">
+                    <img src="images/meIT2.png" alt="" width="120" height="auto">
+                </a>
+            </div>
+            <!--  -->
+            <div class="container-header">
+                <div class="d-flex flex-wrap align-items-center justify-content-start">
+                    <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto"></a>
+                    <div class="context">
+                        <h1>โปรไฟล์ผู้ใช้งาน</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            <div class="dropdown" style="margin-right: 2.5rem;">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="images/profile.png" alt="" width="50" height="auto" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar">
+            <!--menu item-->
+            <ul>
+                <li>
+                    <a href="admin_page.html">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">สถิติโดยรวม</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">สถิติการศึกษา</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">สถิติสถานที่ตั้งบริษัท</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">สถิติตำแหน่ง</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="item">สถิติตามความสามารถ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item">สถิติเงินเดือน</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="listprofile.html" class="active">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">โปรไฟล์ผู้ใช้งาน</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- body web -->
+    <div class="mainContent">
+        <div class="column">
+            <div class="jobsearch">
+                <h2>บริษัท</h2>
+                <div class="button_company">
+                    <button class="buttoncompany_all" id="myBtncompany"> เพิ่มเติม </button>
+                    <!-- The Modal -->
+                    <div id="myModalCompany" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>รายชื่อบริษัท</h2>
+                                <span class="close">&times;</span>
+
+                            </div>
+                            <div class="modal-body">
+                                <div class="company_table">
+                                    <table>
+                                        <tr>
+                                            <td>aaa</td>
+                                            <td>bbb</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ccc</td>
+                                            <td>ddd</td>
+                                        </tr>
+                                        <tr>
+                                            <td>eee</td>
+                                            <td>fff</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!--<h10>Modal Footer</h10>-->
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Get the modal
+                        var modal = document.getElementById("myModalCompany");
+
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtncompany");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                            modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                            modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
+
+                </div>
+            </div>
+            <div class="candidate">
+                <h2>ผู้สมัครงาน</h2>
+                <div class="button_candidate">
+                    <button class="buttoncandidate_all" id="myBtncandidate"> เพิ่มเติม </button>
+                    <!-- The Modal -->
+                    <div id="myModalcandidate" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content-candidate">
+                            <div class="modal-header-candidate">
+                                <h2>รายชื่อผู้สมัครงาน</h2>
+                                <span class="closecan">&times;</span>
+                            </div>
+                            <div class="modal-body-candidate">
+                                <div class="candidate_table">
+                                    <table>
+                                        <tr>
+                                            <td>aaa</td>
+                                            <td>bbb</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ccc</td>
+                                            <td>ddd</td>
+                                        </tr>
+                                        <tr>
+                                            <td>eee</td>
+                                            <td>fff</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer-candidate">
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Get the modal
+                        var modalcandidate = document.getElementById("mymodalcandidate");
+
+                        // Get the button that opens the modalcandidate
+                        var btncandidate = document.getElementById("myBtncandidate");
+
+                        // Get the <span> element that closes the modalcandidate
+                        var spancan = document.getElementsByClassName("closecan")[0];
+
+                        // When the user clicks the button, open the modalcandidate 
+                        btncandidate.onclick = function() {
+                            modalcandidate.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modalcandidate
+                        spancan.onclick = function() {
+                            modalcandidate.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modalcandidate, close it
+                        window.onclick = function(event) {
+                            if (event.target == modalcandidate) {
+                                modalcandidate.style.display = "none";
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
