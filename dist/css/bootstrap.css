@@ -537,14 +537,7 @@ progress {
   border-top: 10px;
 }
 
-.col-work {
-  margin: 30px;
-  display: block;
-  height: 435px; 
-  padding: 40px;
-  background-color: #0b0142;
-  border-radius: 40px;
-}
+
 
 [hidden] {
   display: none !important;
