@@ -1,0 +1,375 @@
+@font-face {
+    font-family: 'Anakotmai-medium';
+    src: url('font/Anakotmai-Medium.ttf');
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Anakotmai-medium';
+}
+
+h1 {
+    font-family: 'Anakotmai-medium';
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: 20px;
+}
+
+h7 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: 30px;
+}
+
+.header-bar {
+    background-color: rgba(255, 219, 92);
+    border-radius: 0rem 0rem 1.35rem 1.35rem;
+}
+
+.context {
+    font-family: 'Anakotmai-medium';
+    margin: 0 auto;
+    margin-left: 50px;
+    padding-top: 5px;
+}
+
+.container-header {
+    margin: auto;
+    max-width: auto;
+}
+
+body {
+    font-family: 'Anakotmai-medium';
+    margin: 0;
+    background: rgb(255, 255, 255);
+}
+
+
+/* maincontent */
+
+.mainContent {
+    display: flex;
+}
+
+
+/* Left column */
+
+.column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px;
+}
+
+
+/*++++++++++++++++++ company ++++++++++++++++++*/
+
+
+/* jobsearch */
+
+.jobsearch_all {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 5px;
+    border: 2px solid #000000;
+}
+
+.jobsearch_want {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 5px;
+    border: 2px solid #000000;
+}
+
+.jobsearch {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #000000;
+    text-align: center;
+}
+
+.button_company {
+    padding: 20px;
+}
+
+.buttoncompany_all {
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/* pop up company*/
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: rgba(255, 219, 92);
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    background-color: #ffffff;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: rgba(255, 219, 92);
+    color: white;
+}
+
+
+/*++++++++++++++++++ 000000000 ++++++++++++++++++*/
+
+
+/*++++++++++++++++++ candidate ++++++++++++++++++*/
+
+.modal-content-candidate {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.closecan {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closecan:hover,
+.closecan:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.candidate {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #000000;
+    text-align: center;
+}
+
+.candidate_all {
+    background-color: rgb(25 5, 255, 255);
+    padding: 20px;
+    margin-top: 5 px;
+    border: 2px solid #000000;
+}
+
+.candidate_want {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 5px;
+    border: 2px solid #000000;
+}
+
+.button_candidate {
+    padding: 20px;
+}
+
+.buttoncandidate_all {
+    padding: 10px;
+    background-color: #4c87af;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/*++++++++++++++++++ 000000000 ++++++++++++++++++*/
+
+
+/* table */
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+}
+
+
+/* sidebar */
+
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anakotmai-medium';
+}
+
+.sidebar {
+    background: rgb(230, 191, 50);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 15px 10px;
+    border-bottom: 1px solid #ffffff;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    position: relative;
+}
+
+.sidebar ul li a .icon {
+    color: #ffffff;
+    width: 20px;
+    display: inline-block;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    color: #000000;
+    background: white;
+    border-right: 2px solid rgb(255, 196, 0);
+}
+
+.sidebar ul li a:hover .icon,
+.sidebar ul li a.active .icon {
+    color: #000000;
+}
+
+.sidebar ul li a:hover:before,
+.sidebar ul li a.active:before {
+    display: block;
+}
+
+.section,
+.mainContent {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+
+.section .top_navbar {
+    background: rgba(255, 219, 92);
+    height: 50px;
+    display: flex;
+    padding: 0 30px;
+}
