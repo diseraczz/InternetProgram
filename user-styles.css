@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Anakotmai-medium';
+  src: url('../../font/Anakotmai-Medium.ttf');
+}
+
+body {
+  font-family: "Anakotmai-medium"; 
+}
+
 .container{
   max-width:1170px; 
   margin:auto;

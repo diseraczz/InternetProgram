@@ -78,63 +78,54 @@
 
   <div class="container" style="width: auto;">
     <div class="align-items-center content-boxWhite2" >
-      <div class="content-boxWork" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <h3 style="font-size: 0.5rem;  color: black; font-size: 1.5rem; text-align: left;">
-        นาย?? สมัครงานตำแหน่ง นักออกแบบ UX/UI ความสามารถ ???</h3>      
-      </div> &nbsp;
-      <div class="content-boxWork" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <h3 style="font-size: 0.5rem;  color: black; font-size: 1.5rem; text-align: left;">
-        นาง?? ว่างงานตำแหน่ง IT Support Help Desk ความสามารถ ???</h3>      
-      </div> &nbsp;
-      <div class="content-boxWork" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <h3 style="font-size: 0.5rem;  color: black; font-size: 1.5rem; text-align: left;">
-        นางสาว?? ตำแหน่ง นักวิทยาศาสตร์ข้อมูล ความสามารถ ???</h3>      
-      </div> &nbsp;
-      <div class="content-boxWork" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <h3 style="font-size: 0.5rem;  color: black; font-size: 1.5rem; text-align: left;">
-        นาย?? สมัครงานตำแหน่ง Android Developer UX/UI ความสามารถ ???</h3>      
-      </div> &nbsp;
+      <div class="content-boxWork"data-bs-toggle="modal" data-bs-target="#workermodal">
+        <h3 style="font-size: 1rem;  color: black; font-size: 1.75rem; text-align: left;">
+        รับสมัครงาน -ตำแหน่ง- นักออกแบบ UX/UI</h3>      
+      </div>
+      <div class="content-boxWork"data-bs-toggle="modal" data-bs-target="#workermodal">
+        <h3 style="font-size: 1rem;  color: black; font-size: 1.75rem; text-align: left;">
+        รับสมัครงาน -ตำแหน่ง- นักออกแบบ UX/UI</h3>      
+      </div>
     </div>
   </div>
   
-
-<section>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered  ">
-      <div class="modal-content ">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">งาน</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <h4>รายละเอียดงาน และ หน้าที่รับผิดชอบ
-          </h4>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ยกเลิก</button>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal-confirm" >ยืนยัน</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="Modal-confirm" tabindex="-1" aria-labelledby="work-confirm" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center " style="max-width: auto; margin: 10rem; " >
-      <div class="col-4 modal-content modal-dialog-centered modal-sm modal-fullscreen-sm-down justify-content-center" >
-        <div class="modal-body">
-          <div class="row justify-content-center" style="margin-bottom: 2rem; padding: 0rem 2rem 0rem 2rem;">
-            <img src="images/checked.png" alt="mdo" width="20" height="auto" class="rounded-circle">
+  <section>
+    <div class="modal fade" id="workermodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered  ">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">ผู้สมัคร</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-            <h4 style="font-size: 1.5rem;">
-              แก้ไขเรียบร้อยแล้ว
+          <div class="modal-body">
+            <h4>รายละเอียดผู้สมัคร
             </h4>
-        </div>
-        <div class="row modal-footer justify-content-center " >
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">กลับหน้าหลัก</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal-confirm" >รับสมัครงาน</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+    <div class="modal fade" id="Modal-confirm" tabindex="-1" aria-labelledby="work-confirm" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center " style="max-width: auto; margin: 10rem; " >
+        <div class="col-4 modal-content modal-dialog-centered modal-sm modal-fullscreen-sm-down justify-content-center" >
+          <div class="modal-body">
+            <div class="row justify-content-center" style="margin-bottom: 2rem; padding: 0rem 2rem 0rem 2rem;">
+              <img src="images/checked.png" alt="mdo" width="20" height="auto" class="rounded-circle">
+            </div>
+              <h4 style="font-size: 1.5rem;">
+                รับสมัครเรียบร้อยแล้ว
+              </h4>
+          </div>
+          <div class="row modal-footer justify-content-center " >
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">กลับหน้าหลัก</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   
 </body>
 
