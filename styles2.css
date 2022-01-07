@@ -1,17 +1,17 @@
 @font-face {
-  font-family: 'Anakotmai-medium';
-  src: url('font/Anakotmai-Medium.ttf');
+    font-family: 'Anakotmai-medium';
+    src: url('font/Anakotmai-Medium.ttf');
 }
 
 html {
-  font-size: 16px;
-  font-family: 'Anakotmai-medium';
+    font-size: 16px;
+    font-family: 'Anakotmai-medium';
 }
 
 h1 {
-  font-family: 'Anakotmai-medium';
-  margin-block-start: 0px;
-  margin-block-end: 0px;
+    font-family: 'Anakotmai-medium';
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 h2,
@@ -19,123 +19,182 @@ h3,
 h4,
 h5,
 h6 {
-  margin-block-start: 0px;
-  margin-block-end: 0px;
-  font-size: 20px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: 20px;
 }
 
 h7 {
-  margin-block-start: 0px;
-  margin-block-end: 0px;
-  font-size: 30px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: 30px;
 }
 
 .header-bar {
-  background-color: rgba(255, 219, 92);
-  border-radius: 0rem 0rem 1.35rem 1.35rem;
+    background-color: rgba(255, 219, 92);
+    border-radius: 0rem 0rem 1.35rem 1.35rem;
 }
 
 .context {
-  font-family: 'Anakotmai-medium';
-  margin: 0 auto;
-  margin-left: 50px;
-  padding-top: 5px;
+    font-family: 'Anakotmai-medium';
+    margin: 0 auto;
+    margin-left: 50px;
+    padding-top: 5px;
 }
 
 .container-header {
-  margin: auto;
-  max-width: auto;
+    margin: auto;
+    max-width: auto;
 }
 
 body {
-  font-family: 'Anakotmai-medium';
-  margin: 0;
-  background: rgb(255, 255, 255);
+    font-family: 'Anakotmai-medium';
+    margin: 0;
+    background: rgb(255, 255, 255);
+}
+
+
+/* content */
+
+
+/* Left column */
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+}
+
+
+/* Right column */
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+
+/* Fake image */
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* Add a card effect for articles */
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
 }
 
 
 /* sidebar */
 
 * {
-  list-style: none;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Anakotmai-medium';
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anakotmai-medium';
 }
 
-.wrapper .sidebar {
-  background: rgb(5, 68, 104);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 225px;
-  height: 100%;
-  padding: 20px 0;
-  transition: all 0.5s ease;
+.sidebar {
+    background: rgb(230, 191, 50);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
 }
 
-.wrapper .sidebar ul li a {
-  display: block;
-  padding: 13px 30px;
-  border-bottom: 1px solid #10558d;
-  color: rgb(241, 237, 237);
-  font-size: 16px;
-  position: relative;
+.sidebar ul li a {
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #ffffff;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    position: relative;
 }
 
-.wrapper .sidebar ul li a .icon {
-  color: #dee4ec;
-  width: 30px;
-  display: inline-block;
+.sidebar ul li a .icon {
+    color: #ffffff;
+    width: 30px;
+    display: inline-block;
 }
 
-.wrapper .sidebar ul li a:hover,
-.wrapper .sidebar ul li a.active {
-  color: #0c7db1;
-  background: white;
-  border-right: 2px solid rgb(5, 68, 104);
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    color: #000000;
+    background: white;
+    border-right: 2px solid rgb(255, 196, 0);
 }
 
-.wrapper .sidebar ul li a:hover .icon,
-.wrapper .sidebar ul li a.active .icon {
-  color: #0c7db1;
+.sidebar ul li a:hover .icon,
+.sidebar ul li a.active .icon {
+    color: #000000;
 }
 
-.wrapper .sidebar ul li a:hover:before,
-.wrapper .sidebar ul li a.active:before {
-  display: block;
+.sidebar ul li a:hover:before,
+.sidebar ul li a.active:before {
+    display: block;
 }
 
-.wrapper .section {
-  width: calc(100% - 225px);
-  margin-left: 225px;
-  transition: all 0.5s ease;
+.section,
+.mainContent {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
 }
 
-.wrapper .section .top_navbar {
-  background: rgba(255, 219, 92);
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding: 0 30px;
+.section .top_navbar {
+    background: rgba(255, 219, 92);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
 }
 
-.wrapper .section .top_navbar .hamburger a {
-  font-size: 28px;
-  color: #f4fbff;
+.section .top_navbar .hamburger a {
+    font-size: 28px;
+    color: #f4fbff;
 }
 
-.wrapper .section .top_navbar .hamburger a:hover {
-  color: #a2ecff;
+.section .top_navbar .hamburger a:hover {
+    color: #a2ecff;
 }
 
-body.active .wrapper .sidebar {
-  left: -225px;
+body.active .sidebar {
+    left: -225px;
 }
 
-body.active .wrapper .section {
-  margin-left: 0;
-  width: 100%;
+body.active .section {
+    margin-left: 0;
+    width: 100%;
 }
