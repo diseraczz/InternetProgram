@@ -31,6 +31,7 @@ body {
   max-width: auto;
 }
 
+
 .tabHeader{
   margin: auto;
   max-width: aut;
@@ -82,9 +83,16 @@ body {
 }
 .content-boxWhite2 {
   background-color: #fff;
-  border-radius: 20px;
-  padding: 500px;
+  border-radius: 50px;
+  padding: 30px;
   margin-top: -30px;
+}
+
+.content-boxWork{
+  background-color: #D3D3D3;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: 0px;
 }
 
 .col-heading{
@@ -117,8 +125,72 @@ body {
 .form-label {
   margin-bottom: 0.5rem;
 }
+/*------------*/
+.col-work {
+  cursor: pointer;
+  margin: 15px;
+  display: block;
+  height: 50px; 
+  padding: 15px;
+  background-color: #dadada;
+  border-radius: 20px;
+  width: 1250px;
+}
+.modal-dialog-centered {
+  min-height: auto;
+  align-items: center;
+  max-height: calc(100% - 700px);
+}
 
+.modal-dialog {
+  max-width: 100%;
+  margin: 10rem 10rem 0rem 10rem;
+}
 
+.modal-header{
+  border-bottom:none; 
+}
 
+.modal-footer{
+  border-top:none; 
+}
 
+.modal-content{
+  border-radius: 40px;
+  padding: 1.1rem;
+  background-color: #dbdbdb;
+}
 
+.modal-body{
+  text-align: center;
+  max-height:100%; 
+}
+.work-content {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media only screen and (min-width: 768px) {
+  .work-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/*----------*/
+
+.col-user {
+  cursor: pointer;
+  margin: 15px;
+  display: block;
+  width: 500px;
+  height: 100px; 
+  padding: 30px;
+  background-color: #BEBEBE;
+  border-radius: 30px;
+}
+
+.content-search {
+  background-color: #10121485;
+  border-radius: 50px;
+  padding: 30px;
+  margin-top: 70px;
+}
