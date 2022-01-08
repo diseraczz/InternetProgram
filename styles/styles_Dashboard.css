@@ -31,7 +31,6 @@ body {
 
 .tabHeader {
     margin: auto;
-    max-width: aut;
 }
 
 .header-bar {
@@ -68,8 +67,8 @@ body {
 .content-boxBlack {
     background-color: #10121485;
     border-radius: 20px 20px 0px 0px;
-    padding: 30px 0px 20px 0px;
-    margin-top: -30px;
+    margin-top: -40px;
+    margin-bottom: -15px;
 }
 
 .content-boxWhite {
@@ -81,8 +80,8 @@ body {
 
 .content-boxWhite2 {
     background-color: #fff;
-    border-radius: 0px 0px 30px 30px;
-    padding: 0px 30px 10px 30px;
+    border-radius: 25px;
+    
 }
 
 .content-boxWork {
