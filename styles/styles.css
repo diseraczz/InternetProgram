@@ -24,7 +24,7 @@ body {
     background-position: center center;
 }
 
-.content-search {
+.bg-screen {
     background-color: #101214b6;
 }
 
@@ -237,10 +237,6 @@ h6,
 
 .modal-header {
     border-bottom: none;
-}
-
-.modal-footer {
-    border-top: none;
 }
 
 
