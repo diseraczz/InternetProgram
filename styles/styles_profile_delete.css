@@ -2,6 +2,17 @@ html {
   font-size: 16px;
 }
 
+@font-face {
+  font-family: 'Anakotmai-medium';
+  src: url('../font/Anakotmai-Medium.ttf');
+}
+
+body {
+  margin: 0;
+  background: rgba(255,219,92);
+  font-family: "Anakotmai-medium";
+}
+
 h1 {
   margin-block-start: 0px;
   margin-block-end: 0px;
@@ -43,11 +54,6 @@ margin-right: auto;
 padding-top: 30px
 }
 
-body {
-  margin: 0;
-  background: rgba(255,219,92);
-}
-
 .profile-page {
   width: 100%;
   height: 100vh;
@@ -68,7 +74,7 @@ body {
   margin: auto;
 }
 
-.Candidate-descriptions {
+.user-descriptions {
   padding: 2rem;
   flex-grow: 1;
   background-color: #d4d4d4;
@@ -76,25 +82,27 @@ body {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: 40px 100px 100px 40px 40px 100px;
+  grid-template-rows: 54px 54px 54px 100px 54px 150px;
 }
 
-.Candidate-description-box {
+.user-descriptions1 {
+  padding: 2rem;
+  flex-grow: 1;
+  background-color: #d4d4d4;
+  border-radius: 50px;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 54px 200px 54px 54px 54px 60px;
+}
+
+.user-description-box {
   grid-column: span 2 / span 2;
   background-color: white;
   width: 100%;
 }
 
-.Candidate-description-box-1 {
-  grid-column: span 2 / span 2;
-  background-color: rgba(254,119,119);;
-  width: 60%;
-  border-radius: 15px;
-}
-
-.Candidate-description-box-2 {
-  grid-column: span 2 / span 2;
-  background-color: white;
-  width: 60%;
-  border-radius: 15px;
+.imageborder {
+  border-radius: 20px;
+  margin-top: 20px;
 }
