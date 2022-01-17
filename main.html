@@ -32,7 +32,7 @@
                     <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1rem;">
                         <li><a class="dropdown-item" href="#">My work</a></li>
                         <li><a class="dropdown-item" href="user-profile.html">Profile</a></li>
                         <li>
@@ -56,17 +56,19 @@
             <div class="search-work">
               <form>
                 <div class="row">
-                  <div class="col" style="display: flex; flex-direction: row; ">
-                      <div class="work-search" style="flex-grow: 1;">
-                          <label for="exampleInputEmail1" class="form-label">ค้นหางาน</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div class="col">
+                    <div class="work-search" style="flex-grow: 1;">
+                        <label for="exampleInputEmail1" class="form-label">ค้นหางาน</label>
+                    </div>
+                    
+                      <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="ค้นหางาน..." aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-primary bi bi-search" type="button" id="button-addon2">  ค้นหา  </button>
                       </div>
-                      <div style="align-self: flex-end;">
-                          <button type="button" class="btn btn-primary" style="height: 43px; width: 120px; background-color: #5454C5; font-size: 1.2rem;">Search</button>
-                      </div>
+                    
                   </div>
                 </div>
-                <div class="row" style="margin-bottom: 1rem ;">
+                <div class="row" ">
                     <div class="col">
                         <label for="exampleInputEmail1" class="form-label">ประเภทงาน</label>
                         <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
@@ -130,8 +132,8 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  ">
                 <div class="modal-content ">
-                    <div class="row p-3">
-                        <h5 class="modal-title col-11" id="exampleModalLabel" style="font-size: 1.5rem;">งาน</h5>
+                    <div class="modal-header">
+                        <h5 class="modal-title " id="exampleModalLabel" style="font-size: 1.5rem;">งาน</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
