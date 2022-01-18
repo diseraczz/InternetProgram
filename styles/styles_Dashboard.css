@@ -80,7 +80,7 @@ body {
 
 .content-boxWhite2 {
     background-color: #fff;
-    border-radius: 25px;
+    border-radius: 0px 0px 30px 30px;
     
 }
 
@@ -93,7 +93,7 @@ body {
 }
 
 .col-heading {
-    margin: 0px 45px ;
+    /* margin: 0px 45px ; */
     background-color: #fff;
     border-radius: 20px 20px 0px 0px;
 }
