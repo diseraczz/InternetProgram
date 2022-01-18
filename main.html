@@ -32,7 +32,7 @@
                     <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1rem;">
                         <li><a class="dropdown-item" href="#">My work</a></li>
                         <li><a class="dropdown-item" href="user-profile.html">Profile</a></li>
                         <li>
@@ -44,86 +44,85 @@
                 <ul class="nav nav-pills">
                     <a class="btn btn-primary-search" href="main.html" role="button">ค้นหางาน</a>
                 </ul>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a class="btn btn-primary-search" href="chat.html" role="button">ติดต่องาน</a>
-                </div>
             </div>
         </div>
     </header>
     <div class="container" style="width: 720px;">
-        <div class="content-search" style="height: min-content;">
-            <div class="col">
-                <div class="align-items-center">
-                    <h1 style="font-size: 2.7rem;">ค้นหางาน</h1>
+      <div class="bg-screen p-5 rounded-10 mt-5" style="height: min-content;">
+        <div class="col">
+            <div class="align-items-center">
+                <h1 style="font-size: 2.7rem;">ค้นหางาน</h1>
+            </div>
+            <div class="search-work">
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <div class="work-search" style="flex-grow: 1;">
+                        <label for="exampleInputEmail1" class="form-label">ค้นหางาน</label>
+                    </div>
+                    
+                      <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="ค้นหางาน..." aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-primary bi bi-search" type="button" id="button-addon2">  ค้นหา  </button>
+                      </div>
+                    
+                  </div>
                 </div>
-                <div class="search-work">
-                    <form>
-                        <div class="row">
-                            <div class="col" style="display: flex; flex-direction: row; ">
-                                <div class="work-search" style="flex-grow: 1;">
-                                    <label for="exampleInputEmail1" class="form-label">ค้นหางาน</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                </div>
-                                <div style="align-self: flex-end;">
-                                    <button type="button" class="btn btn-primary" style="height: 43px; width: 120px; background-color: #5454C5; font-size: 1.2rem;">Search</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 1rem ;">
-                            <div class="col">
-                                <label for="exampleInputEmail1" class="form-label">ประเภทงาน</label>
-                                <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
-                  <option selected>ประเภทงาน</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                            </div>
-                            <div class="col">
-                                <label for="exampleInputEmail1" class="form-label">ประเภทการจ้าง</label>
-                                <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
-                  <option selected>ประเภทการจ้าง</option>
-                  <option value="1">งานประจำ</option>
-                  <option value="2">งานพาร์ทไทม์</option>
-                  <option value="3">งานสัญญาจ้าง</option>
-                  <option value="2">งานอิสระ</option>
-                  <option value="3">ฝึกงาน</option>
-                </select>
-                            </div>
-                        </div>
-                    </form>
+                <div class="row" ">
+                    <div class="col">
+                        <label for="exampleInputEmail1" class="form-label">ประเภทงาน</label>
+                        <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
+                          <option selected>ประเภทงาน</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputEmail1" class="form-label">ประเภทการจ้าง</label>
+                        <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
+                          <option selected>ประเภทการจ้าง</option>
+                          <option value="1">งานประจำ</option>
+                          <option value="2">งานพาร์ทไทม์</option>
+                          <option value="3">งานสัญญาจ้าง</option>
+                          <option value="4">งานอิสระ</option>
+                          <option value="5">ฝึกงาน</option>
+                        </select>
+                    </div>
                 </div>
+              </form>
             </div>
         </div>
+      </div>
     </div>
     <div class="container" style="width: 1080px;">
-        <div class="align-items-center content-search">
+        <div class="align-items-center bg-screen p-4 rounded-10 mt-5 ">
             <div class="align-items-center">
                 <h2 style="font-size: 2.7rem;">งาน</h2>
             </div>
-            <div class="work-content">
-                <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="work-content gap-4">
+                <div class="col-work p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <h6>insert work</h6>
                 </div>
-                <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModalxxxxxxxx">
-                    <div class="row modal-footer justify-content-center ">
+                <div class="col-work p-3" data-bs-toggle="modal" data-bs-target="#exampleModalxxxxxxxx">
+                    <div class="row  p-4 justify-content-center ">
                         <a class="btn btn-primary" href="DashboardApplication.html" role="button">หน้าบริษัท</a>
                     </div>
-                    <div class="row modal-footer justify-content-center ">
+                    <div class="row  p-4 justify-content-center ">
                       <a class="btn btn-primary" href="admin_page.html" role="button">หน้าแอดมิน</a>
                   </div>
                     <h6>หน้าบริษัท</h6>
                 </div>
-                <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="col-work p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <h6>insert work</h6>
                 </div>
-                <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="col-work p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <h6>insert work</h6>
                 </div>
-                <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="col-work p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <h6>insert work</h6>
                 </div>
-                <div class="col-work" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="col-work p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <h6>insert work</h6>
                 </div>
             </div>
@@ -134,7 +133,7 @@
             <div class="modal-dialog modal-dialog-centered  ">
                 <div class="modal-content ">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">งาน</h5>
+                        <h5 class="modal-title " id="exampleModalLabel" style="font-size: 1.5rem;">งาน</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -167,9 +166,6 @@
         </div>
     </section>
 
-    <style>
-
-    </style>
 
 </body>
 
