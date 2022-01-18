@@ -17,15 +17,16 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="styles/styles_admin.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
     <!--Top menu -->
     <header class="section">
-        <div class="top_navbar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
+        <div class="top_navbar align-items-center" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
             <div class="hamburger">
-                <a href="#">
-                    <img src="images/meIT2.png" alt="" width="120" height="auto">
+                <a href="main.html">
+                    <img src="images/meIT2.png" alt="" width="130" height="auto">
                 </a>
             </div>
             <!--  -->
@@ -41,15 +42,10 @@
             <!--  -->
             <div class="dropdown" style="margin-right: 2.5rem;">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="images/profile.png" alt="" width="50" height="auto" class="rounded-circle">
+                    <img src="images/man (3).png" alt="" width="50" height="auto" class="rounded-circle success">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
                     <li><a class="dropdown-item" href="#">My Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Candidate Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Employer Profile</a></li>
                 </ul>
             </div>
         </div>
@@ -57,47 +53,48 @@
             <!--menu item-->
             <ul>
                 <li>
+                    <a href="listprofile.html">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">โปรไฟล์ผู้ใช้งาน</span>
+                    </a>
+                </li>
+                <li>
                     <a href="admin_page.html" class="active">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
                         <span class="item">สถิติโดยรวม</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="admin_page_school.html">
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="item">สถิติการศึกษา</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="admin_page_location.html">
                         <span class="icon"><i class="fas fa-desktop"></i></span>
                         <span class="item">สถิติสถานที่ตั้งบริษัท</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="admin_page_position.html">
                         <span class="icon"><i class="fas fa-user-friends"></i></span>
                         <span class="item">สถิติตำแหน่ง</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="admin_page_skill.html">
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                         <span class="item">สถิติตามความสามารถ</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="admin_page_salary.html">
                         <span class="icon"><i class="fas fa-database"></i></span>
                         <span class="item">สถิติเงินเดือน</span>
                     </a>
                 </li>
-                <li>
-                    <a href="listprofile.html">
-                        <span class="icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="item">โปรไฟล์ผู้ใช้งาน</span>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </header>
