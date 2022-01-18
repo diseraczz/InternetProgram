@@ -22,84 +22,77 @@
 </head>
 
 <body>
+  
     <header class="p-2 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
-        <div class="container-header">
-            <div class="d-flex flex-wrap align-items-center justify-content-start">
-                <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-                    <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.35rem ;">
-                </a>
-                <div class="dropdown" style="margin-right: 2.5rem;">
-                  <div class="border border-primary rounded-pill d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="padding: .15rem;" >  
-                    <img src="images/man (3).png" alt="pic" width="32" height="32" class="rounded-circle">
-                    <img src="images/office-building.png" alt="pic" width="32" height="32" class="rounded-circle">
-                  </div>
-                  <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                  </ul>
-                </div>
+      <div class="container-header">
+        <div class="d-flex flex-wrap align-items-center justify-content-start">
+          <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+            <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.35rem ;">
+          </a>
+          <div class="dropdown" style="margin-right: 2.5rem;">
+            <div class="border border-primary rounded-pill d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="padding: .15rem;" >  
+              <img src="images/office-building.png" alt="pic" width="32" height="32" class="rounded-circle">
+            </div>
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
     </header>
 
+    <div class="container-xxl mt-5" >
+      <div class="row align-items-center p-2 m-2 gradient shadow-lg" style=" border-radius: 25px; color: #ffffff;">
+        <div class="col-10 " >
+          <t class="fs-1 fw-bold align-items-center" role="button">Smart JOB Co.</t>
+        </div>
+        <div class="col-2 d-flex justify-content-end">
+          <a class="btn btn-SmartJob " style="font-size: 1rem;" href="RecruitmentPage.html" role="button">สร้างโพสงาน</a>
+        </div>
+      </div>
+    </div>
     <div class="container">
-        <div class="tabHeader">
-            <a class="btn btn-SmartJob" role="button">Smart JOB Co.</a>
-            <a class="btn btn-createJobs-addUser" href="RecruitmentPage.html" role="button">สร้างโพสงาน</a>
-            <a class="btn btn-createJobs-addUser" href="#" role="button">เพิ่มผู้ใช้</a>
+      <div class="row pt-4 gap-5">
+        <div class="col-4 " aria-disabled="flase" tabindex="0">
+          <a class="btn w-100 col-heading text-center fs-2" href="DashboardWork.html" role="button" data-bs-toggle="button" aria-pressed="true">งาน</a>
         </div>
+        <div class="col-4 ">
+          <a class="btn w-100 col-heading text-center fs-2" style="opacity: .7;" href="DashboardApplication.html" role="button"  aria-pressed="false">ใบสมัครทั้งหมด</a>
+        </div>
+      </div>
     </div>
 
-    <div class="container" style="width: auto;">
-        <div class="content-boxBlack" style="height: min-content;">
-            <div class="tabHeader">
-                <a class="btn col-heading" href="DashboardWork.html" role="button">งาน</a>
-                <a class="btn col-heading" href="DashboardUser.html" role="button">ผู้ใช้งาน</a>
-                <a class="btn col-heading" href="DashboardApplication.html" role="button">ใบสมัครทั้งหมด</a>
-            </div>
+    <div class="container" >
+        <div class="align-items-center content-boxWhite2 p-4 pt-5 " >
+          <div class="search-work mb-4 ">    
+            <div class="col" style="display: flex;  ">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div style="align-self: flex-end;">
+                <button type="button" class="btn btn-primary" style="height: 43px; width: 120px;  font-size: 1.2rem;">Search</button>
+              </div>
+            </div>   
+          </div>
+        <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workermodal">
+          <t class="fs-4 ps-3" style="margin-bottom: 0rem;">รับสมัครงาน -ตำแหน่ง- นักออกแบบ UX/UI</t>
         </div>
+        <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workermodal">
+          <t class="fs-4 ps-3" style="margin-bottom: 0rem;">รับสมัครงาน -ตำแหน่ง- นักออกแบบ UX/UI</t>
+        </div>
+      </div>
     </div>
 
-    <div class="container" style="width: auto;">
-        <div class="content-boxWhite" style="height: min-content;">
-            <div class="search-work">
-                <form>
-                    <div class="row" style="flex-grow: 1;">
-                        <div class="col" style="display: flex; flex-direction: row; ">
-                            <div class="work-search" style="flex-grow: 1;">
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div style="align-self: flex-end;">
-                                <button type="button" class="btn btn-primary" style="height: 43px; width: 120px;  font-size: 1.2rem;">Search</button>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" style="width: auto;">
-        <div class="align-items-center content-boxWhite2">
-            <div class="content-boxWork" data-bs-toggle="modal" data-bs-target="#workermodal">
-                <h3 style="font-size: 1rem;  color: black; font-size: 1.5rem; text-align: left;">
-                    รับสมัครงาน -ตำแหน่ง- นักออกแบบ UX/UI</h3>
-            </div>
-            <div class="content-boxWork" data-bs-toggle="modal" data-bs-target="#workermodal">
-                <h3 style="font-size: 1rem;  color: black; font-size: 1.5rem; text-align: left;">
-                    รับสมัครงาน -ตำแหน่ง- นักออกแบบ UX/UI</h3>
-            </div>
-        </div>
-    </div>
 
     <section>
         <div class="modal fade" id="workermodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  ">
                 <div class="modal-content ">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">ผู้สมัคร</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">งาน</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h4>รายละเอียดผู้สมัคร
+                        <h4>รายละเอียดงาน
                         </h4>
                     </div>
                     <div class="modal-footer">
@@ -117,7 +110,7 @@
                             <img src="images/checked.png" alt="mdo" width="20" height="auto" class="rounded-circle">
                         </div>
                         <h4 style="font-size: 1.5rem;">
-                            รับสมัครเรียบร้อยแล้ว
+                            เรียบร้อยแล้ว
                         </h4>
                     </div>
                     <div class="row modal-footer justify-content-center ">
