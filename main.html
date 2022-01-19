@@ -22,74 +22,71 @@
 </head>
 
 <body>
-    <header class="p-2 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
-      <div class="container-header">
-          <div class="d-flex flex-wrap align-items-center justify-content-start">
-              <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-                  <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.05rem ;">
-              </a>
-              <div class="dropdown" style="margin-right: 2.5rem;">
-                  <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1rem;">
-                      <li><a class="dropdown-item" href="#">My work</a></li>
-                      <li><a class="dropdown-item" href="user-profile.html">Profile</a></li>
-                      <li>
-                          <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Sign Out</a></li>
-                  </ul>
-              </div>
-              <ul class="nav nav-pills">
-                  <a class="btn btn-primary-search" href="main.html" role="button">ค้นหางาน</a>
-              </ul>
-          </div>
-      </div>
-    </header>
+  <header class="p-2 border-buttom header-bar">
+    <div class="container-header">
+        <div class="d-flex flex-wrap align-items-center justify-content-start">
+            <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+                <img src="images/meIT2.png" alt="" width="170" height="auto" >
+            </a>
+            <div class="dropdown me-5" >
+                <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="dropdownUser1" >
+                    <li><a class="dropdown-item" href="user-work.html">My work</a></li>
+                    <li><a class="dropdown-item" href="user-profile.html">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                </ul>
+            </div>
+            <ul class="nav nav-pills">
+                <a class="btn btn-primary-search" href="main.html" role="button">ค้นหางาน</a>
+            </ul>
+        </div>
+    </div>
+  </header>
+
     <div class="container" style="width: 720px;">
       <div class="bg-screen p-5 rounded-10 mt-5" style="height: min-content;">
         <div class="col">
             <div class="align-items-center">
                 <h1 style="font-size: 2.7rem;">ค้นหางาน</h1>
             </div>
-            <div class="search-work">
-              <form>
-                <div class="row">
+            <form>
+              <div class="row">
+                <div class="col">
+                    <label for="exampleInputEmail1" class="fs-5 mt-4 text-white">ค้นหางาน</label>
+                    <div class="input-group ">
+                      <input type="text" class="form-control" placeholder="ค้นหางาน..." aria-label="Search" aria-describedby="button-addon2">
+                      <button class="btn btn-primary bi bi-search" type="button" id="button-addon2">  ค้นหา  </button>
+                    </div>                 
+                </div>
+              </div>
+              <div class="row" ">
                   <div class="col">
-                    <div class="work-search" style="flex-grow: 1;">
-                        <label for="exampleInputEmail1" class="form-label">ค้นหางาน</label>
-                    </div>
-                      <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="ค้นหางาน..." aria-label="Search" aria-describedby="button-addon2">
-                        <button class="btn btn-primary bi bi-search" type="button" id="button-addon2">  ค้นหา  </button>
-                      </div>                 
+                      <label for="exampleInputEmail1" class="fs-5 mt-4 text-white">ประเภทงาน</label>
+                      <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
+                        <option selected>ประเภทงาน</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
                   </div>
-                </div>
-                <div class="row" ">
-                    <div class="col">
-                        <label for="exampleInputEmail1" class="form-label">ประเภทงาน</label>
-                        <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
-                          <option selected>ประเภทงาน</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="exampleInputEmail1" class="form-label">ประเภทการจ้าง</label>
-                        <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
-                          <option selected>ประเภทการจ้าง</option>
-                          <option value="1">งานประจำ</option>
-                          <option value="2">งานพาร์ทไทม์</option>
-                          <option value="3">งานสัญญาจ้าง</option>
-                          <option value="4">งานอิสระ</option>
-                          <option value="5">ฝึกงาน</option>
-                        </select>
-                    </div>
-                </div>
-              </form>
-            </div>
+                  <div class="col">
+                      <label for="exampleInputEmail1" class="fs-5 mt-4 text-white">ประเภทการจ้าง</label>
+                      <select class="form-select" aria-label="Default select example" style="font-size: 1.1rem;">
+                        <option selected>ประเภทการจ้าง</option>
+                        <option value="1">งานประจำ</option>
+                        <option value="2">งานพาร์ทไทม์</option>
+                        <option value="3">งานสัญญาจ้าง</option>
+                        <option value="4">งานอิสระ</option>
+                        <option value="5">ฝึกงาน</option>
+                      </select>
+                  </div>
+              </div>
+            </form>   
         </div>
       </div>
     </div>
