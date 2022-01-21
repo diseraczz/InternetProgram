@@ -20,6 +20,8 @@ body {
     background-color: #101214b6;
 }
 
+
+
 .rounded-10 {
   border-radius: 40px;
 }
@@ -43,6 +45,7 @@ body {
     box-shadow: 7px 7px 7px #0909093d;
 }
 
+
 h1,
 .h1 {
     font-size: calc(1.375rem + 1.5vw);
@@ -62,7 +65,7 @@ h2,
 .h2 {
     font-size: calc(1.375rem + 1.5vw);
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 @media (min-width: 1200px) {
@@ -124,6 +127,10 @@ h6,
 
 .bg-sun {
   background: #eeb61d;
+}
+
+.bg-admin {
+  background-color: rgba(255, 219, 92);
 }
 
 .rounded-25{
@@ -288,6 +295,3 @@ cursor: pointer;
 .shadow-sj{
   box-shadow: 4px 4px 4px #09090962;
 }
-
-
-
