@@ -115,7 +115,7 @@
         </div>
     </div>
   </header>      
-  <div class="container w-50 p-4" style="margin-top: 100px; background-color: #f1f1f1; border-radius: 35px;">
+  <div class="container p-4 bg-white mt-100 rounded-30" style="width: 600px;">
     <div class="align-items-center">
       <h2>
         <img src="images/meIT2.png" alt="" width="auto" height="130">
@@ -123,24 +123,14 @@
     </div>
     <div class="container ">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input class="rounded-25" type="text" placeholder="Enter Username" name="uname" required autofocus>
   
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      <div class="row  p-4 justify-content-center ">
-        <a class="btn btn-primary" href="main.html" role="button">LOG IN</a>
-      </div> 
-      <button type="submit">
-        <a href="main.html" class="rounded-pill">Login</a>
-      </button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-      <div>
-        <span class="psw"> <a href="register.html">REGISTER</a></span>
-      </div>
-      </div>
-          <span class="psw"> <a href="#">Forgot password?</a></span>  
+      <input class="rounded-25" type="password" placeholder="Enter Password" name="psw" required> 
+      <button class="btn btn-lg btn-primary btn-block rounded-pill mt-3" type="submit">LOG IN</button>
+      <div class="text-end d-flex fs-5">
+        <p class=" pr-5">Don't have an account?</p></p>  
+        <a href="register.html" class=" px-3" style="color: #bd0058">Register</a>
       </div>
     </div>
   </div>

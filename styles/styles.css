@@ -117,6 +117,10 @@ h6,
   background: linear-gradient(180deg, #5454C5 0%, #86b7fe 100%);
 }
 
+.bg-white-fade {
+  background: linear-gradient(0deg, #86b7fe 0%, #ffffff 100%);
+}
+
 .bg-gray {
   background:#bbc0c5;
 }
@@ -143,6 +147,10 @@ h6,
 
 .btn-primary {
     border: none;
+}
+
+.mt-100{
+  margin-top: 120px;
 }
 
 
