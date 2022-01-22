@@ -14,78 +14,76 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <!-- CSS here -->
-
-    <link rel="stylesheet" href="styles/styles_Dashboard.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <!-- <link rel="stylesheet" href="dist/css/bootstrap.css">  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <header class="p-2 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
-        <div class="container-header">
-            <div class="d-flex flex-wrap align-items-center justify-content-start">
-                <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-                    <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.35rem ;">
-                </a>
-                <div class="dropdown" style="margin-right: 2.5rem;">
-                  <div class="border border-primary rounded-pill d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="padding: .15rem;" >  
-                    <img src="images/office-building.png" alt="pic" width="32" height="32" class="rounded-circle">
-                  </div>
-                  <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                  </ul>
-                </div>
-    </header>
+  <header class="p-2 border-buttom header-bar">
+    <div class="container-header">
+        <div class="d-flex flex-wrap align-items-center justify-content-start">
+            <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+                <img src="images/meIT2.png" alt="" width="170" height="auto" >
+            </a>
+            <div class="dropdown me-5" >
+              <div class="border border-primary rounded-pill d-block link-light text-decoration-none dropdown-toggle p-1" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="padding: .15rem;" >  
+                <img src="images/office-building.png" alt="pic" width="37" height="auto" class="rounded-circle">
+              </div>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+  </header>
 
     <div class="container-xxl mt-5" >
-      <div class="row align-items-center p-2 m-2 gradient shadow-lg" style=" border-radius: 25px; color: #ffffff;">
+      <div class="row align-items-center p-2 m-2 gradient shadow-lg rounded-25 text-white" >
         <div class="col-10 " >
           <t class="fs-1 fw-bold align-items-center" role="button">Smart JOB Co.</t>
         </div>
         <div class="col-2 d-flex justify-content-end">
-          <a class="btn btn-SmartJob " style="font-size: 1rem;" href="RecruitmentPage.html" role="button">สร้างโพสงาน</a>
+          <a class="btn btn-SmartJob p-2 text-dark bg-sun rounded-pill fs-5 shadow-sj"  href="RecruitmentPage.html" role="button">สร้างโพสงาน</a>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="row pt-4 gap-5">
-        <div class="col-4 " aria-disabled="flase" tabindex="0">
-          <a class="btn w-100 col-heading text-center fs-2" style="opacity: .7;" href="DashboardWork.html" role="button"  aria-pressed="false">งาน</a>
+      <div class="row pt-4 ">
+        <div class="col-6 " aria-disabled="flase" tabindex="0">
+          <a class="btn w-100 col-heading text-center fs-2 bg-white" style="opacity: .7;" href="DashboardWork.html" role="button"  aria-pressed="false">งาน</a>
         </div>
-        <div class="col-4 ">
-          <a class="btn w-100 col-heading text-center fs-2 " href="DashboardApplication.html" role="button" data-bs-toggle="button" aria-pressed="true">ใบสมัครทั้งหมด</a>
+        <div class="col-6 ">
+          <a class="btn w-100 col-heading text-center fs-2 bg-white" href="DashboardApplication.html" role="button" data-bs-toggle="button" aria-pressed="true">ใบสมัครทั้งหมด</a>
         </div>
       </div>
     </div>
 
     <div class="container" style="width: auto;">
-        <div class="align-items-center content-boxWhite2 p-4 pt-5">
+        <div class="align-items-center content-boxWhite2 p-4 pt-5 ">
           <div class="search-work mb-4">
             <div class="col" style="display: flex; ">
-              <div class="work-search" style="flex-grow: 1;">
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              </div>
-              <div style="align-self: flex-end;">
-                <button type="button" class="btn btn-primary" style="height: 43px; width: 120px; font-size: 1.2rem;">Search</button>
+              <div class="input-group ">
+                <input type="text" class="form-control" placeholder="ค้นหาใบสมัคร..." aria-label="Search" aria-describedby="button-addon2">
+                <button class="btn btn-primary bi bi-search" type="button" id="button-addon2">  ค้นหา  </button>
               </div>
             </div> 
           </div>
-          <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
+          <div class="bg-gray p-2 mb-3 cursor rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
             <p class="fs-4 ps-3" style="margin-bottom: 0rem;">นาย?? สมัครงานตำแหน่ง นักออกแบบ UX/UI ความสามารถ</p>
           </div>
-          <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
+          <div class="bg-gray p-2 mb-3 cursor rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
             <p class="fs-4 ps-3" style="margin-bottom: 0rem;">นาง?? ว่างงานตำแหน่ง IT Support Help Desk ความสามารถ ???</p>
           </div>
-          <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
+          <div class="bg-gray p-2 mb-3 cursor rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
             <p class="fs-4 ps-3" style="margin-bottom: 0rem;">นางสาว?? ตำแหน่ง นักวิทยาศาสตร์ข้อมูล ความสามารถ ???</p>
           </div>
-          <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
+          <div class="bg-gray p-2 mb-3 cursor rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
             <p class="fs-4 ps-3" style="margin-bottom: 0rem;">นาย?? สมัครงานตำแหน่ง Android Developer UX/UI ความสามารถ ???</p>
           </div>
-          <div class="content-boxWork rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
+          <div class="bg-gray p-2 mb-3 cursor rounded-pill" data-bs-toggle="modal" data-bs-target="#workmodal">
             <p class="fs-4 ps-3" style="margin-bottom: 0rem;">นาย?? สมัครงานตำแหน่ง นักออกแบบ UX/UI ความสามารถ</p>
           </div>
         </div>
@@ -113,32 +111,32 @@
                                             <label for="input" class="col-form-label">ชื่อ-นามสกุล</label>
                                         </div>
                                         <div class="col-10">
-                                            <div class="box">นายมาดี งานดี</div>
+                                            <div class="p-2 rounded-3 bg-white">นายมาดี งานดี</div>
                                         </div>
                                         <br>
                                         <div class="col-2">
                                             <label for="input" class="col-form-label">รายละเอียด</label>
                                         </div>
                                         <div class="col-10">
-                                            <div class="box" style="padding: 60px;"></div>
+                                            <div class="p-2 rounded-3 bg-white" style="height: 100px;"></div>
                                         </div>
                                         <br>
                                         <div class="col-2">
                                             <label for="input" class="col-form-label">ประวัติ</label>
                                         </div>
                                         <div class="col-10">
-                                            <div class="box" style="padding: 60px;"></div>
+                                            <div class="p-2 rounded-3 bg-white" style="height: 100px;"></div>
                                         </div>
                                         <br>
                                         <div class="col-2">
                                             <label for="input" class="col-form-label">ความสามารถ</label>
                                         </div>
                                         <div class="col-10">
-                                            <div class="box">
-                                                <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">HTML</button>
-                                                <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">JAVA</button>
-                                                <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">SQL</button>
-                                                <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">Back End</button>
+                                            <div class="p-2 rounded-3 bg-white">
+                                                <button class="btn success rounded-pill text-white" >HTML</button>
+                                                <button class="btn success rounded-pill text-white" >JAVA</button>
+                                                <button class="btn success rounded-pill text-white" >SQL</button>
+                                                <button class="btn success rounded-pill text-white" >Back End</button>
                                             </div>
                                         </div>
                                         <br>
@@ -146,7 +144,7 @@
                                             <label for="input" class="col-form-label">เงินเดือนที่ต้องการ</label>
                                         </div>
                                         <div class="col-10">
-                                            <div class="box">30,000</div>
+                                            <div class="p-2 rounded-3 bg-white">30,000</div>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +162,7 @@
             <div class="modal-dialog modal-dialog-centered d-flex justify-content-center " style="max-width: auto; margin: 10rem; ">
                 <div class="col-4 modal-content modal-dialog-centered modal-sm modal-fullscreen-sm-down justify-content-center">
                     <div class="modal-body">
-                        <div class="row justify-content-center" style="margin-bottom: 2rem; padding: 0rem 2rem 0rem 2rem;">
+                        <div class="row justify-content-center mb-2 px-3 " >
                             <img src="images/checked.png" alt="mdo" width="20" height="auto" class="rounded-circle">
                         </div>
                         <h4 style="font-size: 1.5rem;">
