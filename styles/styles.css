@@ -46,14 +46,14 @@ body {
 }
 
 
-h1,
+ h1,
 .h1 {
     font-size: calc(1.375rem + 1.5vw);
     text-align: center;
     color: white;
-}
+} 
 
-@media (min-width: 1200px) {
+ @media (min-width: 1200px) {
     h1,
     .h1 {
         font-size: 1.5rem;
