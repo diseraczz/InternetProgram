@@ -369,7 +369,6 @@ table {
 
 .section .top_navbar {
     background: rgba(255, 219, 92);
-    /* height: 50px; */
     display: flex;
     padding: 0 30px;
 }
