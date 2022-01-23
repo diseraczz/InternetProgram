@@ -363,7 +363,6 @@ table {
 .mainContent {
     width: calc(100% - 225px);
     margin-left: 225px;
-    transition: all 0.5s ease;
 }
 
 .section .top_navbar {
