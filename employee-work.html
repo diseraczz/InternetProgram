@@ -13,42 +13,48 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/user-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
 </head>
 <body>
-  <header class="p-2 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
+  <header class="p-2 border-buttom header-bar">
     <div class="container-header">
-      <div class="d-flex flex-wrap align-items-center justify-content-start">
-        <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-          <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.05rem ;">
-        </a>
-        <div class="dropdown" style="margin-right: 2.5rem;">
-          <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
-            <li><a class="dropdown-item" href="employee-work.html">My work</a></li>
-            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
-          </ul>
+        <div class="d-flex flex-wrap align-items-center justify-content-start">
+            <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+                <img src="images/meIT2.png" alt="" width="170" height="auto" >
+            </a>
+            <div class="dropdown me-5" >
+              <div class="border border-primary rounded-pill d-block link-light text-decoration-none dropdown-toggle p-1" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="padding: .15rem;" >  
+                <img src="images/office-building.png" alt="pic" width="37" height="auto" class="rounded-circle">
+              </div>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><a class="dropdown-item" href="employee-work.html">Response</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+              </div>
+            </div>
         </div>
-        <ul class="nav nav-pills">
-          <a class="btn btn-primary-search" href="main.html" role="button">ค้นหางาน</a>
-        </ul>
-      </div>
     </div>
   </header>
   <br>
   <main class="container">
-    <div class="p-5" style="background-color: rgb(255, 255, 255); border-radius: 2rem 2rem 2rem 2rem; height: 600px;">
+    <div class="p-5 bg-white rounded-25 min-vh-100">
     <div class="row align-items-center">
-      <p style="font-size: 2rem;"><strong>การยืนยันรับงานของผู้สมัคร</strong></p>
-      <div class="col p-3 rounded-pill bg-secondary text-white">
-        <div>นาย ก ยืนยันรับงานตำแหน่ง UX/UI Designer</div>
+      <p class="fs-1"><strong>การยืนยันรับงานของผู้สมัคร</strong></p>
+      <div class="row p-3 rounded-pill bg-gray text-dark fs-5 shadow-sj mb-3">
+        <div class="col-11">
+            นาย ก ยืนยันรับงานตำแหน่ง UX/UI Designer
+        </div>
+        <div class="col-1 bi bi-check-circle-fill text-end "></div>
       </div>
-    </div>
+      <div class="row p-3 rounded-pill bg-gray text-dark fs-5 shadow-sj ">
+        <div class="col-11">
+            นาย ก ยืนยันรับงานตำแหน่ง UX/UI Designer
+        </div>
+        <div class="col-1 bi bi-x-circle-fill text-end"></div>
+      </div>
     </div>
   </main>
 </body>
