@@ -12,22 +12,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/user-styles.css">
+   
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-  <header class="p-2 border-buttom header-bar" style="position: sticky; top: 0; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.356); height: 65px;">
+  <header class="p-2 border-buttom header-bar">
     <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">
-            <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-                <img src="images/meIT2.png" alt="" width="170" height="auto" style="margin-left: 1.05rem ;">
+            <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+                <img src="images/meIT2.png" alt="" width="170" height="auto" >
             </a>
-            <div class="dropdown" style="margin-right: 2.5rem;">
+            <div class="dropdown me-5" >
                 <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
+                <ul class="dropdown-menu " aria-labelledby="dropdownUser1" >
                     <li><a class="dropdown-item" href="user-work.html">My work</a></li>
                     <li><a class="dropdown-item" href="user-profile.html">Profile</a></li>
                     <li>
@@ -41,52 +41,52 @@
             </ul>
         </div>
     </div>
-</header>
+  </header>
     <br>
     <main class="container">
-        <div class="p-5" style="background-color: white; border-radius: 2rem 2rem 2rem 2rem;">
+        <div class="p-4 bg-white rounded-25 shadow" >
             <div class="row">
                 <div class="col-3 text-center">
-                    <p style="font-size: 3rem;"><strong>Profile</strong></p>
-                    <br>
-                    <img src="images/man (3).png" alt="pic" width="200" height="200" class="rounded-circle success" style="border: .5rem solid;border-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1);">
-                    <br><br>
-                    <a class="btn" href="user-edit-profile.html" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">แก้ไขข้อมูล</a>
+                    <t class="text-dark fs-1 fw-bold mb-">Profile</t>
+                    
+                    <img class="rounded-circle success my-4" src="images/man (3).png" alt="pic" width="200" height="200">
+                    
+                    <a class="btn success rounded-25 text-white" href="user-edit-profile.html">แก้ไขข้อมูล</a>
                 </div>
                 <div class="col-9">
-                    <div class="p-5 bg-light" style="border-radius: 2rem 2rem 2rem 2rem; ">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-2">
+                    <div class="p-5 bg-gray rounded-25" >
+                        <div class="row g-3 align-items-center" style="font-size: 1.15rem;">
+                            <div class="col-3">
                                 <label for="input" class="col-form-label">ชื่อ-นามสกุล</label>
                             </div>
-                            <div class="col-10">
-                                <div class="box">นายทำงาน ทำดี</div>
+                            <div class="col-9">
+                                <div class="p-2 rounded-3 bg-white">นายทำงาน ทำดี</div>
                             </div>
                             <br>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <label for="input" class="col-form-label">ประวัติ</label>
                             </div>
-                            <div class="col-10">
-                                <div class="box" style="padding: 100px;"></div>
+                            <div class="col-9">
+                                <div class="p-2 rounded-3 bg-white" style="height: 150px;"></div>
                             </div>
                             <br>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <label for="input" class="col-form-label">ความสามารถ</label>
                             </div>
-                            <div class="col-10">
-                                <div class="box">
-                                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">HTML</button>
-                                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">JAVA</button>
-                                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">SQL</button>
-                                    <button class="btn" style="background-color: rgba(84.00000259280205, 84.00000259280205, 197.0000034570694, 1); color: white; border-radius: 1.5rem;">Back End</button>
+                            <div class="col-9">
+                                <div class="p-2 rounded-3 bg-white " >
+                                    <button class="btn rounded-pill success text-white ">HTML</button>
+                                    <button class="btn rounded-pill success text-white ">JAVA</button>
+                                    <button class="btn rounded-pill success text-white ">SQL</button>
+                                    <button class="btn rounded-pill success text-white ">Back End</button>
                                 </div>
                             </div>
                             <br>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <label for="input" class="col-form-label">เงินเดือนที่ต้องการ</label>
                             </div>
-                            <div class="col-10">
-                                <div class="box">25,000</div>
+                            <div class="col-9">
+                                <div class="p-2 rounded-3 bg-white">25,000</div>
                             </div>
                         </div>
                     </div>
