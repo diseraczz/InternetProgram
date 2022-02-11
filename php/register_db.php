@@ -12,10 +12,8 @@
 
        if ($password_1 != $password_2) {
             array_push($errors, "The password not match"); //มีปัญหาตรงที่ถ้าใส่ไม่ตรงกันจะไม่ insert ข้อมูลไปที่ db และไม่ยอมขึ้นแจ้งเตือน errors
-            echo '<script language="javascript">';
-            echo 'alert(message successfully sent)';  //not showing an alert box.
-           // echo 'funsion() {window.Location="../register.html";}';
-            echo '</script>';
+            //echo "<script>alert('Password not match');</script>"; //ต้องการให้ขึ้นเตือนแบบนี้ แต่พอมันเตือนแล้วมันไม่เด้งกลับหน้าเดิม
+            header('Location: ../register.html'); //ทำให้มันขึ้น errors ว่า password ไม่ตรงกันไม่ได้ เลยแก้ปัญหาด้วยการให้มันลูปหน้า register ไปก่อน จนกว่า password จะตรงกัน
         }
 
         $email_check = "SELECT * FROM register WHERE email = '$email' ";

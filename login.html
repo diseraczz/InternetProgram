@@ -62,18 +62,18 @@
       <img src="images/meIT2.png" alt="" width="auto" height="130">
     </div>
     
-    <div class="container ">
-      <label for="uname" class="fs-4"><b>Username</b></label>
-      <input class="rounded-25" type="text" placeholder="Enter Username" name="uname" required autofocus>
+    <form class="col" action="php/login_db.php" method="POST">
+      <label for="email" class="fs-4"><b>E-mail</b></label>
+      <input class="rounded-25" type="email" placeholder="Enter E-mail" name="email" required autofocus>
   
       <label for="psw" class="fs-4"><b>Password</b></label>
       <input class="rounded-25" type="password" placeholder="Enter Password" name="psw" required>
-      <button class="btn btn-lg btn-primary rounded-pill mt-3 w-100" type="submit">LOG IN</button>
+      <button class="btn btn-lg btn-primary rounded-pill mt-3 w-100" type="submit" name="log_user">LOG IN</button>
       <div class="text-end d-flex mt-3" style="font-size: 1.rem;">
         <p class="pr-5 font-weight-light">Don't have an account?</p></p>  
         <a href="register.html" class=" px-3" style="color: #bd0058">Register</a>
       </div>
-    </div>
+    </form>
   </div>
 </body>
 

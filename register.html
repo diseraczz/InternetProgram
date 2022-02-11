@@ -37,7 +37,7 @@
                 <div class="col-12 text-center rounded-pill shadow mb-3 bg-blue-fade">
                     <t class="fs-1"><strong>Register</strong></t>
                 </div>
-                <div class="col">
+                <form class="col" action="php/register_db.php" method="POST">
                     <div class="p-5 bg-light align-items-center text-end shadow fs-5" style="border-radius: 2rem; ">
                         <div class="row g-3 align-items-center">
                             <div class="col-5">
@@ -74,13 +74,13 @@
                             </div>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                               <button class="btn btn-danger" type="reset">ยกเลิก</button>
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#myModal">ลงทะเบียน</button>
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#myModal" name="reg_user">ลงทะเบียน</button>
                               
                               <!-- Modal -->
-                              <div class="modal fade" id="myModal" role="dialog">
+                              <!-- <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog">
     
-                                  <!-- Modal content-->
+                                  <!-- Modal content
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h4 class="modal-title">SUCESS!!</h4>
@@ -99,11 +99,11 @@
                                   </div>
       
                                 </div>
-                              </div>
+                              </div> -->
 
                             </div>
                         </div>
-                    </div>
+                      </form>
                 </div>
             </div>
         </div>
