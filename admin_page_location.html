@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- action here -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -97,37 +97,43 @@
         </div>
     </header>
     <!-- body web -->
-    <div class="mainContent">
-      <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    <div class="mainContent justify-content-center">
+      <div class="jobsearch rounded-25">
+        <h5>สถิติสถานที่ตั้งบริษัท</h5>
+        <div class="jobsearch_all">
+          <canvas id="myChart-2" style="width:700%;max-width:700px"></canvas>
+          <script>
+            var xValues = ["กรุงเทพมหานคร", "นครปฐม", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ", "สมุทรสาคร"];
+            var yValues = [20, 10, 12, 15, 11, 9];
+            var barColors = [
+              "#F7DC6F",
+              "#EC7063",
+              "#A569BD",
+              "#7FFFD4",
+              "#3498DB",
+              "#5D6D7E",
+            ];
 
-      <script>
-      var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-      var yValues = [55, 49, 44, 24, 15];
-      var barColors = [
-        "#b91d47",
-        "#00aba9",
-        "#2b5797",
-        "#e8c3b9",
-        "#1e7145"
-      ];
-      
-      new Chart("myChart", {
-        type: "pie",
-        data: {
-          labels: xValues,
-          datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-          }]
-        },
-        options: {
-          title: {
-            display: true,
-            text: "World Wide Wine Production 2018"
-          }
-        }
-      });
-      </script>
+            new Chart("myChart-2", {
+              type: "pie",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: "จังหวัดที่มีบริษัทตั้งอยู่มากที่สุด"
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
       
     </div>
 </body>
