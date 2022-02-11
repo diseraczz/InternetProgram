@@ -10,6 +10,9 @@
     <!-- icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
+  
+    <!-- script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <title>Admin_page</title>
     <!-- bootstrap 5.1.3 -->
@@ -43,7 +46,11 @@
                 <img src="images/man (2).png" alt="" width="40" height="auto" class="rounded-circle success" style="border: #000000 solid; ">
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
-                <li><a class="dropdown-item" href="#">My Profile</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+              <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
             </ul>
         </div>
       </div>
@@ -92,13 +99,116 @@
                         <span class="item">สถิติเงินเดือน</span>
                     </a>
                 </li>
-
             </ul>
         </div>
+        
     </header>
     <!-- body web -->
     <div class="mainContent">
-        <h1>เว้นไว้ทำงานส่วนนี้ ยังไม่มีเนื้อหาอะไร</h1>
+      <div class="column">
+          <div class="jobsearch rounded-25">
+              <h5>ตำแหน่งที่บริษัทต้องการมากที่สุด</h5>
+              <div class="jobsearch_all">
+                <canvas id="myChart-1" style="width:100%;max-width:600px"></canvas>
+                <script>
+                  var xValues = ["IT Project Manager", "IT Security", "IT Support Help Desk", "ที่ปรึกษาไอที", "นักวิทยาศาสตร์ข้อมูล", "นักออกแบบ UX/UI", "System Analyst", "IT Manager", "Front End Web Developer", "Back End Developer", "Android Developer", "Product Manager"];
+                  var yValues = [30, 20, 16, 13, 9, 27, 46, 42, 25, 29, 34, 12];
+                  var barColors = ["red", "green","blue","orange","brown", "pink", "gray", "gold", "silver", "purple", "black", "indigo"];
+                  
+                  new Chart("myChart-1", {
+                    type: "bar",
+                    data: {
+                      labels: xValues,
+                      datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                      }]
+                    },
+                    options: {
+                      legend: {display: false},
+                      title: {
+                        display: true,
+                        text: "ตำแหน่งที่บริษัทต้องการมากที่สุด"
+                      }
+                    }
+                  });
+                  </script>
+          </div>
+      </div>
+
+      <div class="jobsearch rounded-25">
+        <h5>ตำแหน่งที่ถูกว่าจ้างมากที่สุด</h5>
+        <div class="jobsearch_all">
+          <canvas id="myChart-2" style="width:100%;max-width:600px"></canvas>
+          <script>
+            var xValues = ["IT Project Manager", "IT Security", "IT Support Help Desk", "ที่ปรึกษาไอที", "นักวิทยาศาสตร์ข้อมูล", "นักออกแบบ UX/UI", "System Analyst", "IT Manager", "Front End Web Developer", "Back End Developer", "Android Developer", "Product Manager"];
+            var yValues = [15, 17, 42, 37, 21, 11, 19, 35, 9, 28, 14, 13];
+            var barColors = [
+              "#F0F8FF",
+              "#FAEBD7",
+              "#00FFFF",
+              "#7FFFD4",
+              "#A52A2A",
+              "#DEB887",
+              "#D2691E",
+              "#FF7F50",
+              "#6495ED",
+              "#9370DB",
+              "#D3D3D3",
+              "#add8e6"
+            ];
+              
+            new Chart("myChart-2", {
+              type: "pie",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+              title: {
+                display: true,
+                text: "ตำแหน่งที่ถูกว่าจ้างมากที่สุด"
+              }
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+      
+    <div class="column">
+      <div class="candidate rounded-25">
+        <h5>ตำแหน่งที่ผู้สมัครต้องการมากที่สุด</h5>
+        <div class="jobsearch_all">
+          <canvas id="myChart-3" style="width:100%;max-width:600px"></canvas>
+          <script>
+            var xValues = ["IT Project Manager", "IT Security", "IT Support Help Desk", "ที่ปรึกษาไอที", "นักวิทยาศาสตร์ข้อมูล", "นักออกแบบ UX/UI", "System Analyst", "IT Manager", "Front End Web Developer", "Back End Developer", "Android Developer", "Product Manager"];
+            var yValues = [21, 14, 11, 36, 42, 41, 37, 26, 15, 12, 8, 17];
+            var barColors = ["red", "green","blue","orange","brown", "pink", "gray", "gold", "silver", "purple", "black", "indigo"];
+                  
+            new Chart("myChart-3", {
+              type: "bar",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+                legend: {display: false},
+              title: {
+                display: true,
+                text: "ตำแหน่งที่ผู้สมัครต้องการมากที่สุด"
+              }
+              }
+              });
+            </script>
+        </div>
+      </div>
     </div>
 </body>
 
