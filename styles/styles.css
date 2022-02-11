@@ -21,9 +21,9 @@ body {
 }
 
 
-
+/* ทำให้มุมมันมนๆ */
 .rounded-10 {
-  border-radius: 40px;
+  border-radius: 40px;   
 }
 
 .chat-screen {
@@ -128,7 +128,7 @@ button:hover {
 }
 
 
-
+/* linear-gradient = ไล่สี */
 .bg-blue-fade {
   background: linear-gradient(180deg, #5454C5 0%, #86b7fe 100%);
 }
@@ -312,6 +312,7 @@ img {
   border-radius: 20px 20px 0px 0px;
 }
 
+/* เป็นน่าตา cursor เมาส์เราเมื่อไปชี้โดน */
 .cursor {
 cursor: pointer;
 }
