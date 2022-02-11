@@ -97,8 +97,44 @@
         </div>
     </header>
     <!-- body web -->
-    <div class="mainContent">
-        <h1>เว้นไว้ทำงานส่วนนี้ ยังไม่มีเนื้อหาอะไร</h1>
+    <div class="mainContent justify-content-center">
+      <div class="jobsearch rounded-25">
+        <h5>สถิติสถานที่ตั้งบริษัท</h5>
+        <div class="jobsearch_all">
+          <canvas id="myChart-2" style="width:700%;max-width:700px"></canvas>
+          <script>
+            var xValues = ["กรุงเทพมหานคร", "นครปฐม", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ", "สมุทรสาคร"];
+            var yValues = [20, 10, 12, 15, 11, 9];
+            var barColors = [
+              "#F7DC6F",
+              "#EC7063",
+              "#A569BD",
+              "#7FFFD4",
+              "#3498DB",
+              "#5D6D7E",
+            ];
+
+            new Chart("myChart-2", {
+              type: "pie",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: "จังหวัดที่มีบริษัทตั้งอยู่มากที่สุด"
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+      
     </div>
 </body>
 
