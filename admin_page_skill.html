@@ -33,7 +33,7 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-start">
                     <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto"></a>
                     <div class="context">
-                        <h1>สถิติโดยรวม</h1>
+                        <h1>สถิติตามความสามารถ</h1>
                     </div>
                 </div>
             </div>
@@ -97,10 +97,69 @@
             </ul>
         </div>
     </header>
+
     <!-- body web -->
     <div class="mainContent">
-        <h1>เว้นไว้ทำงานส่วนนี้ ยังไม่มีเนื้อหาอะไร</h1>
+      <div class="column">
+        <div class="candidate all" style="height: 650px;">
+          <div class="row px-5" style= "height: 1500px;">
+            <table class="charts-css column show-labels multiple data-spacing-5 show-4-secondary-axes" id="my-chart">
+              <script src='https://cdn.plot.ly/plotly-2.9.0.min.js'></script>
+              <body>
+                <div id='myDiv'></div>
+              <script>
+              var trace1 = {
+                x: ['Java', 'Python', 'PHP', 'HTML', 'JavaScript', 'CSS', 'SQL', 'Back End', 'Web page Design', 'MS.Office', 'OS', 'Network'],
+                y: [85, 80, 75, 60, 55, 50, 45, 40, 35, 30, 45, 20],
+                type: 'bar',
+                name: 'Skills ที่ถูกจ้างงานมากที่สุด',
+                marker: {
+                  color: 'rgb(49,130,189)',
+                  opacity: 0.7,
+                }
+              };
+              
+              var trace2 = {
+                x: ['Java', 'Python', 'PHP', 'HTML', 'JavaScript', 'CSS', 'SQL', 'Back End', 'Web page Design', 'MS.Office', 'OS', 'Network'],
+                y: [75, 70, 60, 55, 50, 45, 44, 35, 30, 20, 15, 14],
+                type: 'bar',
+                name: 'Skills ที่บริษัทต้องการมากที่สุด',
+                marker: {
+                  color: 'rgb(111,221,243)',
+                  opacity: 0.5
+                }
+              };
+              var trace3 = {
+                x: ['Java', 'Python', 'PHP', 'HTML', 'JavaScript', 'CSS', 'SQL', 'Back End', 'Web page Design', 'MS.Office', 'OS', 'Network'],
+                y: [40, 60, 50, 80, 55, 49, 34, 22, 14, 16, 19, 24],
+                type: 'bar',
+                name: 'Skills ที่ผู้สมัครมีมากที่สุด',
+                marker: {
+                  color: 'rgb(204,204,204)',
+                  opacity: 0.5
+                }
+              };
+              
+              var data = [trace1, trace2, trace3,];
+              
+              var layout = {
+                title: 'Skills',
+                xaxis: {
+                  tickangle: -10
+                },
+                barmode: 'group'
+              };
+              
+              Plotly.newPlot('myDiv', data, layout);
+              
+              </script>
+              </body>
+          </table>
+          </div>
+        </div>
+        
+      </div>
     </div>
+  </div>
 </body>
-
 </html>
