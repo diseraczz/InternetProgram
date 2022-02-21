@@ -37,7 +37,7 @@ body {
 }
 
 .header-bar {
-    background-color: #434394;
+    background-color: #1970e2;
     border-radius: 0rem 0rem 1.35rem 1.35rem;
     position: sticky; 
     top: 0;  
@@ -288,7 +288,7 @@ button:hover {
 }
 
 .success {
-    background-color: #5454C5;
+    background-color: #c5ba54;
 }
 
 img {
