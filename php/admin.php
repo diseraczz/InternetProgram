@@ -17,8 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="styles/styles_admin.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles_admin.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
         </div>
         <div class="dropdown" style="margin-right: 2.5rem;">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="images/man (2).png" alt="" width="40" height="auto" class="rounded-circle success" style="border: #000000 solid; ">
+                <img src="../images/man (2).png" alt="" width="40" height="auto" class="rounded-circle success" style="border: #000000 solid; ">
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownUser1" style="font-size: 1.35rem;">
               <li><a class="dropdown-item" href="#">Profile</a></li>

@@ -1,5 +1,40 @@
 <?php
   require_once('connection.php');
+  if(isset($_POST['submit'])){
+    $email            = $_POST['email'];
+    $password         = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    $role             = $_POST['role'];
+
+    if($_POST['password'] !== $_POST['confirm_password']){
+      echo "<script>alert('password not match');</script>";
+    }
+    else{
+      $email_check = "SELECT * FROM users WHERE email = '$email' LIMIT 1 ";
+      $result = mysqli_query($conn, $email_check);
+      $user = mysqli_fetch_assoc($result);
+
+      if($user['email'] === $email){
+        echo "<script>alert('Email already exists');</script>";
+      }
+      else{
+        $passwordenc = md5($password);
+        $confirm_passwordenc = md5($confirm_password);
+        $query = "INSERT INTO users (email,password,confirm_password,role) VALUES ('$email','$passwordenc','$confirm_passwordenc','$role')";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+        $_SESSION['success'] = "Insert user successfully";
+        header("Location: signin.php");
+        }
+        else{
+        $_SESSION['error'] = "Something went wrong";
+        header("Location: register.php");
+        }
+      }
+    }
+      
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,45 +57,7 @@
   </head>
 
   <body >
-    <div>
-      <?php
-      if(isset($_POST['submit'])){
-        $email            = $_POST['email'];
-        $password         = $_POST['password'];
-        $confirm_password = $_POST['confirm_password'];
-        $role             = $_POST['role'];
 
-        if($_POST['password'] !== $_POST['confirm_password']){
-          echo "<script>alert('password not match');</script>";
-        }
-        else{
-          $email_check = "SELECT * FROM users WHERE email = '$email' LIMIT 1 ";
-          $result = mysqli_query($conn, $email_check);
-          $user = mysqli_fetch_assoc($result);
-
-          if($user['email'] === $email){
-            echo "<script>alert('Email already exists');</script>";
-          }
-          else{
-            $passwordenc = md5($password);
-            $confirm_passwordenc = md5($confirm_password);
-            $query = "INSERT INTO users (email,password,confirm_password,role) VALUES ('$email','$passwordenc','$confirm_passwordenc','$role')";
-            $result = mysqli_query($conn, $query);
-  
-            if ($result) {
-            $_SESSION['success'] = "Insert user successfully";
-            header("Location: signin.php");
-            }
-            else{
-            $_SESSION['error'] = "Something went wrong";
-            header("Location: register.php");
-            }
-          }
-        }
-          
-      }
-      ?>
-    </div>
     <header class="p-2 border-buttom header-bar">
       <div class="container-header">
           <div class="d-flex flex-wrap align-items-center justify-content-start">
