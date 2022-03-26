@@ -107,7 +107,7 @@ function w3_close() {
             <div class="d-grid gap-2 col-6 mx-auto">
               <h6 class="dropdown-header">Users</h6>
               <a class="btn btn-primary" href="../php/enterprises.php" role="button" >บริษัท</a>
-              <a class="btn btn-primary" href="../php/applicant.php" role="button" >คนหางาน</a>
+              <button type="button" class="btn btn-primary" id="applicant">คนหางาน</button>
             </div>
 
           </li>
@@ -221,7 +221,7 @@ function w3_close() {
 
     <div class="column">
       <div class="candidate rounded-25">
-      <a class="btn btn-primary" href="../php/applicant.php" role="button" >คนหางาน</a>
+      <a class="btn btn-primary" href="../php/enterprises.php" role="button" >คนหางาน</a>
 
         <div class="candidate rounded-25">
 
