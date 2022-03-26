@@ -30,7 +30,6 @@ h7 {
     font-size: 30px;
 }
 
-
 .header-bar {
     background-color: rgba(255, 219, 92);
     border-radius: 0rem 0rem 1.35rem 1.35rem;
@@ -475,10 +474,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 225px;
+    width: 30%;
     height: 100%;
     padding: 20px 0;
     transition: all 0.5s ease;
+    overflow-x: scroll;
 }
 
 .sidebar ul li a {
@@ -515,12 +515,63 @@ body {
 
 .section,
 .mainContent {
-    width: calc(100% - 225px);
-    margin-left: 225px;
+    width: calc(100%);
 }
 
 .section .top_navbar {
     background: rgba(255, 219, 92);
     display: flex;
     padding: 0 30px;
+}
+
+
+/*search*/
+
+#myInput {
+    background-image: url('/css/searchicon.png');
+    /* Add a search icon to input */
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    width: 100%;
+    /* Full-width */
+    font-size: 16px;
+    /* Increase font-size */
+    padding: 12px 10px 12px 40px;
+    /* Add some padding */
+    border: 1px solid #ddd;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+}
+
+#myTable {
+    border-collapse: collapse;
+    /* Collapse borders */
+    width: 100%;
+    /* Full-width */
+    border: 1px solid #ddd;
+    /* Add a grey border */
+    font-size: 18px;
+    /* Increase font-size */
+}
+
+#myTable th,
+#myTable td {
+    text-align: left;
+    /* Left-align text */
+    padding: 12px;
+    /* Add padding */
+}
+
+#myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
 }
