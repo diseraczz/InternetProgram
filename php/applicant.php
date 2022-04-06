@@ -140,18 +140,21 @@ function w3_close() {
             <tr>
               <th width="5%">ID</td>
               <th width="30%">Name</td>
-              <th width="15%">GPAX</td>
-              <th width="25%">University</td>
-              <th width="20%">Position</td>
-              <th width="20%">Salary</td>
+              <th width="10%">GPAX</td>
+              <th width="30%">University</td>
+              <th width="10%">Degree</td>
+              <th width="15%">Position</td>
+              <th width="15%">Salary</td>
             </tr>
           </thead>
           <tbody>
           <?php 
             $my_array = array();
-            echo "<script>var sin = [];</script>";?>
+            echo "<script>var sin = [];</script>";
+            echo "<script>var posit = [];</script>";
+            ?>
             <?php while($row = $result->fetch_assoc()): ?>
-            <tr onclick="w3_open()">
+            <tr>
               <td>
                 <?php echo $row['applicant_id']; ?>
               </td>
@@ -165,6 +168,9 @@ function w3_close() {
                 <?php echo $row['applicant_edu_university']; ?>
               </td>
               <td>
+                <?php echo $row['applicant_edu_level']; ?>
+              </td>
+              <td>
                 <?php echo $row['position_name']; ?>
               </td>
               <td>
@@ -174,6 +180,9 @@ function w3_close() {
             <?php 
             $applicant_edu_level = $row['applicant_edu_level'];
             echo "<script>sin.push('$applicant_edu_level');</script>";
+
+            $applicant_position_id = $row['applicant_position_id'];
+            echo "<script>posit.push('$applicant_position_id');</script>";
             ?>
             <?php endwhile ?>
           </tbody>
@@ -181,60 +190,250 @@ function w3_close() {
         
       </div>
 
-        <div>
+      <div>
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-          <script>
-          var degrees = [];
-          var degrees2 = [];
-          var strings = '';
-          for (let i = 0; i < sin.length; i++) {
-            var sin2 = sin[i];
-            strings = strings + ',' + sin2;
-          }
-          degrees.push(strings.split(','));
-          degrees2 = degrees[0];
-          console.log(degrees2);
-          var bachelor = 0;
-          var master = 0;
-          var doctor = 0;
-
-          for (let index = 0; index < degrees2.length; index++) {
-            var degrees_check = degrees2[index].toLocaleLowerCase();
-            if (degrees_check.match('ปริญญาตรี')) {
-              bachelor++;
-            } else if (degrees_check.match('ปริญญาโท')) {
-              master++;
-            } else if (degrees_check.match('ปริญญาเอก')) {
-              doctor++;
+        <script>
+            var degrees = [];
+            var degrees2 = [];
+            var strings = '';
+            for (let i = 0; i < sin.length; i++) {
+              var sin2 = sin[i];
+              strings = strings + ',' + sin2;
             }
-          }
-          var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
-          var yValues = [bachelor, master, doctor];
-          var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-          ];
+            degrees.push(strings.split(','));
+            degrees2 = degrees[0];
+            console.log(degrees2);
+            var bachelor = 0;
+            var master = 0;
+            var doctor = 0;
 
-          new Chart("skillcandidateChart", {
-            type: "doughnut",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              title: {
-                display: true,
-                text: "Skills"
+            for (let index = 0; index < degrees2.length; index++) {
+              var degrees_check = degrees2[index].toLocaleLowerCase();
+              if (degrees_check.match('ปริญญาตรี')) {
+                bachelor++;
+              } else if (degrees_check.match('ปริญญาโท')) {
+                master++;
+              } else if (degrees_check.match('ปริญญาเอก')) {
+                doctor++;
               }
             }
-          });
-          </script>
-        </div>
+
+        var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
+        var yValues = [bachelor, master, doctor];
+        var barColors = [
+          "#b91d47",
+          "#00aba9",
+          "#2b5797",
+        ];
+
+        new Chart("myChart", {
+          type: "doughnut",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+                text: "ระดับการศึกษา"
+            }
+          }
+        });
+        </script>
+      </div>
+
+            <div>
+        <canvas id="edulevel" style="width:100%;max-width:600px"></canvas>
+
+        <script>
+            var degrees = [];
+            var degrees2 = [];
+            var strings = '';
+            for (let i = 0; i < sin.length; i++) {
+              var sin2 = sin[i];
+              strings = strings + ',' + sin2;
+            }
+            degrees.push(strings.split(','));
+            degrees2 = degrees[0];
+            console.log(degrees2);
+            var bachelor = 0;
+            var master = 0;
+            var doctor = 0;
+
+            for (let index = 0; index < degrees2.length; index++) {
+              var degrees_check = degrees2[index].toLocaleLowerCase();
+              if (degrees_check.match('ปริญญาตรี')) {
+                bachelor++;
+              } else if (degrees_check.match('ปริญญาโท')) {
+                master++;
+              } else if (degrees_check.match('ปริญญาเอก')) {
+                doctor++;
+              }
+            }
+
+        var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
+        var yValues = [bachelor, master, doctor];
+        var barColors = [
+          "#b91d47",
+          "#00aba9",
+          "#2b5797",
+        ];
+
+        new Chart("myChart", {
+          type: "doughnut",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+                text: "ระดับการศึกษา"
+            }
+          }
+        });
+        </script>
+      </div>
+
+      <div>
+        <canvas id="position" style="width:100%;max-width:600px"></canvas>
+
+        <script>
+            var pos = [];
+            var pos2 = [];
+            var strings = '';
+            for (let i = 0; i < posit.length; i++) {
+              var posit2 = posit[i];
+              strings = strings + ',' + posit2;
+            }
+            pos.push(strings.split(','));
+            pos2 = pos[0];
+            console.log(pos);
+            var an = 0;
+            var ba = 0;
+            var da = 0;
+            var de = 0;
+            var hw = 0;
+            var ita = 0;
+            var itm = 0;
+            var itp = 0;
+            var its = 0;
+            var itshd = 0;
+            var mis = 0;
+            var programmer = 0;
+            var se = 0;
+            var st = 0;
+            var sadmin = 0;
+            var sa = 0;
+            var sea = 0;
+            var mw = 0;
+            var seo = 0;
+            var network = 0;
+            var it = 0;
+            var uxui = 0;
+
+            for (let index = 0; index < posit2.length; index++) {
+              var pos_check = pos2[index];
+              if (pos_check.match('Application Network')) {
+                an++;
+              } else if (pos_check.match('Business Analyst (BA)')) {
+                ba++;
+              } else if (pos_check.match('Data Analysis')) {
+                da++;
+              } else if (pos_check.match('Data Engineer')) {
+                de++;
+              } else if (pos_check.match('Hardware')) {
+                hw++;
+              } else if (pos_check.match('IT Audit')) {
+                ita++;
+              } else if (pos_check.match('IT Manager/Senior Programmer')) {
+                itm++;
+              } else if (pos_check.match('IT Project Manager')) {
+                itp++;
+              } else if (pos_check.match('IT Security')) {
+                its++;
+              } else if (pos_check.match('IT Support Help Desk')) {
+                itshd++;
+              } else if (pos_check.match('MIS')) {
+                mis++;
+              } else if (pos_check.match('Programmer')) {
+                programmer++;
+              } else if (pos_check.match('Software Engineer')) {
+                se++;
+              } else if (pos_check.match('Software Tester')) {
+                st++;
+              } else if (pos_check.match('System Admin')) {
+                sadmin++;
+              } else if (pos_check.match('System Analyst')) {
+                sa++;
+              } else if (pos_check.match('System Engineer and Architect')) {
+                sea++;
+              } else if (pos_check.match('Mobile Wireless')) {
+                mw++;
+              } else if (pos_check.match('ดูแลเว็บไซต์ และ SEO')) {
+                seo++;
+              } else if (pos_check.match('ดูแลระบบ Network')) {
+                network++;
+              } else if (pos_check.match('ที่ปรึกษาไอที')) {
+                it++;
+              } else if (pos_check.match('นักออกแบบ UX/UI')) {
+                uxui++;
+              }
+            }
+
+        var aValues = ["Application Network", "Business Analyst (BA)", "Data Analysis", "Data Engineer", "Hardware", "IT Audit", "IT Manager/Senior Programmer", "IT Manager/Senior Programmer", "IT Security", "IT Support Help Desk", "MIS", "Programmer", "Software Engineer", "Software Tester", "System Admin", "System Analyst", "System Engineer and Architect", "Mobile Wireless", "ดูแลเว็บไซต์ และ SEO", "ดูแลระบบ Network", "ที่ปรึกษาไอที", "นักออกแบบ UX/UI"];
+        var bValues = [an, ba, da, de, hw, ita, itm, itp, its, itshd, mis, programmer, se, st, sadmin, sa, sea, mw, seo, network, it, uxui];
+        var barColors2 = [
+          "#b91d47",
+          "#00aba9",
+          "#2b5797",
+          "#DFFF00",
+          "#FFBF00",
+          "#FF7F50",
+          "#DE3163",
+          "#DFFF00",
+          "#9FE2BF",
+          "#40E0D0",
+          "#6495ED",
+          "#CCCCFF",
+          "#00FFFF",
+          "#FF0000",
+          "#800000",
+          "#FFFF00",
+          "#808000",
+          "#00FF00",
+          "#008080",
+          "#000080",
+          "#000090",
+          "#FF00FF"
+        ];
+
+        new Chart("position", {
+          type: "doughnut",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: barColors2,
+              data: bValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+                text: "ตำแหน่งงาน"
+            }
+          }
+        });
+        </script>
+      </div>
+
     </div>
   </div>
   
