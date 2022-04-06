@@ -2,11 +2,8 @@
   session_start();
   require_once ('connection.php');
   $query = mysqli_query($conn,"set char set utf8");
-  $sql = "SELECT * FROM enterprises";
+  $sql = "SELECT * FROM applicants INNER JOIN positions ON applicants.applicant_position_id = positions.position_id";
   $result = $conn->query($sql);
-
-  $sql2 = "SELECT * FROM applicants";
-  $result2 = $conn->query($sql2);
 ?>
 
 
@@ -37,7 +34,7 @@
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <script>
-function searchjob() {
+function searchenterprise() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
@@ -79,7 +76,7 @@ function w3_close() {
         <div class="d-flex flex-wrap align-items-center justify-content-start">
           <div class="d-flex align-items-center me-md-auto"></div>
           <div class="context">
-            <h1 class="text-dark fs-2">STATISTICS</h1>
+            <h1 class="text-dark fs-2">Applicants</h1>
           </div>
         </div>
       </div>
@@ -104,50 +101,24 @@ function w3_close() {
         <ul>
           <button onclick="w3_close()" class="btn btn-danger">Close &times;</button>
           <li>
-            <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="d-grid gap-2 d-md-block">
               <h6 class="dropdown-header">Users</h6>
-              <a class="btn btn-primary" href="../php/enterprises.php" role="button" >บริษัท</a>
-              <button type="button" class="btn btn-primary" id="applicant">คนหางาน</button>
+              <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
+              <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
             </div>
 
           </li>
 
           <li>
-            <h6 class="dropdown-header">Education stats</h6>
-          </li>
-          <li class="btn-group-vertical">
-            <input type="checkbox" class="btn-check" id="bachelordg" autocomplete="off">
-            <label class="btn btn-outline-primary" for="bachelordg">ปริญญาตรี</label>
-            <input type="checkbox" class="btn-check" id="masterdg" autocomplete="off">
-            <label class="btn btn-outline-primary" for="masterdg">ปริญญาโท</label>
-            <input type="checkbox" class="btn-check" id="doctorate" autocomplete="off">
-            <label class="btn btn-outline-primary" for="doctorate">ปริญญาเอก</label>
+            <div class="d-grid gap-2 d-md-block">
+              <h6 class="dropdown-header">JOB</h6>
+              <a class="btn btn-primary" href="../php/job.php" role="button">งานที่ลงทะเบียนไว้</a>
+            </div>
           </li>
           <li>
-            <h6 class="dropdown-header">Skill stats</h6>
+            <h6 class="dropdown-header">Search enterprise</h6>
           </li>
-          <input type="checkbox" class="btn-check" id="employer" autocomplete="off">
-          <label class="btn btn-outline-primary" for="employer">บริษัท</label>
-          <input type="checkbox" class="btn-check" id="applicant" autocomplete="off">
-          <label class="btn btn-outline-primary" for="applicant">คนหางาน</label>
-          <li>
-            <h6 class="dropdown-header">Salary stats</h6>
-          </li>
-          <label for="minsalary" class="form-label">Min.</label>
-          <input type="range" class="form-range" id="minsalary">
-          <label for="maxsalary" class="form-label">Max.</label>
-          <input type="range" class="form-range" id="maxsalary">
-          <li>
-            <h6 class="dropdown-header">job</h6>
-          </li>
-          <input type="text" id="myInput" onkeyup="searchjob()" placeholder="Search for Job..">
-          <li>
-            <h6 class="dropdown-header">Position</h6>
-          </li>
-          <input type="text" id="myInput" onkeyup="searchjob()" placeholder="Search for Position..">
-          <li>
-            <h6 class="dropdown-header">Province</h6>
-          </li>
+          <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for Position..">
         </ul>
 
         <!--<a>
@@ -162,119 +133,44 @@ function w3_close() {
   <div class="mainContent">
     <div class="column">
       <div class="candidate rounded-25">
-      <a class="btn btn-primary" href="../php/enterprises.php" role="button" >บริษัท</a>
+        <table id="sawasdy">
+          <thead>
+            <tr>
+              <th width="5%">ID</td>
+              <th width="30%">Name</td>
+              <th width="15%">GPAX</td>
+              <th width="25%">University</td>
+              <th width="20%">Position</td>
+              <th width="20%">Salary</td>
+            </tr>
+          </thead>
+          <tbody>
+            <?php while($row = $result->fetch_assoc()): ?>
+            <tr onclick="w3_open()">
+              <td>
+                <?php echo $row['applicant_id']; ?>
+              </td>
+              <td>
+                <?php echo $row['applicant_name']," ",$row['applicant_lastname'];?>
+              </td>
+              <td>
+                <?php echo $row['applicant_edu_gpax']; ?>
+              </td>
+              <td>
+                <?php echo $row['applicant_edu_university']; ?>
+              </td>
+              <td>
+                <?php echo $row['position_name']; ?>
+              </td>
+              <td>
+                <?php echo $row['applicant_expected_salary'];?>
+              </td>
+            </tr>
+            <?php endwhile ?>
+          </tbody>
+        </table>
 
-        <div class="candidate rounded-25">
 
-          <table id="sawasdy">
-            <thead>
-              <tr>
-                <th width="5%">ID</td>
-                <th width="25%">Name</td>
-                <th width="25%">Website</td>
-              </tr>
-            </thead>
-            <tbody>
-              <?php while($row = $result->fetch_assoc()): ?>
-              <tr>
-                <td><?php echo $row['enterprise_id']; ?></td>
-                <td class="name">
-                  <?php echo $row['enterprise_name_th'],"[",$row['enterprise_name_en'],"]";?>
-                </td>
-                <td><?php echo $row['enterprise_website']; ?></td>
-              </tr>
-              <?php endwhile ?>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="candidate_all">
-          <canvas id="skillcandidateChart" style="width:100%;max-width:600px"></canvas>
-          <script>
-          var xValues = ["HTML", "PHP", "JavaScript", "Java", "SQL"];
-          var yValues = [40, 49, 21, 30, 25];
-          var barColors = ["red", "green", "blue", "orange", "brown"];
-          new Chart("skillcandidateChart", {
-            type: "bar",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {
-                display: false
-              },
-              title: {
-                display: true,
-                text: "ภาพรวมความสามารถผู้สมัครงาน"
-              }
-            }
-          });
-          </script>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="candidate rounded-25">
-      <a class="btn btn-primary" href="../php/enterprises.php" role="button" >คนหางาน</a>
-
-        <div class="candidate rounded-25">
-
-          <table id="sawasdy">
-            <thead>
-              <tr>
-                <th width="5%">ID</td>
-                <th width="25%">Name</td>
-                <th width="25%">Phone Number</td>
-              </tr>
-            </thead>
-            <tbody>
-              <?php while($row2 = $result2->fetch_assoc()): ?>
-              <tr>
-                <td><?php echo $row2['applicant_id']; ?></td>
-                <td class="name">
-                  <?php echo $row2['applicant_name'] ,"  ",$row2['applicant_lastname'];?>
-                </td>
-                <td><?php echo $row2['applicant_telephone_number']; ?></td>
-              </tr>
-              <?php endwhile ?>
-            </tbody>
-          </table>
-
-        </div>
-
-        <div class="candidate_want">
-          <canvas id="jobcandidateChart" style="width:100%;max-width:600px"></canvas>
-          <script>
-          var xValues = ["UX/UI", "Beck-end Dev.", "Font-end Dev.", "Android Dev.", "IOS Dev."];
-          var yValues = [50, 30, 25, 30, 22];
-          var barColors = ["red", "green", "blue", "orange", "brown"];
-          new Chart("jobcandidateChart", {
-            type: "bar",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {
-                display: false
-              },
-              title: {
-                display: true,
-                text: "ภาพรวมตำแหน่งที่ผู้หางานสนใจ"
-              }
-            }
-          });
-          </script>
-        </div>
 
       </div>
     </div>
