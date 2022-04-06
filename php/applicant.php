@@ -181,8 +181,8 @@ function w3_close() {
             $applicant_edu_level = $row['applicant_edu_level'];
             echo "<script>sin.push('$applicant_edu_level');</script>";
 
-            $applicant_position_id = $row['applicant_position_id'];
-            echo "<script>posit.push('$applicant_position_id');</script>";
+            $applicant_position = $row['position_name'];
+            echo "<script>posit.push('$applicant_position');</script>";
             ?>
             <?php endwhile ?>
           </tbody>
@@ -315,7 +315,7 @@ function w3_close() {
             }
             pos.push(strings.split(','));
             pos2 = pos[0];
-            console.log(pos);
+            console.log(posit);
             var an = 0;
             var ba = 0;
             var da = 0;
@@ -339,7 +339,7 @@ function w3_close() {
             var it = 0;
             var uxui = 0;
 
-            for (let index = 0; index < posit2.length; index++) {
+            for (let index = 0; index < pos2.length; index++) {
               var pos_check = pos2[index];
               if (pos_check.match('Application Network')) {
                 an++;
@@ -398,7 +398,7 @@ function w3_close() {
           "#FFBF00",
           "#FF7F50",
           "#DE3163",
-          "#DFFF00",
+          "#000000",
           "#9FE2BF",
           "#40E0D0",
           "#6495ED",
@@ -411,7 +411,7 @@ function w3_close() {
           "#00FF00",
           "#008080",
           "#000080",
-          "#000090",
+          "#FFFFFF",
           "#FF00FF"
         ];
 
