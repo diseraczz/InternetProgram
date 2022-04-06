@@ -102,6 +102,8 @@ function w3_close() {
           <button onclick="w3_close()" class="btn btn-danger">Close &times;</button>
           <li>
             <div class="d-grid gap-2 d-md-block">
+            <a class="btn btn-primary" href="../php/admin.php" role="button">กลับหน้าแรก</a>
+
               <h6 class="dropdown-header">Users</h6>
               <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
               <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
