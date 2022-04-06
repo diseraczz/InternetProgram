@@ -2,7 +2,7 @@
   session_start();
   require_once ('connection.php');
   $query = mysqli_query($conn,"set char set utf8");
-  $sql = "SELECT * FROM enterprises";
+  $sql = "SELECT * FROM job_posts";
   $result = $conn->query($sql);
 ?>
 
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <script>
-function searchenterprise() {
+function searchposition() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
@@ -45,6 +45,28 @@ function searchenterprise() {
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function searchemployment() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myJob");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("sawasdy");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -116,9 +138,14 @@ function w3_close() {
             </div>
           </li>
           <li>
-            <h6 class="dropdown-header">Search enterprise</h6>
+            <h6 class="dropdown-header">Search Position</h6>
           </li>
-          <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for Position..">
+          <input type="text" id="myInput" onkeyup="searchposition()" placeholder="Search for Position..">
+          <li>
+            <h6 class="dropdown-header">Employment Type</h6>
+            <input type="text" id="myJob" onkeyup="searchemployment()" placeholder="Search for Employment..">
+
+          </li>
         </ul>
 
         <!--<a>
@@ -137,36 +164,83 @@ function w3_close() {
           <thead>
             <tr>
               <th width="5%">ID</td>
-              <th width="10%">Name</td>
-              <th width="20%">Website</td>
-              <th width="20%">Telephone</td>
-              <th width="25%">Address</td>
+              <th width="10%">Position</td>
+              <th width="25%">Skill</td>
+              <th width="15%">Employment Type</td>
+              <th width="10%">Income</td>
             </tr>
           </thead>
           <tbody>
-            <?php while($row = $result->fetch_assoc()): ?>
+            <?php 
+            $my_array = array();
+            while($row = $result->fetch_assoc()):
+              array_push($my_array, explode(',',$row['job_post_skill_id']));
+             ?>
             <tr onclick="w3_open()">
               <td>
-                <?php echo $row['enterprise_id']; ?>
+                <?php echo $row['job_post_id']; ?>
               </td>
               <td>
-                <?php echo $row['enterprise_name_th'],"[",$row['enterprise_name_en'],"]";?>
+                <?php echo $row['job_post_position_id'];?>
               </td>
               <td>
-                <?php echo $row['enterprise_website']; ?>
+                <?php echo $row['job_post_skill_id']; ?>
               </td>
               <td>
-                <?php echo $row['enterprise_telephone_number']; ?>
+                <?php echo $row['job_post_employment_type_id']; ?>
               </td>
               <td>
-                <?php echo $row['enterprise_address']," ",$row['enterprise_sub_district']," ",$row['enterprise_district']," ",$row['enterprise_province']; ?>
+                <?php echo $row['job_post_income']; ?>
               </td>
             </tr>
             <?php endwhile ?>
+            <?php 
+            $doggy = $row['job_post_skill_id'];
+            $gg = explode(',',$doggy);
+            echo "<script>console.log('$gg')</script>"; ?>
+
           </tbody>
         </table>
 
+        <div class="candidate_all">
+          <canvas id="skillcandidateChart" style="width:100%;max-width:600px"></canvas>
+          <?php 
+          $my_array = array();
+          $dd = 'asd';
+          while($row = $result->fetch_assoc()):
+            $skillcount = explode(',',$row['job_post_skill_id']) ;
+            array_push($skillcount);
+          endwhile
+          ?>
+          <script>
+          var xValues = ["HTML", "PHP", "JavaScript", "Java", "SQL"];
+          var yValues = [55, 49, 44, 24, 15];
+          var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+          ];
 
+          new Chart("skillcandidateChart", {
+            type: "pie",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "123456"
+              }
+            }
+          });
+          </script>
+        </div>
 
       </div>
     </div>
