@@ -124,17 +124,11 @@ function w3_close() {
           <button onclick="w3_close()" class="btn btn-danger">Close &times;</button>
           <li>
             <div class="d-grid gap-2 d-md-block">
+              <a class="btn btn-primary" href="../php/admin.php" role="button">กลับหน้าแรก</a>
+
               <h6 class="dropdown-header">Users</h6>
               <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
               <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
-            </div>
-
-          </li>
-
-          <li>
-            <div class="d-grid gap-2 d-md-block">
-              <h6 class="dropdown-header">JOB</h6>
-              <a class="btn btn-primary" href="../php/job.php" role="button">งานที่ลงทะเบียนไว้</a>
             </div>
           </li>
           <li>
@@ -173,6 +167,8 @@ function w3_close() {
           <tbody>
             <?php 
             $my_array = array();
+            echo "<script>var sin = [];</script>";
+            echo "<script>var employv = [];</script>"; 
             while($row = $result->fetch_assoc()):
               array_push($my_array, explode(',',$row['job_post_skill_id']));
              ?>
@@ -193,38 +189,96 @@ function w3_close() {
                 <?php echo $row['job_post_income']; ?>
               </td>
             </tr>
-            <?php endwhile ?>
             <?php 
-            $doggy = $row['job_post_skill_id'];
-            $gg = explode(',',$doggy);
-            echo "<script>console.log('$gg')</script>"; ?>
+            $skill_post = $row['job_post_skill_id'];
+            echo "<script>sin.push('$skill_post');</script>";
 
+            $employs = $row['job_post_employment_type_id'];
+            echo "<script>employv.push('$employs');</script>"; ?>
+
+            <?php endwhile ?>
+            <?php
+            echo "<script>console.log(employv)</script>"; ?>
           </tbody>
         </table>
 
-        <div class="candidate_all">
+        <div class="candidate rounded-25">
           <canvas id="skillcandidateChart" style="width:100%;max-width:600px"></canvas>
-          <?php 
-          $my_array = array();
-          $dd = 'asd';
-          while($row = $result->fetch_assoc()):
-            $skillcount = explode(',',$row['job_post_skill_id']) ;
-            array_push($skillcount);
-          endwhile
-          ?>
           <script>
-          var xValues = ["HTML", "PHP", "JavaScript", "Java", "SQL"];
-          var yValues = [55, 49, 44, 24, 15];
+          var skills = [];
+          var skills2 = [];
+          var strings = '';
+          for (let i = 0; i < sin.length; i++) {
+            var sin2 = sin[i];
+            strings = strings + ',' + sin2;
+          }
+          skills.push(strings.split(','));
+          skills2 = skills[0];
+          console.log(skills2);
+          var html = 0;
+          var css = 0;
+          var javascript = 0;
+          var sql = 0;
+          var php = 0;
+          var python = 0;
+          var java = 0;
+          var back_end = 0;
+          var web_page_design = 0;
+          var ms_office = 0;
+          var os = 0;
+          var network = 0;
+          for (let index = 0; index < skills2.length; index++) {
+            var skill_check = skills2[index].toLocaleLowerCase();
+            if (skill_check.match('html')) {
+              html++;
+            } else if (skill_check.match('css')) {
+              css++;
+            } else if (skill_check.match('javascript')) {
+              javascript++;
+            } else if (skill_check.match('python')) {
+              python++;
+            } else if (skill_check.match('os')) {
+              os++;
+            } else if (skill_check.match('sql')) {
+              sql++;
+            } else if (skill_check.match('java')) {
+              java++;
+            } else if (skill_check.match('php')) {
+              php++;
+            } else if (skill_check.match('back end')) {
+              back_end++;
+            } else if (skill_check.match('web page design')) {
+              web_page_design++;
+            } else if (skill_check.match('network')) {
+              network++;
+            } else if (skill_check.match('ms.office')) {
+              ms_office++;
+            }
+
+          }
+          var xValues = ["HTML", "CSS", "javascript", "sql", "php", "python", "java", "back_end", "web page design",
+            "ms_office", "os", "network"
+          ];
+          var yValues = [html, css, javascript, sql, php, python, java, back_end, web_page_design, ms_office, os,
+            network
+          ];
           var barColors = [
             "#b91d47",
             "#00aba9",
             "#2b5797",
             "#e8c3b9",
-            "#1e7145"
+            "#1e7145",
+            "#b91d64",
+            "#000095",
+            "#2b5775",
+            "#e8c385",
+            "#1e7174",
+            "#b91d25",
+            "#00ab14"
           ];
 
           new Chart("skillcandidateChart", {
-            type: "pie",
+            type: "doughnut",
             data: {
               labels: xValues,
               datasets: [{
@@ -235,7 +289,47 @@ function w3_close() {
             options: {
               title: {
                 display: true,
-                text: "123456"
+                text: "Skills"
+              }
+            }
+          });
+          </script>
+
+        </div>
+
+        <div class="candidate rounded-25">
+          <canvas id="employmentchart" style="width:100%;max-width:600px"></canvas>
+          <script>
+          var empl1 = 0;
+          var empl2 = 0;
+          for (let index = 0; index < employv.length; index++) {
+            var skill_check2 = employv[index];
+            if (skill_check2.match('งานประจำ')) {
+              empl1++;
+            } else if (skill_check2.match('งานพาร์ทไทม์')) {
+              empl2++;
+            }
+          }
+          console.log(empl1, empl2);
+          var xEmployment = ["งานประจำ", "งานพาร์ทไทม์"];
+          var yEmployment = [empl1, empl2, 0];
+          var barColorss = ["red", "green"];
+          new Chart("employmentchart", {
+            type: "bar",
+            data: {
+              labels: xEmployment,
+              datasets: [{
+                backgroundColor: barColorss,
+                data: yEmployment
+              }]
+            },
+            options: {
+              legend: {
+                display: false
+              },
+              title: {
+                display: true,
+                text: "Employment Type"
               }
             }
           });

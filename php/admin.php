@@ -104,50 +104,15 @@ function w3_close() {
         <ul>
           <button onclick="w3_close()" class="btn btn-danger">Close &times;</button>
           <li>
-            <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="d-grid gap-2 d-md-block">
               <h6 class="dropdown-header">Users</h6>
-              <a class="btn btn-primary" href="../php/enterprises.php" role="button" >บริษัท</a>
-              <a class="btn btn-primary" href="../php/applicant.php" role="button" >คนหางาน</a>
+              <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
+              <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
             </div>
+          </li>
+          <li>
+          </li>
 
-          </li>
-
-          <li>
-            <h6 class="dropdown-header">Education stats</h6>
-          </li>
-          <li class="btn-group-vertical">
-            <input type="checkbox" class="btn-check" id="bachelordg" autocomplete="off">
-            <label class="btn btn-outline-primary" for="bachelordg">ปริญญาตรี</label>
-            <input type="checkbox" class="btn-check" id="masterdg" autocomplete="off">
-            <label class="btn btn-outline-primary" for="masterdg">ปริญญาโท</label>
-            <input type="checkbox" class="btn-check" id="doctorate" autocomplete="off">
-            <label class="btn btn-outline-primary" for="doctorate">ปริญญาเอก</label>
-          </li>
-          <li>
-            <h6 class="dropdown-header">Skill stats</h6>
-          </li>
-          <input type="checkbox" class="btn-check" id="employer" autocomplete="off">
-          <label class="btn btn-outline-primary" for="employer">บริษัท</label>
-          <input type="checkbox" class="btn-check" id="applicant" autocomplete="off">
-          <label class="btn btn-outline-primary" for="applicant">คนหางาน</label>
-          <li>
-            <h6 class="dropdown-header">Salary stats</h6>
-          </li>
-          <label for="minsalary" class="form-label">Min.</label>
-          <input type="range" class="form-range" id="minsalary">
-          <label for="maxsalary" class="form-label">Max.</label>
-          <input type="range" class="form-range" id="maxsalary">
-          <li>
-            <h6 class="dropdown-header">job</h6>
-          </li>
-          <input type="text" id="myInput" onkeyup="searchjob()" placeholder="Search for Job..">
-          <li>
-            <h6 class="dropdown-header">Position</h6>
-          </li>
-          <input type="text" id="myInput" onkeyup="searchjob()" placeholder="Search for Position..">
-          <li>
-            <h6 class="dropdown-header">Province</h6>
-          </li>
         </ul>
 
         <!--<a>
@@ -162,7 +127,7 @@ function w3_close() {
   <div class="mainContent">
     <div class="column">
       <div class="candidate rounded-25">
-      <a class="btn btn-primary" href="../php/enterprises.php" role="button" >บริษัท</a>
+        <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
 
         <div class="candidate rounded-25">
 
@@ -187,41 +152,12 @@ function w3_close() {
             </tbody>
           </table>
         </div>
-
-        <div class="candidate_all">
-          <canvas id="skillcandidateChart" style="width:100%;max-width:600px"></canvas>
-          <script>
-          var xValues = ["HTML", "PHP", "JavaScript", "Java", "SQL"];
-          var yValues = [40, 49, 21, 30, 25];
-          var barColors = ["red", "green", "blue", "orange", "brown"];
-          new Chart("skillcandidateChart", {
-            type: "bar",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {
-                display: false
-              },
-              title: {
-                display: true,
-                text: "ภาพรวมความสามารถผู้สมัครงาน"
-              }
-            }
-          });
-          </script>
-        </div>
-
       </div>
     </div>
 
     <div class="column">
       <div class="candidate rounded-25">
-      <a class="btn btn-primary" href="../php/applicant.php" role="button" >คนหางาน</a>
+        <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
 
         <div class="candidate rounded-25">
 
@@ -247,35 +183,6 @@ function w3_close() {
           </table>
 
         </div>
-
-        <div class="candidate_want">
-          <canvas id="jobcandidateChart" style="width:100%;max-width:600px"></canvas>
-          <script>
-          var xValues = ["UX/UI", "Beck-end Dev.", "Font-end Dev.", "Android Dev.", "IOS Dev."];
-          var yValues = [50, 30, 25, 30, 22];
-          var barColors = ["red", "green", "blue", "orange", "brown"];
-          new Chart("jobcandidateChart", {
-            type: "bar",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {
-                display: false
-              },
-              title: {
-                display: true,
-                text: "ภาพรวมตำแหน่งที่ผู้หางานสนใจ"
-              }
-            }
-          });
-          </script>
-        </div>
-
       </div>
     </div>
 
