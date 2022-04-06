@@ -147,6 +147,9 @@ function w3_close() {
             </tr>
           </thead>
           <tbody>
+          <?php 
+            $my_array = array();
+            echo "<script>var sin = [];</script>";?>
             <?php while($row = $result->fetch_assoc()): ?>
             <tr onclick="w3_open()">
               <td>
@@ -168,16 +171,73 @@ function w3_close() {
                 <?php echo $row['applicant_expected_salary'];?>
               </td>
             </tr>
+            <?php 
+            $applicant_edu_level = $row['applicant_edu_level'];
+            echo "<script>sin.push('$applicant_edu_level');</script>";
+            ?>
             <?php endwhile ?>
           </tbody>
         </table>
-
-
-
+        
       </div>
-    </div>
 
+        <div>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+          <script>
+          var degrees = [];
+          var degrees2 = [];
+          var strings = '';
+          for (let i = 0; i < sin.length; i++) {
+            var sin2 = sin[i];
+            strings = strings + ',' + sin2;
+          }
+          degrees.push(strings.split(','));
+          degrees2 = degrees[0];
+          console.log(degrees2);
+          var bachelor = 0;
+          var master = 0;
+          var doctor = 0;
+
+          for (let index = 0; index < degrees2.length; index++) {
+            var degrees_check = degrees2[index].toLocaleLowerCase();
+            if (degrees_check.match('ปริญญาตรี')) {
+              bachelor++;
+            } else if (degrees_check.match('ปริญญาโท')) {
+              master++;
+            } else if (degrees_check.match('ปริญญาเอก')) {
+              doctor++;
+            }
+          }
+          var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
+          var yValues = [bachelor, master, doctor];
+          var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+          ];
+
+          new Chart("skillcandidateChart", {
+            type: "doughnut",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "Skills"
+              }
+            }
+          });
+          </script>
+        </div>
+    </div>
   </div>
+  
 </body>
 
 </html>

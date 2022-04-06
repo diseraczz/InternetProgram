@@ -218,15 +218,7 @@ function w3_close() {
           var html = 0;
           var css = 0;
           var javascript = 0;
-          var sql = 0;
-          var php = 0;
-          var python = 0;
-          var java = 0;
-          var back_end = 0;
-          var web_page_design = 0;
-          var ms_office = 0;
-          var os = 0;
-          var network = 0;
+
           for (let index = 0; index < skills2.length; index++) {
             var skill_check = skills2[index].toLocaleLowerCase();
             if (skill_check.match('html')) {
