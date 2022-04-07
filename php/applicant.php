@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="shortcut icon" type="image/x-icon" href="../images/logo.png">
 
-  <title>Admin_page</title>
+  <title>Applicants</title>
   <!-- bootstrap 5.1.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -108,19 +108,11 @@ function w3_close() {
               <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
               <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
             </div>
-
-          </li>
-
-          <li>
-            <div class="d-grid gap-2 d-md-block">
-              <h6 class="dropdown-header">JOB</h6>
-              <a class="btn btn-primary" href="../php/job.php" role="button">งานที่ลงทะเบียนไว้</a>
-            </div>
           </li>
           <li>
-            <h6 class="dropdown-header">Search enterprise</h6>
+            <h6 class="dropdown-header">Search Province</h6>
           </li>
-          <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for Position..">
+          <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for Province..">
         </ul>
 
         <!--<a>
@@ -139,12 +131,13 @@ function w3_close() {
           <thead>
             <tr>
               <th width="5%">ID</td>
-              <th width="30%">Name</td>
-              <th width="10%">GPAX</td>
+              <th width="20%">Name</td>
+              <th width="5%">GPAX</td>
               <th width="30%">University</td>
-              <th width="10%">Degree</td>
+              <th width="15%">Degree</td>
               <th width="15%">Position</td>
-              <th width="15%">Salary</td>
+              <th width="10%">Salary</td>
+              <th width="15%">Province</td>
             </tr>
           </thead>
           <tbody>
@@ -175,6 +168,9 @@ function w3_close() {
               </td>
               <td>
                 <?php echo $row['applicant_expected_salary'];?>
+              </td>
+              <td>
+                <?php echo $row['applicant_province'];?>
               </td>
             </tr>
             <?php 

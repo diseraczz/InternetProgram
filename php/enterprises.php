@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="shortcut icon" type="image/x-icon" href="../images/logo.png">
 
-  <title>Admin_page</title>
+  <title>Enterprises</title>
   <!-- bootstrap 5.1.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -102,7 +102,7 @@ function w3_close() {
           <button onclick="w3_close()" class="btn btn-danger">Close &times;</button>
           <li>
             <div class="d-grid gap-2 d-md-block">
-            <a class="btn btn-primary" href="../php/admin.php" role="button">กลับหน้าแรก</a>
+              <a class="btn btn-primary" href="../php/admin.php" role="button">กลับหน้าแรก</a>
 
               <h6 class="dropdown-header">Users</h6>
               <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
@@ -120,7 +120,7 @@ function w3_close() {
           <li>
             <h6 class="dropdown-header">Search enterprise</h6>
           </li>
-          <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for Position..">
+          <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for enterprise..">
         </ul>
 
         <!--<a>
@@ -147,9 +147,11 @@ function w3_close() {
           </thead>
           <tbody>
             <?php while($row = $result->fetch_assoc()): ?>
-            <tr onclick="w3_open()">
+            <tr>
               <td>
-                <?php echo $row['enterprise_id']; ?>
+                <a href="../php/edit_enterprise_admin.php?id=<?php echo $row['enterprise_id']; ?>">
+                  <?php echo $row['enterprise_id']; ?>
+                </a>
               </td>
               <td>
                 <?php echo $row['enterprise_name_th'],"[",$row['enterprise_name_en'],"]";?>

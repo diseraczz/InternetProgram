@@ -615,30 +615,4 @@ body {
 }
 
 
-/* Clear floats after the columns */
-
-.split2column:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.columnss {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 300px;
-    /* Should be removed. Only for demonstration */
-}
-
-
-/* Clear floats after the columns */
-
-.row2col:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
 /*++++++++++++++++++ 000000000 ++++++++++++++++++*/
