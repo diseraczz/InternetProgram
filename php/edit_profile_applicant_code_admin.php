@@ -13,7 +13,8 @@ $enterprise_province = $_POST["enterprise_province"];
 $enterprise_district = $_POST["enterprise_district"];
 $enterprise_sub_district = $_POST["enterprise_sub_district"];
 
-$sql = "UPDATE `enterprises` SET
+
+$sql = "UPDATE enterprises SET
 		enterprise_email = '$enterprise_email' ,
 		enterprise_name_th = '$enterprise_name_th' ,
 		enterprise_name_en = '$enterprise_name_en' ,
@@ -21,23 +22,23 @@ $sql = "UPDATE `enterprises` SET
     enterprise_website = '$enterprise_website',
     enterprise_address = '$enterprise_address',
     enterprise_province = '$enterprise_province',
-    enterprise_district = '$enterprise_district',
+    enterprise_district = '$enterprise_district'
     enterprise_sub_district = '$enterprise_sub_district'
-    WHERE `enterprise_id` = '$id'";
+    WHERE `enterprise`.`enterprise_id` = '$id'";
+
 $result = mysqli_query($conn, $sql);
+mysqli_close($conn);
 
 
-
-if ($result == true) {
+if ($result) {
   echo "<script type='text/javascript'>";
   echo "alert('Update Succesfuly');";
   echo "window.location = 'edit_enterprise_admin.php?id=$id'; ";
   echo "</script>";
 } else {
   echo "<script type='text/javascript'>";
-  echo "alert('Error back to Update again');";
+  echo "alert('Error back to Update again $enterprise_name_th');";
   echo "window.location = 'edit_enterprise_admin.php?id=$id'; ";
   echo "</script>";
 }
-mysqli_close($conn);
 ?>

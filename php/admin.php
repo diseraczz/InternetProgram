@@ -37,28 +37,6 @@
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <script>
-function searchjob() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("sawasdy");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
 }
@@ -130,7 +108,7 @@ function w3_close() {
         <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
 
         <div class="candidate rounded-25">
-
+          <?php $count_col = 0 ?>
           <table id="sawasdy">
             <thead>
               <tr>
@@ -140,7 +118,9 @@ function w3_close() {
               </tr>
             </thead>
             <tbody>
-              <?php while($row = $result->fetch_assoc()): ?>
+              <?php 
+              while($row = $result->fetch_assoc()): 
+              ?>
               <tr>
                 <td><?php echo $row['enterprise_id']; ?></td>
                 <td class="name">
@@ -148,9 +128,17 @@ function w3_close() {
                 </td>
                 <td><?php echo $row['enterprise_website']; ?></td>
               </tr>
-              <?php endwhile ?>
+              <?php 
+                $count_col = $count_col+1;  
+                endwhile;
+                echo "<script>console.log($count_col)</script>";
+              ?>
             </tbody>
           </table>
+        </div>
+        <div>
+          <br>
+          <h5>จำนวนบริษัททั้งหมด <?php echo $count_col?> บริษัท</h5>
         </div>
       </div>
     </div>
@@ -160,7 +148,7 @@ function w3_close() {
         <a class="btn btn-primary" href="../php/applicant.php" role="button">คนหางาน</a>
 
         <div class="candidate rounded-25">
-
+          <?php $count_col2 = 0 ?>
           <table id="sawasdy">
             <thead>
               <tr>
@@ -178,10 +166,17 @@ function w3_close() {
                 </td>
                 <td><?php echo $row2['applicant_telephone_number']; ?></td>
               </tr>
-              <?php endwhile ?>
+              <?php 
+              $count_col2 = $count_col2+1;  
+              endwhile;
+              echo "<script>console.log($count_col2)</script>";
+              ?>
             </tbody>
           </table>
-
+        </div>
+        <div>
+          <br>
+          <h5>จำนวนคนหางาน <?php echo $count_col2?> คน</h5>
         </div>
       </div>
     </div>

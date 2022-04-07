@@ -41,7 +41,6 @@ function searchenterprise() {
   filter = input.value.toUpperCase();
   table = document.getElementById("sawasdy");
   tr = table.getElementsByTagName("tr");
-
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
@@ -199,7 +198,6 @@ function w3_close() {
             }
             degrees.push(strings.split(','));
             degrees2 = degrees[0];
-            console.log(degrees2);
             var bachelor = 0;
             var master = 0;
             var doctor = 0;
@@ -255,7 +253,6 @@ function w3_close() {
             }
             degrees.push(strings.split(','));
             degrees2 = degrees[0];
-            console.log(degrees2);
             var bachelor = 0;
             var master = 0;
             var doctor = 0;
@@ -311,7 +308,6 @@ function w3_close() {
             }
             pos.push(strings.split(','));
             pos2 = pos[0];
-            console.log(posit);
             var an = 0;
             var ba = 0;
             var da = 0;
