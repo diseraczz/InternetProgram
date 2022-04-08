@@ -94,7 +94,7 @@
                   <td><?= $result['enterprise_email'] ?></td>
                   <td><?= $result['enterprise_telephone_number'] ?></td>
                   <td><a href="enterprise_edit.php?enterprise_id=<?php echo $result["enterprise_id"]?>" class="btn btn-editp rounded-pill px-3 ">ตรวจสอบ</a></td>
-                  <td><a href="enterprise_delete.php?enterprise_id=<?= $result['enterprise_id']?>" class="btn btn-cancelg rounded-pill px-4 text-white" onclick="return confirm('คุณต้องการลบชื่อ <?= $result['enterprise_name'] ?> หรือไม่')">ลบ</a></td>
+                  <td><a href="admin_delete_enterprise.php?enterprise_id=<?php echo $result['enterprise_id']?>" class="btn btn-cancelg rounded-pill px-4 text-white" onclick="return confirm('คุณต้องการลบชื่อ <?= $result['enterprise_name'] ?> หรือไม่')">ลบ</a></td>
                 </tr>
               <?php } ?>
               </tbody>

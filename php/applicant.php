@@ -89,7 +89,7 @@
                   <td><?= $result['applicant_email'] ?></td>
                   <td><?= $result['applicant_telephone_number'] ?></td>
                   <td><a href="admin_check_applicant.php?applicant_id=<?php echo $result['applicant_id'];?>" class="btn btn-editp rounded-pill px-3 ">ตรวจสอบ</a></td>
-                  <td><a href="admin_delete.php?admin_id=<?= $result['applicant_id']?>" class="btn btn-cancelg rounded-pill px-4 text-white" onclick="return confirm('คุณต้องการลบชื่อ <?= $result['admin_name'] ?> หรือไม่')">ลบ</a></td>
+                  <td><a href="admin_delete_applicant.php?applicant_id=<?php echo $result['applicant_id']?>" class="btn btn-cancelg rounded-pill px-4 text-white" onclick="return confirm('คุณต้องการลบชื่อ <?= $result['admin_name'] ?> หรือไม่')">ลบ</a></td>
                 </tr>
               <?php } ?>
               </tbody>
