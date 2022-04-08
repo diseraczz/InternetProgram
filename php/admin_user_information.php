@@ -62,7 +62,43 @@ $query = mysqli_query($conn, "set char set utf8")
       </div>
     </header>
 
-    <!--overview-->
+    <div class="row justify-content-around">
+        <div class="col-4">
+            <div class="container p-4 bg-white mt-100 rounded-30 shadow-sj" style="width: 300px; ">
+                <br>
+                  <div style="text-align: center;">
+                    <div >
+                      <a class="btn btn-lg btn-primary rounded-pill mt-3 w-100 shadow-sj" href="applicant.php" role="button">คนหางาน</a>
+                    </div> 
+                  </div>     
+                </br>
+
+                <?php
+                  $sql_query = "SELECT *
+                  FROM applicants
+                  WHERE applicant_id =''";
+                  $result2 = mysql_db_query($conn,$sql_query);
+                  $count = mysql_num_rows($result2);
+                ?>
+            </div>
+          </div>
+
+      <div class="col-4">
+        <div class="container p-4 bg-white mt-100 rounded-30 shadow-sj" style="width: 300px; ">
+            <br>
+              <div style="text-align: center;">
+                <div >
+                  <a class="btn btn-lg btn-primary rounded-pill mt-3 w-100 shadow-sj" href="enterprise.php" role="button">บริษัท</a>
+                </div> 
+              </div>     
+            </br>
+        </div>
+      </div>
+
+
+
+
+    </div>
 
   </body>
 
