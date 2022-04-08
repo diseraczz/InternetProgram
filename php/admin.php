@@ -76,7 +76,7 @@
   <div class="p-5 bg-white rounded-30">
     <div class="container">
       <!--edu-->
-      <div class="row justify-content-around">
+      <div class="row justify-content-around ">
         <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
@@ -813,13 +813,89 @@
             options: {
               title: {
                 display: true,
-                text: "ตำแหน่งงานที่ผู้สมัครต้องการนะจ๊ะ"
+                text: "ตำแหน่งงานที่ผู้สมัครต้องการ"
               }
             }
           });
           </script>
         </div>
       </div>
+      <div class="row justify-content-center">
+        จังหวัด
+        <div class="col-9">
+          <?php
+            $querys = mysqli_query($conn,"set char set utf8");
+            $sqls_province_en = "SELECT `*` FROM `provinces` INNER JOIN applicants ON `provinces`.`id`=`applicants`.`applicant_province`";
+            $results_province_en = $conn->query($sqls_province_en);
+            echo "<script>var pro_en = [];</script>";
+            while($row = $results_province_en->fetch_assoc()):
+              $province_en = $row['geography_id'];
+              echo "<script>pro_en.push('$province_en');</script>";
+            endwhile;
+            ?>
+          <canvas id="geography_en" style="width:100%;max-width:600px"></canvas>
+          <script>
+            
+          var n = 0;
+          var s = 0;
+          var e = 0;
+          var w = 0;
+          var m = 0;
+          var es = 0;
+
+          for (let index = 0; index < pro_en.length; index++) {
+            var pro_check = pro_en[index];
+            if (pro_check.match('1')) {
+              n++;
+            } else if (pro_check.match('6')) {
+              s++;
+            } else if (pro_check.match('5')) {
+              e++;
+            } else if (pro_check.match('4')) {
+              w++;
+            } else if (pro_check.match('2')) {
+              m++;
+            } else if (pro_check.match('3')) {
+              es++;
+            }
+          }
+          
+          console.log(pro_en)
+
+          var qValues = ["ภาคเหนือ", "ภาคใต้", "ภาคตะวันออก", "ภาคตะวันตก", "ภาคกลาง", "ภาคอีสาน"
+          ];
+          var wValues = [n, s, e, w, m, es
+          ];
+          var barColors31 = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#DFFF00",
+            "#FFBF00",
+            "#FF7F50",
+          ];
+
+          new Chart("geography_en", {
+            type: "doughnut",
+            data: {
+              labels: qValues,
+              datasets: [{
+                backgroundColor: barColors31,
+                data: wValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "จังหวัดที่ตั้งบริษัท"
+              }
+            }
+          });
+          </script>
+        </div>
+
+      </div>
+
     </div>
   </div>
   <div class="p-5 bg-white rounded-30">
