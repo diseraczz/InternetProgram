@@ -67,9 +67,6 @@
             <div class="col-10">
               <h4>ตารางบริษัท</h4>
             </div>
-            <div class="col-2">
-              <a href="admin_add.php" class="btn btn-success">เพิ่มบริษัท</a>
-            </div>
             <br><br>
             <table class="table">
               <thead>
