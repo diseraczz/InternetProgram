@@ -161,7 +161,8 @@ function w3_close() {
             <?php while($row = $result->fetch_assoc()): ?>
             <tr>
               <td>
-                <?php echo $row['applicant_id']; ?>
+                <a href="../php/edit_applicant_admin.php?id=<?php echo $row['applicant_id']; ?>">
+                  <?php echo $row['applicant_id']; ?>
               </td>
               <td>
                 <?php echo $row['applicant_name']," ",$row['applicant_lastname'];?>
