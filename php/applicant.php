@@ -204,7 +204,6 @@ function w3_close() {
 
       <div class="candidate rounded-25">
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
         <script>
         var degrees = [];
         var degrees2 = [];
@@ -396,57 +395,58 @@ function w3_close() {
       </div>
 
       <div class="candidate rounded-25">
-          <canvas id="salarytchart" style="width:100%;max-width:600px"></canvas>
-          <script>
-          var salary1 = 0;
-          var salary2 = 0;
-          var salary3 = 0;
-          var salary4 = 0;
-          var salary5 = 0;
-          var salary6 = 0;
-          for (let index = 0; index < salary.length; index++) {
-            var salary_check = salary[index];
-            if (parseInt(salary_check) > 0 && parseInt(salary_check) <= 20000) {
-              salary1++;
-            } else if (parseInt(salary_check) > 20000 && parseInt(salary_check) <= 40000) {
-              salary2++;
-            } else if (parseInt(salary_check) > 40000 && parseInt(salary_check) <= 60000) {
-              salary3++;
-            } else if (parseInt(salary_check) > 60000 && parseInt(salary_check) <= 80000) {
-              salary4++;
-            } else if (parseInt(salary_check) > 80000 && parseInt(salary_check) <= 100000) {
-              salary5++;
-            } else if (parseInt(salary_check) > 100000) {
-              salary6++;
-            }
-            
+        <canvas id="position2" style="width:100%;max-width:600px"></canvas>
+        <script>
+        var salary1 = 0;
+        var salary2 = 0;
+        var salary3 = 0;
+        var salary4 = 0;
+        var salary5 = 0;
+        var salary6 = 0;
+        for (let index = 0; index < salary.length; index++) {
+          var salary_check = salary[index];
+          if (parseInt(salary_check) > 0 && parseInt(salary_check) <= 20000) {
+            salary1++;
+          } else if (parseInt(salary_check) > 20000 && parseInt(salary_check) <= 40000) {
+            salary2++;
+          } else if (parseInt(salary_check) > 40000 && parseInt(salary_check) <= 60000) {
+            salary3++;
+          } else if (parseInt(salary_check) > 60000 && parseInt(salary_check) <= 80000) {
+            salary4++;
+          } else if (parseInt(salary_check) > 80000 && parseInt(salary_check) <= 100000) {
+            salary5++;
+          } else if (parseInt(salary_check) > 100000) {
+            salary6++;
           }
 
-          console.log(salary1, salary2, salary3, salary4, salary5, salary6);
-          var xSalary = ["> 20,000", "20,001 - 40,000", "40,001 - 60,000", "60,001 - 80,000", "80,001 - 100,000", " < 100,001"];
-          var ySalary = [salary1, salary2, salary3, salary4, salary5, salary6];
-          var barColorsss = ["green", "green", "green", "green", "green", "green"];
-          var salary111 = new Chart("salarychart", {
-            type: "bar",
-            data: {
-              labels: xSalary,
-              datasets: [{
-                backgroundColor: barColorsss,
-                data: ySalary
-              }]
+        }
+        console.log(salary1, salary2, salary3, salary4, salary5, salary6);
+        var xSalary = ["> 20,000", "20,001 - 40,000", "40,001 - 60,000", "60,001 - 80,000", "80,001 - 100,000",
+          " < 100,001"
+        ];
+        var ySalary = [salary1, salary2, salary3, salary4, salary5, salary6];
+        var barColorsss = ["green", "green", "green", "green", "green", "green"];
+        new Chart("position2", {
+          type: "bar",
+          data: {
+            labels: xSalary,
+            datasets: [{
+              backgroundColor: barColorsss,
+              data: ySalary
+            }]
+          },
+          options: {
+            legend: {
+              display: false
             },
-            options: {
-              legend: {
-                display: false
-              },
-              title: {
-                display: true,
-                text: "Salary"
-              }
+            title: {
+              display: true,
+              text: "Salary"
             }
-          });
-          </script>
-        </div>
+          }
+        });
+        </script>
+      </div>
 
     </div>
   </div>
