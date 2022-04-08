@@ -23,6 +23,13 @@
     $id = $_SESSION["enterprise_id"];
     $query = mysqli_query($conn, "SELECT * FROM enterprises WHERE enterprise_id = $id ");
     $result = mysqli_fetch_array($query);
+
+    $sql1 = mysqli_query($conn, "SELECT * FROM enterprises INNER JOIN provinces ON enterprises.enterprise_province = provinces.id WHERE enterprise_id = $id");
+    $result1 = mysqli_fetch_array($sql1);
+    $sql2 = mysqli_query($conn, "SELECT * FROM enterprises INNER JOIN amphures ON enterprises.enterprise_district = amphures.id WHERE enterprise_id = $id");
+    $result2 = mysqli_fetch_array($sql2);
+    $sql3 = mysqli_query($conn, "SELECT * FROM enterprises INNER JOIN districts ON enterprises.enterprise_sub_district = districts.id WHERE enterprise_id = $id");
+    $result3 = mysqli_fetch_array($sql3);
   ?>
 <body class="">
   <header class="p-2 border-buttom header-bar">
@@ -78,7 +85,7 @@
                       <label for="input" class="fs-4">ที่อยู่บริษัท</label>
                     </div>
                     <div class="col-9 bg-white p-2 rounded-3" style="height: 100px;">
-                      <label class="text-uppercase "><?= $result['enterprise_address']?>&nbsp; <?= $result['enterprise_sub_district']?>,<?= $result['enterprise_district']?>,<?= $result['enterprise_province']?></label>
+                      <label class="text-uppercase "><?= $result['enterprise_address']?>&nbsp; <?= $result3['name_th']?>,<?= $result2['name_th']?>,<?= $result1['name_th']?></label>
                     </div>
                     <div class="col-3">
                       <label for="input" class="fs-4">อีเมลบริษัท</label>

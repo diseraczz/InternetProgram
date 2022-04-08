@@ -27,6 +27,13 @@
     $id = $_SESSION["applicant_id"];
     $query = mysqli_query($conn, "SELECT * FROM applicants WHERE applicant_id = $id ");
     $result = mysqli_fetch_array($query);
+
+    $sql1 = mysqli_query($conn, "SELECT * FROM applicants INNER JOIN provinces ON applicants.applicant_province = provinces.id WHERE applicant_id = $id");
+    $result1 = mysqli_fetch_array($sql1);
+    $sql2 = mysqli_query($conn, "SELECT * FROM applicants INNER JOIN amphures ON applicants.applicant_district = amphures.id WHERE applicant_id = $id");
+    $result2 = mysqli_fetch_array($sql2);
+    $sql3 = mysqli_query($conn, "SELECT * FROM applicants INNER JOIN districts ON applicants.applicant_sub_district = districts.id WHERE applicant_id = $id");
+    $result3 = mysqli_fetch_array($sql3);
   ?>
 
   <header class="p-2 border-buttom header-bar">
@@ -83,7 +90,7 @@
                     <label class="bi bi-envelope" > อีเมล :&emsp;  <?= $result['applicant_email']?> </label><br>
                     <label class="bi bi-geo-alt-fill" > ที่อยู่ :&emsp; <?= $result['applicant_addess']?> </label><br>
                 
-                    <label class="" >&emsp; <?= $result['applicant_province']?>, &nbsp; <?= $result['applicant_district']?>, &nbsp; <?= $result['applicant_sub_district']?></label><br>
+                    <label class="" >&emsp; <?= $result1['name_th']?>, &nbsp; <?= $result2['name_th']?>, &nbsp; <?= $result3['name_th']?></label><br>
                     <label class="bi bi-calendar" > วุฒิการศึกษา : &emsp; <?= $result['applicant_edu_level']?> </label>
                     </div>
                   </div>
