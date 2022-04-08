@@ -101,7 +101,7 @@ function w3_close() {
           <button onclick="w3_close()" class="btn btn-danger">Close &times;</button>
           <li>
             <div class="d-grid gap-2 d-md-block">
-            <a class="btn btn-primary" href="../php/admin.php" role="button">กลับหน้าแรก</a>
+              <a class="btn btn-primary" href="../php/admin.php" role="button">กลับหน้าแรก</a>
 
               <h6 class="dropdown-header">Users</h6>
               <a class="btn btn-primary" href="../php/enterprises.php" role="button">บริษัท</a>
@@ -112,6 +112,18 @@ function w3_close() {
             <h6 class="dropdown-header">Search Province</h6>
           </li>
           <input type="text" id="myInput" onkeyup="searchenterprise()" placeholder="Search for Province..">
+          <li>
+            <h6 class="dropdown-header">Search Province</h6>
+            <label for="customRange1" class="form-label">Example range</label>
+            <input id="rangesalary" type="range" class="form-range" id="customRange1">
+            <script>
+            var salary = document.getElementById("rangesalary");
+            salary.oninput = function() {
+              console.log(this.value);
+            }
+            console.log(salary);
+            </script>
+          </li>
         </ul>
 
         <!--<a>
@@ -140,7 +152,7 @@ function w3_close() {
             </tr>
           </thead>
           <tbody>
-          <?php 
+            <?php 
             $my_array = array();
             echo "<script>var sin = [];</script>";
             echo "<script>var posit = [];</script>";
@@ -182,36 +194,36 @@ function w3_close() {
             <?php endwhile ?>
           </tbody>
         </table>
-        
+
       </div>
 
       <div>
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
         <script>
-            var degrees = [];
-            var degrees2 = [];
-            var strings = '';
-            for (let i = 0; i < sin.length; i++) {
-              var sin2 = sin[i];
-              strings = strings + ',' + sin2;
-            }
-            degrees.push(strings.split(','));
-            degrees2 = degrees[0];
-            var bachelor = 0;
-            var master = 0;
-            var doctor = 0;
+        var degrees = [];
+        var degrees2 = [];
+        var strings = '';
+        for (let i = 0; i < sin.length; i++) {
+          var sin2 = sin[i];
+          strings = strings + ',' + sin2;
+        }
+        degrees.push(strings.split(','));
+        degrees2 = degrees[0];
+        var bachelor = 0;
+        var master = 0;
+        var doctor = 0;
 
-            for (let index = 0; index < degrees2.length; index++) {
-              var degrees_check = degrees2[index].toLocaleLowerCase();
-              if (degrees_check.match('ปริญญาตรี')) {
-                bachelor++;
-              } else if (degrees_check.match('ปริญญาโท')) {
-                master++;
-              } else if (degrees_check.match('ปริญญาเอก')) {
-                doctor++;
-              }
-            }
+        for (let index = 0; index < degrees2.length; index++) {
+          var degrees_check = degrees2[index].toLocaleLowerCase();
+          if (degrees_check.match('ปริญญาตรี')) {
+            bachelor++;
+          } else if (degrees_check.match('ปริญญาโท')) {
+            master++;
+          } else if (degrees_check.match('ปริญญาเอก')) {
+            doctor++;
+          }
+        }
 
         var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
         var yValues = [bachelor, master, doctor];
@@ -233,40 +245,40 @@ function w3_close() {
           options: {
             title: {
               display: true,
-                text: "ระดับการศึกษา"
+              text: "ระดับการศึกษา"
             }
           }
         });
         </script>
       </div>
 
-            <div>
+      <div>
         <canvas id="edulevel" style="width:100%;max-width:600px"></canvas>
 
         <script>
-            var degrees = [];
-            var degrees2 = [];
-            var strings = '';
-            for (let i = 0; i < sin.length; i++) {
-              var sin2 = sin[i];
-              strings = strings + ',' + sin2;
-            }
-            degrees.push(strings.split(','));
-            degrees2 = degrees[0];
-            var bachelor = 0;
-            var master = 0;
-            var doctor = 0;
+        var degrees = [];
+        var degrees2 = [];
+        var strings = '';
+        for (let i = 0; i < sin.length; i++) {
+          var sin2 = sin[i];
+          strings = strings + ',' + sin2;
+        }
+        degrees.push(strings.split(','));
+        degrees2 = degrees[0];
+        var bachelor = 0;
+        var master = 0;
+        var doctor = 0;
 
-            for (let index = 0; index < degrees2.length; index++) {
-              var degrees_check = degrees2[index].toLocaleLowerCase();
-              if (degrees_check.match('ปริญญาตรี')) {
-                bachelor++;
-              } else if (degrees_check.match('ปริญญาโท')) {
-                master++;
-              } else if (degrees_check.match('ปริญญาเอก')) {
-                doctor++;
-              }
-            }
+        for (let index = 0; index < degrees2.length; index++) {
+          var degrees_check = degrees2[index].toLocaleLowerCase();
+          if (degrees_check.match('ปริญญาตรี')) {
+            bachelor++;
+          } else if (degrees_check.match('ปริญญาโท')) {
+            master++;
+          } else if (degrees_check.match('ปริญญาเอก')) {
+            doctor++;
+          }
+        }
 
         var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
         var yValues = [bachelor, master, doctor];
@@ -288,7 +300,7 @@ function w3_close() {
           options: {
             title: {
               display: true,
-                text: "ระดับการศึกษา"
+              text: "ระดับการศึกษา"
             }
           }
         });
@@ -299,89 +311,96 @@ function w3_close() {
         <canvas id="position" style="width:100%;max-width:600px"></canvas>
 
         <script>
-            var pos = [];
-            var pos2 = [];
-            var strings = '';
-            for (let i = 0; i < posit.length; i++) {
-              var posit2 = posit[i];
-              strings = strings + ',' + posit2;
-            }
-            pos.push(strings.split(','));
-            pos2 = pos[0];
-            var an = 0;
-            var ba = 0;
-            var da = 0;
-            var de = 0;
-            var hw = 0;
-            var ita = 0;
-            var itm = 0;
-            var itp = 0;
-            var its = 0;
-            var itshd = 0;
-            var mis = 0;
-            var programmer = 0;
-            var se = 0;
-            var st = 0;
-            var sadmin = 0;
-            var sa = 0;
-            var sea = 0;
-            var mw = 0;
-            var seo = 0;
-            var network = 0;
-            var it = 0;
-            var uxui = 0;
+        var pos = [];
+        var pos2 = [];
+        var strings = '';
+        for (let i = 0; i < posit.length; i++) {
+          var posit2 = posit[i];
+          strings = strings + ',' + posit2;
+        }
+        pos.push(strings.split(','));
+        pos2 = pos[0];
+        var an = 0;
+        var ba = 0;
+        var da = 0;
+        var de = 0;
+        var hw = 0;
+        var ita = 0;
+        var itm = 0;
+        var itp = 0;
+        var its = 0;
+        var itshd = 0;
+        var mis = 0;
+        var programmer = 0;
+        var se = 0;
+        var st = 0;
+        var sadmin = 0;
+        var sa = 0;
+        var sea = 0;
+        var mw = 0;
+        var seo = 0;
+        var network = 0;
+        var it = 0;
+        var uxui = 0;
 
-            for (let index = 0; index < pos2.length; index++) {
-              var pos_check = pos2[index];
-              if (pos_check.match('Application Network')) {
-                an++;
-              } else if (pos_check.match('Business Analyst (BA)')) {
-                ba++;
-              } else if (pos_check.match('Data Analysis')) {
-                da++;
-              } else if (pos_check.match('Data Engineer')) {
-                de++;
-              } else if (pos_check.match('Hardware')) {
-                hw++;
-              } else if (pos_check.match('IT Audit')) {
-                ita++;
-              } else if (pos_check.match('IT Manager/Senior Programmer')) {
-                itm++;
-              } else if (pos_check.match('IT Project Manager')) {
-                itp++;
-              } else if (pos_check.match('IT Security')) {
-                its++;
-              } else if (pos_check.match('IT Support Help Desk')) {
-                itshd++;
-              } else if (pos_check.match('MIS')) {
-                mis++;
-              } else if (pos_check.match('Programmer')) {
-                programmer++;
-              } else if (pos_check.match('Software Engineer')) {
-                se++;
-              } else if (pos_check.match('Software Tester')) {
-                st++;
-              } else if (pos_check.match('System Admin')) {
-                sadmin++;
-              } else if (pos_check.match('System Analyst')) {
-                sa++;
-              } else if (pos_check.match('System Engineer and Architect')) {
-                sea++;
-              } else if (pos_check.match('Mobile Wireless')) {
-                mw++;
-              } else if (pos_check.match('ดูแลเว็บไซต์ และ SEO')) {
-                seo++;
-              } else if (pos_check.match('ดูแลระบบ Network')) {
-                network++;
-              } else if (pos_check.match('ที่ปรึกษาไอที')) {
-                it++;
-              } else if (pos_check.match('นักออกแบบ UX/UI')) {
-                uxui++;
-              }
-            }
+        for (let index = 0; index < pos2.length; index++) {
+          var pos_check = pos2[index];
+          if (pos_check.match('Application Network')) {
+            an++;
+          } else if (pos_check.match('Business Analyst (BA)')) {
+            ba++;
+          } else if (pos_check.match('Data Analysis')) {
+            da++;
+          } else if (pos_check.match('Data Engineer')) {
+            de++;
+          } else if (pos_check.match('Hardware')) {
+            hw++;
+          } else if (pos_check.match('IT Audit')) {
+            ita++;
+          } else if (pos_check.match('IT Manager/Senior Programmer')) {
+            itm++;
+          } else if (pos_check.match('IT Project Manager')) {
+            itp++;
+          } else if (pos_check.match('IT Security')) {
+            its++;
+          } else if (pos_check.match('IT Support Help Desk')) {
+            itshd++;
+          } else if (pos_check.match('MIS')) {
+            mis++;
+          } else if (pos_check.match('Programmer')) {
+            programmer++;
+          } else if (pos_check.match('Software Engineer')) {
+            se++;
+          } else if (pos_check.match('Software Tester')) {
+            st++;
+          } else if (pos_check.match('System Admin')) {
+            sadmin++;
+          } else if (pos_check.match('System Analyst')) {
+            sa++;
+          } else if (pos_check.match('System Engineer and Architect')) {
+            sea++;
+          } else if (pos_check.match('Mobile Wireless')) {
+            mw++;
+          } else if (pos_check.match('ดูแลเว็บไซต์ และ SEO')) {
+            seo++;
+          } else if (pos_check.match('ดูแลระบบ Network')) {
+            network++;
+          } else if (pos_check.match('ที่ปรึกษาไอที')) {
+            it++;
+          } else if (pos_check.match('นักออกแบบ UX/UI')) {
+            uxui++;
+          }
+        }
 
-        var aValues = ["Application Network", "Business Analyst (BA)", "Data Analysis", "Data Engineer", "Hardware", "IT Audit", "IT Manager/Senior Programmer", "IT Manager/Senior Programmer", "IT Security", "IT Support Help Desk", "MIS", "Programmer", "Software Engineer", "Software Tester", "System Admin", "System Analyst", "System Engineer and Architect", "Mobile Wireless", "ดูแลเว็บไซต์ และ SEO", "ดูแลระบบ Network", "ที่ปรึกษาไอที", "นักออกแบบ UX/UI"];
-        var bValues = [an, ba, da, de, hw, ita, itm, itp, its, itshd, mis, programmer, se, st, sadmin, sa, sea, mw, seo, network, it, uxui];
+        var aValues = ["Application Network", "Business Analyst (BA)", "Data Analysis", "Data Engineer", "Hardware",
+          "IT Audit", "IT Manager/Senior Programmer", "IT Manager/Senior Programmer", "IT Security",
+          "IT Support Help Desk", "MIS", "Programmer", "Software Engineer", "Software Tester", "System Admin",
+          "System Analyst", "System Engineer and Architect", "Mobile Wireless", "ดูแลเว็บไซต์ และ SEO",
+          "ดูแลระบบ Network", "ที่ปรึกษาไอที", "นักออกแบบ UX/UI"
+        ];
+        var bValues = [an, ba, da, de, hw, ita, itm, itp, its, itshd, mis, programmer, se, st, sadmin, sa, sea, mw, seo,
+          network, it, uxui
+        ];
         var barColors2 = [
           "#b91d47",
           "#00aba9",
@@ -419,7 +438,7 @@ function w3_close() {
           options: {
             title: {
               display: true,
-                text: "ตำแหน่งงาน"
+              text: "ตำแหน่งงาน"
             }
           }
         });
@@ -428,7 +447,7 @@ function w3_close() {
 
     </div>
   </div>
-  
+
 </body>
 
 </html>
