@@ -1,7 +1,6 @@
 <?php
   session_start();
-  require_once "connection.php";
-  $query = mysqli_query($conn, "set char set utf8")
+  include('connection.php');
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -27,31 +26,29 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
   </head>
 
-
   <body>
       <?php
-        $idadmin = $_SESSION["admin_id"];
-        $query = mysqli_query($conn, "SELECT * FROM admin WHERE admin_id = $idadmin ");
+        $id = $_SESSION["admin_id"];
+        $query = mysqli_query($conn, "SELECT * FROM admin WHERE admin_id = $id ");
         $result = mysqli_fetch_array($query);
       ?>
     <header class="p-2 border-buttom admin-bar">
       <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">
-          <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+          <a href="admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
             <img src="../images/meIT2.png" alt="" width="170" height="auto" >
           </a>
           <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto" style="color: white;">
-            <h3>Overview</h3>
+            <h3>ผู้ดูแลระบบ</h3>
           </div>
           <div class="dropdown me-5" >
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../images/<?= $result['admin_img']?>" alt="mdo" width="40" height="40" class="rounded-circle bg-darkblue" style="border: #86b7fe solid; "> <?= $result['admin_name']?>
+              <img src="../images/<?= $result['admin_img']?>" alt="mdo" width="40" height="40" class="rounded-circle bg-darkblue" style="border: #86b7fe solid;  "> <?= $result['admin_name']?>
             </a>
             <ul class="dropdown-menu " aria-labelledby="dropdownUser1" >
               <li><a class="dropdown-item" href="admin.php">Overview</a></li>
               <li><a class="dropdown-item" href="admin_user_information.php">จัดการข้อมูลผู้ใช้งาน</a></li>
               <li><a class="dropdown-item" href="admin_information.php">จัดการข้อมูลผู้ดูแลระบบ</a></li>
-
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -63,9 +60,49 @@
       </div>
     </header>
 
-    <!--overview-->
+    <main class="container pt-5" >
+      <form method="GET" enctype="multipart/form-data">
+        <div class="p-5 bg-white rounded-30">
+          <div class="row text-black">
+            <div class="col-10">
+              <h4>ตารางผู้ดูแลระบบ</h4>
+            </div>
+            <div class="col-2">
+              <a href="admin_add.php" class="btn btn-success">เพิ่มผู้ดูแลระบบ</a>
+            </div>
+            <br><br>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Profile</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+                $query = mysqli_query($conn, "SELECT * FROM admin ORDER BY admin_id ASC");
+                while ($result = mysqli_fetch_array($query)) {
+              ?>
+                <tr>
+                  <td><?= $result['admin_id'] ?></td>
+                  <td><img src="../images/<?= $result['admin_img'] ?>" width="100" height="auto"></td>
+                  <td><?= $result['admin_name'] ?></td>
+                  <td><?= $result['admin_email'] ?></td>
+                  <td><a href="admin_edit.php?admin_id=<?= $result['admin_id']?>" class="btn btn-editp rounded-pill px-3 ">แก้ไข</a></td>
+                  <td><a href="admin_delete.php?admin_id=<?= $result['admin_id']?>" class="btn btn-cancelg rounded-pill px-4 text-white" onclick="return confirm('คุณต้องการลบชื่อ <?= $result['admin_name'] ?> หรือไม่')">ลบ</a></td>
+                </tr>
+              <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </form>
+    </main>
 
   </body>
-
 
 </html>

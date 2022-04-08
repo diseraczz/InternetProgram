@@ -9,8 +9,8 @@ body {
     background: linear-gradient(180deg, rgba(84, 84, 197, 1) 0%, rgb(77, 180, 248) 100%);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    min-height: 120vh;
-    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/91.webp');
+    min-height: 100vh;
+    background-image: url('https://i.imgur.com/HJwMY1g.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -21,9 +21,13 @@ body {
 }
 
 
-/* ทำให้มุมมันมนๆ */
+
 .rounded-10 {
-  border-radius: 40px;   
+  border-radius: 40px;
+}
+
+.img-work{
+  border-radius: 50%;
 }
 
 .chat-screen {
@@ -36,6 +40,14 @@ body {
     max-width: auto;
 }
 
+.overme {
+  
+  overflow:hidden; 
+  white-space:nowrap;  
+  text-overflow: ellipsis;
+  
+}
+
 .header-bar {
     background-color: #434394;
     border-radius: 0rem 0rem 1.35rem 1.35rem;
@@ -45,6 +57,14 @@ body {
     box-shadow: 7px 7px 7px #0909093d;
 }
 
+.admin-bar {
+  background-color: rgba(255, 219, 92);
+  border-radius: 0rem 0rem 1.35rem 1.35rem;
+  position: sticky; 
+  top: 0;  
+  height: 65px;
+  box-shadow: 7px 7px 7px #0909093d;
+}
 
  h1,
 .h1 {
@@ -99,18 +119,6 @@ h4,
     }
 }
 
-h5,
-.h5 {
-    font-size: calc(1.275rem + 0.3vw);
-}
-
-@media (min-width: 1200px) {
-    h4,
-    .h4 {
-        font-size: 0.5rem;
-    }
-}
-
 h6,
 .h6 {
     font-size: 1rem;
@@ -128,9 +136,16 @@ button:hover {
 }
 
 
-/* linear-gradient = ไล่สี */
+
 .bg-blue-fade {
   background: linear-gradient(180deg, #5454C5 0%, #86b7fe 100%);
+}
+
+.bg-green-fade {
+  background: linear-gradient(180deg, #1c8812 0%, #5cbe53 100%);
+}
+.bg-yellow-fade {
+  background: linear-gradient(180deg, #eeb61d 0%, #fdf07b 100%);
 }
 
 .bg-white-fade {
@@ -153,6 +168,10 @@ button:hover {
   background-color: rgba(255, 219, 92);
 }
 
+.bg-darkblue{
+  background: #0b0142;
+}
+
 .rounded-25{
   border-radius: 25px ;
 }
@@ -161,8 +180,10 @@ button:hover {
   border-radius: 30px ;
 }
 
-.btn-primary {
-    border: none;
+
+
+.btn-cancelp {
+  border: none;
 }
 
 .mt-100{
@@ -196,7 +217,7 @@ button:hover {
 }
 
 .form-control:focus {
-    color: #212529;
+    color: #000000;
     background-color: #fff;
     border-color: #86b7fe;
     outline: 0;
@@ -214,14 +235,45 @@ button:hover {
 
 
 .btn-primary {
+    border-radius: 10px;
     background: rgb(84, 84, 197);
+    border: none;
     background: linear-gradient(90deg, rgba(84, 84, 197, 1) 0%, rgb(77, 180, 248) 100%);
 }
+.btn-green {
+  border-radius: 10px;
+  background: rgb(84, 84, 197);
+  border: none;
+  background: linear-gradient(180deg, #1c8812 0%, #5cbe53 100%);
+}
+.btn-yellow {
+  border-radius: 10px;
+  background: rgb(84, 84, 197);
+  border: none;
+  background: linear-gradient(180deg, #eeb61d 0%, #fdf07b 100%);
+}
 
+.btn-cancelp {
+  border-radius: 10px;
+  background: rgb(197, 84, 84);
+  background: linear-gradient(90deg, rgb(235, 25, 25) 0%, rgb(255, 136, 0) 100%);
+}
+
+.btn-editp {
+  border-radius: 10px;
+  background: rgb(255, 204, 38);
+  border: none;
+}
+
+.btn-cancelg {
+  border-radius: 10px;
+  background: rgb(231, 60, 60);
+  border: none;
+}
 .col-work {
     cursor: pointer;
     display: block;
-    height: 250px;
+    height: 300px;
     background-color: #0b0142;
     border-radius: 30px;
 }
@@ -237,9 +289,7 @@ button:hover {
     min-height: 50%;
 }
 
-.btn-primary {
-    border-radius: 10px;
-}
+
 
 .work-content {
     display: grid;
@@ -253,7 +303,7 @@ button:hover {
 }
 
 .modal-dialog-centered {
-    min-height: auto;
+    /* min-height: auto; */
     align-items: center;
     max-height: calc(100% - 700px);
 }
@@ -304,7 +354,7 @@ img {
 
 .content-boxWhite2 {
   background-color: #fff;
-  border-radius: 0px 0px 30px 30px;
+  border-radius: 0px 0px 30px 30px; 
 }
 
 
@@ -312,11 +362,14 @@ img {
   border-radius: 20px 20px 0px 0px;
 }
 
-/* เป็นน่าตา cursor เมาส์เราเมื่อไปชี้โดน */
 .cursor {
 cursor: pointer;
 }
 
 .shadow-sj{
-  box-shadow: 4px 4px 4px #09090962;
+  box-shadow: 4px 4px 4px #09090980;
+}
+
+.shadow-work{
+  box-shadow: 7px 7px 7px #090909be;
 }

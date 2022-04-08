@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Profile</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,42 +15,46 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../styles/styles.css">
-  <title>Profile</title>
   
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
-<body class="bg-blue-fade">
+<?php
+    $id = $_SESSION["enterprise_id"];
+    $query = mysqli_query($conn, "SELECT * FROM enterprises WHERE enterprise_id = $id ");
+    $result = mysqli_fetch_array($query);
+  ?>
+<body class="">
   <header class="p-2 border-buttom header-bar">
     <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">
-            <a href="main.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+            <a href="dashboard_work.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
                 <img src="../images/meIT2.png" alt="" width="170" height="auto" >
             </a>
             <div class="dropdown me-5" >
               <div class="border border-primary rounded-pill d-block link-light text-decoration-none dropdown-toggle p-1" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="padding: .15rem;" >  
-                <img src="../images/office-building.png" alt="pic" width="37" height="auto" class="rounded-circle">
+                <img src="../images/<?= $result['enterprise_profile_pic']?>" alt="pic" width="37" height="37" class="rounded-circle">&nbsp;&nbsp;<?= $result['enterprise_name_th']?>
               </div>
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Response</a></li>
+                <li><a class="dropdown-item" href="enterprise_profile.php">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
               </ul>
               </div>
             </div>
         </div>
     </div>
   </header>
-  <?php
-    $query = mysqli_query($conn, "SELECT * FROM enterprises WHERE enterprise_id='2' ");
-    $result = mysqli_fetch_array($query);
-  ?>
-  <div class="container">
+  
+  <main class="container">
+  
     <div class="p-4 bg-white w-100 rounded-30 h-100 mt-5">
       <div class="row">
         <div class="col-3 text-center mt-4 ">
           <t class="text-dark fs-1 fw-bold">Profile บริษัท</t>
-          <div class="justify-content-center my-4"><img src="../images/office-building.png" width="200" class="rounded-circle"></div>
-          <a class="btn success rounded-25 text-white" href="edit_profile_enterprise.php">แก้ไขข้อมูล</a>
+          <div class="justify-content-center my-4"><img src="../images/<?= $result['enterprise_profile_pic']?>" width="200" height="200"class="rounded-circle bg-darkblue"></div>
+          <a class="btn success rounded-25 text-white" href="enterprise_edit_profile.php?enterprise_id=<?=$result['enterprise_id']?>">แก้ไขข้อมูล</a>
         </div>
         <div class="col-9 mt-4">
           <div class="row">
@@ -60,32 +65,32 @@
                       <label for="input" class="fs-4">ชื่อบริษัท</label>
                     </div>
                     <div class="col-9 bg-white p-2 rounded-3">
-                      <p class="text-uppercase"><?= $result['enterprise_name_th']?>&emsp;(<?= $result['enterprise_name_en']?>)</p>
+                      <label class="text-uppercase"><?= $result['enterprise_name_th']?> &nbsp; (<?= $result['enterprise_name_en']?>)</label>
                     </div>
 
                     <div class="col-3">
                       <label for="input" class="fs-4">เว็บไซต์บริษัท</label>
                     </div>
                     <div class="col-9 bg-white p-2 rounded-3">
-                    <p class="text-uppercase"><?= $result['enterprise_website']?></p>
+                      <label class="text-uppercase"><?= $result['enterprise_website']?></label>
                     </div>
                     <div class="col-3">
                       <label for="input" class="fs-4">ที่อยู่บริษัท</label>
                     </div>
                     <div class="col-9 bg-white p-2 rounded-3" style="height: 100px;">
-                      <p class="text-uppercase "><?= $result['enterprise_address']?>,&emsp;<?= $result['enterprise_province']?>,&emsp;<?= $result['enterprise_district']?>,&emsp;<?= $result['enterprise_sub_district']?></p>
+                      <label class="text-uppercase "><?= $result['enterprise_address']?>&nbsp; <?= $result['enterprise_sub_district']?>,<?= $result['enterprise_district']?>,<?= $result['enterprise_province']?></label>
                     </div>
                     <div class="col-3">
                       <label for="input" class="fs-4">อีเมลบริษัท</label>
                     </div>
                     <div class="col-9 bg-white p-2 rounded-3">
-                      <p class="text-uppercase "><?= $result['enterprise_email']?></p>
+                      <label class="text-uppercase "><?= $result['enterprise_email']?></label>
                     </div>
                     <div class="col-3">
                       <label for="input" class="fs-4">เบอร์โทรศัพท์บริษัท</label>
                     </div>
                     <div class="col-9 bg-white p-2 rounded-3">
-                    <p class="text-uppercase "><?= $result['enterprise_telephone_number']?></p>
+                      <label class="text-uppercase "><?= $result['enterprise_telephone_number']?></label>
                     </div>
                 
                 </div>
@@ -96,6 +101,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </body>
 </html>

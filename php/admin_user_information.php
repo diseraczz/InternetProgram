@@ -1,7 +1,7 @@
 <?php
-  session_start();
-  require_once "connection.php";
-  $query = mysqli_query($conn, "set char set utf8")
+session_start();
+require_once "connection.php";
+$query = mysqli_query($conn, "set char set utf8")
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -27,21 +27,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
   </head>
 
-
   <body>
-      <?php
-        $idadmin = $_SESSION["admin_id"];
-        $query = mysqli_query($conn, "SELECT * FROM admin WHERE admin_id = $idadmin ");
-        $result = mysqli_fetch_array($query);
-      ?>
+    <?php
+      $idadmin = $_SESSION["admin_id"];
+      $query = mysqli_query($conn, "SELECT * FROM admin WHERE admin_id = $idadmin ");
+      $result = mysqli_fetch_array($query);
+    ?>
     <header class="p-2 border-buttom admin-bar">
       <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">
-          <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+          <a href="admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
             <img src="../images/meIT2.png" alt="" width="170" height="auto" >
           </a>
           <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto" style="color: white;">
-            <h3>Overview</h3>
+            <h3>ข้อมูลผู้ใช้งาน</h3>
           </div>
           <div class="dropdown me-5" >
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,6 +65,5 @@
     <!--overview-->
 
   </body>
-
 
 </html>

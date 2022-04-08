@@ -1,7 +1,7 @@
 <?php
-  session_start();
-  require_once "connection.php";
-  $query = mysqli_query($conn, "set char set utf8")
+session_start();
+require_once "connection.php";
+$query = mysqli_query($conn, "set char set utf8")
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -27,7 +27,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
   </head>
 
-
   <body>
       <?php
         $idadmin = $_SESSION["admin_id"];
@@ -37,11 +36,11 @@
     <header class="p-2 border-buttom admin-bar">
       <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">
-          <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
+          <a href="admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
             <img src="../images/meIT2.png" alt="" width="170" height="auto" >
           </a>
           <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto" style="color: white;">
-            <h3>Overview</h3>
+            <h3>Profile</h3>
           </div>
           <div class="dropdown me-5" >
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,6 +48,7 @@
             </a>
             <ul class="dropdown-menu " aria-labelledby="dropdownUser1" >
               <li><a class="dropdown-item" href="admin.php">Overview</a></li>
+              <li><a class="dropdown-item" href="admin_add_admin.php">เพิ่มผู้ดูแลระบบ</a></li>
               <li><a class="dropdown-item" href="admin_user_information.php">จัดการข้อมูลผู้ใช้งาน</a></li>
               <li><a class="dropdown-item" href="admin_information.php">จัดการข้อมูลผู้ดูแลระบบ</a></li>
 
@@ -63,9 +63,32 @@
       </div>
     </header>
 
-    <!--overview-->
+    <!--profile-->
+    <main class="container pt-5" >
+      <form method="post" enctype="multipart/form-data">
+        <div class="p-5 bg-white rounded-30">
+          <div class="row text-black">
+            <div>
+              <h3>บัญชีของฉัน</h3>
+            </div>
+            <hr><br>
+            <div class="col-3 text-center pt-4">
+              <img src="../images/<?= $_SESSION['admin_img']?>" width="220" height="220" class="rounded-circle bg-darkblue">
+            </div>
+            <div class="col-9 pt-4">
+              <div class="col-5">
+                <label class="col-form-label ">Name : <?= $_SESSION['admin_name']?></label>
+              </div>
+              <div class="col-5">
+                <label for="admin_email" class="col-form-label ">E-Mail : <?= $_SESSION['admin_email']?></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+
 
   </body>
-
 
 </html>

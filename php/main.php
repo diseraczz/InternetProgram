@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "connection.php";
 $query = mysqli_query($conn, "set char set utf8")
 ?>
@@ -27,28 +28,32 @@ $query = mysqli_query($conn, "set char set utf8")
   </head>
 
   <body>
+    
+   
   <header class="p-2 border-buttom header-bar">
   <div class="container-header">
       <div class="d-flex flex-wrap align-items-center justify-content-start">
           <a href="main.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-4">
               <img src="../images/meIT2.png" alt="" width="170" height="auto" >
           </a>
+          <?php
+            $id = $_SESSION["applicant_id"];
+            $query = mysqli_query($conn, "SELECT * FROM applicants WHERE applicant_id = $id ");
+            $result = mysqli_fetch_array($query);
+          ?>
           <div class="dropdown me-5" >
               <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="../images/man (3).png" alt="mdo" width="40" height="auto" class="rounded-circle" style="border: #86b7fe solid; ">
+              <img src="../images/<?= $result['applicant_profile_pic']?>" alt="mdo" width="40" height="40" class="rounded-circle" style="border: #86b7fe solid; ">&nbsp;&nbsp;<?= $result['applicant_firstname']?>
               </a>
               <ul class="dropdown-menu " aria-labelledby="dropdownUser1" >
-                  <li><a class="dropdown-item" href="user-work.html">My work</a></li>
-                  <li><a class="dropdown-item" href="user-profile.html">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">My work</a></li>
+                  <li><a class="dropdown-item" href="applicant_profile.php">Profile</a></li>
                   <li>
                       <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                  <li><a class="dropdown-item" href="logout.php">Sign Out</a></li>
               </ul>
           </div>
-          <ul class="nav nav-pills">
-              <a class="btn btn-primary-search" href="main.html" role="button">ค้นหางาน</a>
-          </ul>
       </div>
   </div>
   </header>
@@ -64,21 +69,41 @@ $query = mysqli_query($conn, "set char set utf8")
                     <label for="exampleInputEmail1" class="fs-5 mt-4 text-white">ค้นหางาน</label>
                     <?php
                       $q = (isset($_GET['q']) ? $_GET['q'] : '');
-
                       $select = (isset($_GET['select']) ? $_GET['select'] : '');
-
+                      $g = (isset($_GET['g']) ? $_GET['g'] : '');
                     ?>
+                    <?php
+                      $sql = "SELECT * FROM `job_posts` INNER JOIN enterprises AS enterprises ON (job_posts.job_post_enterprise_id=enterprises.enterprise_id) 
+                                                        INNER JOIN employment_types AS emploment_types ON (job_posts.job_post_employment_type_id=emploment_types.employment_type_id)
+                                                        INNER JOIN positions AS positions ON (job_posts.job_post_position_id=positions.position_id) 
+                                                        INNER JOIN employment_types AS employment_types ON (job_posts.job_post_employment_type_id=employment_types.employment_type_id)
+                                                        WHERE job_posts.job_post_id LIKE '%$q%' OR job_posts.job_post_income LIKE '%$q%' OR (job_posts.job_post_employment_type_id) LIKE '%$q%' OR (job_posts.job_post_details) LIKE '%$q%' OR (job_posts.job_post_skill_id) LIKE '%$q%'
+                                                        OR positions.position_name LIKE '%$q%' OR employment_types.employment_type_name LIKE '%$q%'
+                                                        -- AND employment_types.employment_type_id LIKE'%$select%' OR positions.position_id LIKE '%$g%'
+                                                        ";
+
+                    if($_GET["select"] != "" and  $_GET["q"]  != '')
+                    {
+                    $sql .= " AND (".$_GET["select"]." LIKE '%".$_GET["q"]."%' ) ";
+                    } 
+                      $query = mysqli_query($conn,$sql);
+                    ?>
+                    <?php
+                      while($result= mysqli_fetch_array($query,MYSQLI_ASSOC)) 
+                    ?>
+                    
                     <form method="get" class="form-horizontal">
                       <div class="input-group" style="z-index: 0;" >                   
                           <input type="text" name="q" class="form-control" placeholder="ค้นหางาน..." aria-label="Search" aria-describedby="button-addon2" >                     
                           <button type="submit" id="button-addon2" class="btn btn-primary bi bi-search">ค้นหา</button>
                       </div>
+                      
 
-                      <div class="row" >
+                      <!-- <div class="row" >
                         <div class="col">
                             <label for="exampleInputEmail1" class="fs-5 mt-4 text-white">ประเภทงาน</label>
                          
-                              <select class="form-select" name="select" aria-label="Default select example" style="font-size: 1.1rem;">
+                              <select class="form-select" name="g" aria-label="Default select example" style="font-size: 1.1rem;">
                                 <option disabled selected>ประเภทงาน</option>
                                 <option value="Application Network">Application Network</option>
                                 <option value="Business Analyst (BA)">Business Analyst (BA)</option>
@@ -108,17 +133,14 @@ $query = mysqli_query($conn, "set char set utf8")
                         <div class="col">
                             <label for="exampleInputEmail1" class="fs-5 mt-4 text-white">ประเภทการจ้าง</label>
                             
-                              <select class="form-select" name="g" aria-label="Default select example" style="font-size: 1.1rem;">
+                              <select class="form-select" name="select" aria-label="Default select example" style="font-size: 1.1rem;">
                                 <option value="" selected>ประเภทการจ้าง</option>
-                                <option value="งานประจำ">งานประจำ</option>
-                                <option value="งานอิสระ">งานอิสระ</option>
-                                <option value="ฝึกงาน">ฝึกงาน</option>
-                                <!-- <option value="">งานอิสระ</option>
-                                <option value="ฝึกงาน">ฝึกงาน</option> -->
+                                <option value="1">งานประจำ</option>
+                                <option value="2">งานอิสระ</option>
+                                <option value="3">ฝึกงาน</option>
                               </select>
-                           
                         </div>
-                      </div>
+                      </div> -->
                     </form>
                 </div>
               </div>
@@ -135,52 +157,37 @@ $query = mysqli_query($conn, "set char set utf8")
             </div>
             <div class="work-content gap-4">
             <?php
+              $sql = "SELECT * FROM `job_posts` INNER JOIN enterprises AS enterprises ON (job_posts.job_post_enterprise_id=enterprises.enterprise_id) 
+                                                INNER JOIN employment_types AS emploment_types ON (job_posts.job_post_employment_type_id=emploment_types.employment_type_id)
+                                                INNER JOIN positions AS positions ON (job_posts.job_post_position_id=positions.position_id) 
+                                                INNER JOIN employment_types AS employment_types ON (job_posts.job_post_employment_type_id=employment_types.employment_type_id)
+                                                WHERE job_posts.job_post_id LIKE '%$q%' OR job_posts.job_post_income LIKE '%$q%' OR (job_posts.job_post_employment_type_id) LIKE '%$q%' OR (job_posts.job_post_details) LIKE '%$q%' OR (job_posts.job_post_skill_id) LIKE '%$q%'
+                                                OR positions.position_name LIKE '%$q%' OR employment_types.employment_type_name LIKE '%$q%'
+                                                ";
 
-              $serverName = "localhost";
-              $userName = "root";
-              $userPassword = "12345678";
-              $dbName = "smart_jobs";
-   
-              $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-
-              $sql = "SELECT * FROM job_posts WHERE job_post_id LIKE '%$q%' OR job_post_income LIKE '%$q%' OR job_post_employment_type_id LIKE '%$q%' OR job_post_details LIKE '%$q%' OR job_post_skill_id LIKE '%$q%'
-              ";
-              $sqlss = "SELECT * FROM job_posts 
-              INNER JOIN enterprises AS enterprises ON (job_posts.job_post_id=enterprises.enterprise_id) 
-              INNER JOIN employment_types AS emploment_types ON (job_posts.job_post_employment_type_id=emploment_types.employment_type_id)
-              INNER JOIN positions AS positions ON (job_posts.job_post_position_id=positions.position_id)
-              ";
-
-              
              if($_GET["select"] != "" and  $_GET["q"]  != '')
              {
              $sql .= " AND (".$_GET["select"]." LIKE '%".$_GET["q"]."%' ) ";
              } 
              
-               
-               
-              // $objQuery = mysql_query($sql) or die ("Error Query [".$sql."]");
-
               $query = mysqli_query($conn,$sql);
-              // echo '<font color="red">';   
-              // echo 'คำค้น = ';
-              // echo $_GET['q'];
-              // echo '</font>';
-              ?>
+            ?>
 
               <?php
-              while($result= mysqli_fetch_array($query,MYSQLI_ASSOC)) 
+                while($result= mysqli_fetch_array($query,MYSQLI_ASSOC)) 
               {
               ?>
 
               <tr>
                 <div class="col-work p-4 text-white view_data"  name="view" value="view" id="<?php echo $result["job_post_id"]; ?>">
-                    <div class="row px-3 pt-1">
-                      <div class="col-3 bg-white rounded-circle" style="width: 75px; height: 75px;">
-                      </div>
-                      <div class="col-9  fs-4 font-weight-bold">
-                      งาน 
-                        <?php echo $result["position_name"];?>
+                    <div class="row ">
+                      <td>
+                        <div class="col-4 rounded-circle"><img src="../images/<?= $result['enterprise_profile_pic']?>" style="width: 85px; height: 85px; border-radius: 50%; background-color: #5454C5;" ></div>
+                      </td>
+                  
+                      <div class="col-8  fs-4 font-weight-bold overme  rounded-25">
+                      
+                      <?php echo "".$result["position_name"];?>
                       </div>
                     </div>
                     <div class="row pt-2">
@@ -188,6 +195,7 @@ $query = mysqli_query($conn, "set char set utf8")
                     <td><div class="pt-2 bi bi-currency-dollar"><?php echo "&emsp; " .$result["job_post_income"];?>&emsp; บาท</div></td>
                     <!-- <td><div class="pt-2 "><?php echo "รายละเอียด".$result["details"];?></div></td> -->
                     <td><div class="pt-2 bi bi-clock pre "><?php echo "&emsp;  ".$result["employment_type_name"];?></div></td>
+                    <td><div class="pt-2  "><?php echo "บริษัท :&emsp;  ".$result["enterprise_name_th"];?></div></td>
                     <td><div class="pt-2  "><?php echo "เว็บไซต์ :&emsp;  ".$result["enterprise_website"];?></div></td>
                     <td><div class="pt-2 "><?php echo $result["job_type"];?></div></td>
                     </div>
@@ -196,7 +204,6 @@ $query = mysqli_query($conn, "set char set utf8")
               <?php
               }
               ?>
-              <!-- </table> -->
               <?php
               mysqli_close($conn);
             ?>
@@ -206,27 +213,19 @@ $query = mysqli_query($conn, "set char set utf8")
     </div>
   
   <section>
-      <div class="modal fade" id="1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered  ">
-              <div class="modal-content ">
-                  <div class="modal-header">
-                      <h5 class="modal-title fs-15" id="exampleModalLabel" >งาน</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      <h4>รายละเอียดงาน และ หน้าที่รับผิดชอบ hohohoh22222
-                      </h4>
-
-
-                    
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal-confirm">สมัครงาน</button>
-                  </div>
-              </div>
-          </div>
+    <div id="dataModal" class="modal fade">  
+        <div class="modal-dialog">  
+          <div class="modal-content">  
+            <div class="modal-body" id="employee_detail">
+            </div>  
+              <div class="modal-footer">  
+                  <button type="button" class="btn btn-cancelp text-white" data-bs-dismiss="modal">Close</button>  
+                  <button type="button" class="btn btn-primary px-4  fs-3" data-bs-toggle="modal" data-bs-target="#Modal-confirm">สมัครงาน</button>
+              </div>  
+            </div>  
+        </div>  
       </div>
+        
       <div class="modal fade" id="Modal-confirm" tabindex="-1" aria-labelledby="work-confirm" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered d-flex justify-content-center mt-5" style="max-width: auto; margin: 10rem; ">
               <div class="col-4 modal-content modal-dialog-centered modal-sm modal-fullscreen-sm-down justify-content-center">
@@ -239,29 +238,11 @@ $query = mysqli_query($conn, "set char set utf8")
                       </h4>
                   </div>
                   <div class="row modal-footer justify-content-center ">
-                      <a class="btn btn-primary" href="main.html" role="button">กลับหน้าหลัก</a>
+                      <a class="btn btn-primary" href="main.php" role="button">กลับหน้าหลัก</a>
                   </div>
               </div>
           </div>
       </div>
-
-
-      <div id="dataModal" class="modal fade">  
-      <div class="modal-dialog">  
-          <div class="modal-content">  
-              <!-- <div class="modal-header" id="employee_head">   
-                  <h4 class="modal-title"></h4>  
-                  
-              </div>   -->
-              <div class="modal-body" id="employee_detail">
-                <h4>รายละเอียดงาน และ หน้าที่รับผิดชอบ hohohoh22222</h4> 
-              </div>  
-                <div class="modal-footer">  
-                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>  
-                </div>  
-              </div>  
-          </div>  
-      </div>  
   </section>
   <script>  
  $(document).ready(function(){   
