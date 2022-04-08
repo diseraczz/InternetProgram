@@ -721,7 +721,7 @@
             var pos_check_ap = posapp2[index];
             if (pos_check_ap.match('Application Network')) {
               an++;
-            } else if (pos_check_ap.match('Business Analyst (BA)')) {
+            } else if (pos_check_ap.match('Business Analyst')) {
               ba++;
             } else if (pos_check_ap.match('Data Analysis')) {
               da++;
@@ -831,7 +831,6 @@
       filter = input.value.toUpperCase();
       table = document.getElementById("sawasdy");
       tr = table.getElementsByTagName("tr");
-
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[1];
@@ -850,7 +849,6 @@
       $querys = mysqli_query($conn,"set char set utf8");
       $sqlprovince = "SELECT `*` FROM `applicants`INNER JOIN provinces ON `applicants`.`applicant_province` = `provinces`.`id`";
       $resultprovince = $conn->query($sqlprovince);
-      echo "<script>var provincee = [];</script>";
     ?>
     <h6 class="dropdown-header-start" style="color: black;">Search Province</h6>
     <li>
@@ -860,7 +858,7 @@
     <table id="sawasdy">
           <thead>
             <tr>
-              <th width="5%">Province</td>
+              <th width="5%">Name</td>
               <th width="10%">Count</td>
             </tr>
           </thead>
@@ -870,15 +868,13 @@
              ?>
             <tr>
               <td>
-                <?php echo $rowsss['name_th']; ?>
+                <?php echo $rowsss['applicant_firstname']; ?> <?php echo $rowsss['applicant_lastname']; ?>
               </td>
               <td>
                 <?php echo $rowsss['name_th'];?>
               </td>
             </tr>
             <?php 
-            $provinces = $rowprovincee['name_th'];
-            echo "<script>provincee.push('$provinces');</script>";
             endwhile; ?>
           </tbody>
         </table>
