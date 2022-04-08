@@ -74,12 +74,18 @@ $query = mysqli_query($conn, "set char set utf8")
                 </br>
 
                 <?php
-                  $sql_query = "SELECT *
-                  FROM applicants
-                  WHERE applicant_id =''";
-                  $result2 = mysql_db_query($conn,$sql_query);
-                  $count = mysql_num_rows($result2);
+                    $querys = mysqli_query($conn,"set char set utf8");
+                    $sqls = "SELECT applicant_id FROM applicants";
+                    $results = $conn->query($sqls);
+                    $count_applicant = 0;
+                    echo "<script>var edu = [];</script>";
+                    while($row = $results->fetch_assoc()):
+                      $count_applicant = $count_applicant + 1 ;
+                    endwhile;
+                    echo "<script>console.log($count_applicant);</script>";
                 ?>
+                จำนวนคนหางานทั้งหมด   
+            <?php echo $count_applicant?>
             </div>
           </div>
 
@@ -92,6 +98,20 @@ $query = mysqli_query($conn, "set char set utf8")
                 </div> 
               </div>     
             </br>
+            <?php
+                    $querys = mysqli_query($conn,"set char set utf8");
+                    $sqls = "SELECT enterprise_id FROM enterprises";
+                    $results = $conn->query($sqls);
+                    $count_enterprise = 0;
+                    echo "<script>var edu = [];</script>";
+                    while($row = $results->fetch_assoc()):
+                      $count_enterprise = $count_enterprise + 1 ;
+                    endwhile;
+                    echo "<script>console.log($count_enterprise);</script>";
+                ?>
+                จำนวนบริษัททั้งหมด   
+            <?php echo $count_enterprise?>
+            
         </div>
       </div>
 
