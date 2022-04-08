@@ -352,10 +352,8 @@
 
         </div>
       </div>
-
+      <!--salary-->
       <div class="row justify-content-around">
-
-        <!--salary-->
         เงินเดือน
         <div class="col-4">
           <?php
@@ -367,7 +365,6 @@
               $salary_en_income = $rowsalary_en['job_post_income'];
               echo "<script>salary_en.push('$salary_en_income');</script>";
             endwhile;
-            echo "<script>console.log(salary_en);</script>";
             ?>
           <canvas id="salary_en_chart" style="width:100%;max-width:600px"></canvas>
           <script>
@@ -380,13 +377,12 @@
           }
           salary_count_en.push(strings.split(','));
           salary_count_en2 = salary_count_en[0];
-          console.log(salary_count_en2);
           var twofive = 0;
           var twomore = 0;
-          var javascript = 0;
-          var sql = 0;
-          var php = 0;
-          var python = 0;
+          var fourmore = 0;
+          var sixmore = 0;
+          var eigmore = 0;
+          var twnmore = 0;
           var java = 0;
           var back_end = 0;
           var web_page_design = 0;
@@ -396,45 +392,25 @@
 
           for (let index = 0; index < salary_count_en2.length; index++) {
             var salary_count_en2_check = salary_count_en2[index];
-            if (parseInt(salary_count_en2_check)< 20000) {
+            if (parseInt(salary_count_en2_check) < 20000) {
               twofive++;
-            } else if (parseInt(salary_count_en2_check)>= 20000) {
+            } else if (parseInt(salary_count_en2_check) >= 20000 && parseInt(salary_count_en2_check) < 40000) {
               twomore++;
-            } else if (salary_count_en2_check.match('javascript')) {
-              javascript++;
-            } else if (salary_count_en2_check.match('sql')) {
-              sql++;
-            } else if (salary_count_en2_check.match('php')) {
-              php++;
-            } else if (salary_count_en2_check.match('python')) {
-              python++;
-            } else if (salary_count_en2_check.match('java')) {
-              java++;
-            } else if (salary_count_en2_check.match('back end')) {
-              back_end++;
-            } else if (salary_count_en2_check.match('web page design')) {
-              web_page_design++;
-            } else if (salary_count_en2_check.match('ms office')) {
-              ms_office++;
-            } else if (salary_count_en2_check.match('os')) {
-              os++;
-            } else if (salary_count_en2_check.match('network')) {
-              network++;
+            } else if (parseInt(salary_count_en2_check) >= 40000 && parseInt(salary_count_en2_check) < 60000) {
+              fourmore++;
+            } else if (parseInt(salary_count_en2_check) >= 60000 && parseInt(salary_count_en2_check) < 80000) {
+              sixmore++;
+            } else if (parseInt(salary_count_en2_check) >= 80000 && parseInt(salary_count_en2_check) < 100000) {
+              eigmore++;
+            } else if (parseInt(salary_count_en2_check) >= 100000) {
+              twnmore++;
             }
           }
-          var xValuesskill = ["1", "2", "3", "4", "5", "6", "java", "back end",
-            "web page design", "ms office", "os", "network"
+          var xValuesskill = ["0-20,000", "20,001-40,000", "40,001-60,000", "60,001-80,000", "80,001-100,000",
+            "100,001+",
           ];
-          var yValuesskill = [twofive, twomore, javascript, sql, php, python, java, back_end, web_page_design, ms_office, os,
-            network
-          ];
+          var yValuesskill = [twofive, twomore, fourmore, sixmore, eigmore, twnmore, ];
           var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
             "#b91d47",
             "#00aba9",
             "#2b5797",
@@ -462,13 +438,155 @@
           </script>
         </div>
         <div class="col-4">
-          132
+          <?php
+            $querys = mysqli_query($conn,"set char set utf8");
+            $sqljob_ap = "SELECT `applicant_expected_salary` FROM `applicants` ";
+            $result_salary_ap = $conn->query($sqljob_ap);
+            echo "<script>var salary_ap = [];</script>";
+            while($rowsalary_ap = $result_salary_ap->fetch_assoc()):
+              $salary_ap_income = $rowsalary_ap['applicant_expected_salary'];
+              echo "<script>salary_ap.push('$salary_ap_income');</script>";
+            endwhile;
+            echo "<script>console.log(salary_ap);</script>";
+            ?>
+          <canvas id="salary_ap_chart" style="width:100%;max-width:600px"></canvas>
+          <script>
+          var salary_count_ap = [];
+          var salary_count_ap2 = [];
+          var strings = '';
+          for (let i = 0; i < salary_ap.length; i++) {
+            var salary_ap2 = salary_ap[i];
+            strings = strings + ',' + salary_ap2;
+          }
+          salary_count_ap.push(strings.split(','));
+          salary_count_ap2 = salary_count_ap[0];
+          console.log(salary_count_ap2);
+          var twofive = 0;
+          var twomore = 0;
+          var fourmore = 0;
+          var sixmore = 0;
+          var eigmore = 0;
+          var twnmore = 0;
+          var java = 0;
+          var back_end = 0;
+          var web_page_design = 0;
+          var ms_office = 0;
+          var os = 0;
+          var network = 0;
+
+          for (let index = 0; index < salary_count_ap2.length; index++) {
+            var salary_count_ap2_check = salary_count_ap2[index];
+            if (parseInt(salary_count_ap2_check) < 20000) {
+              twofive++;
+            } else if (parseInt(salary_count_ap2_check) >= 20000 && parseInt(salary_count_ap2_check) < 40000) {
+              twomore++;
+            } else if (parseInt(salary_count_ap2_check) >= 40000 && parseInt(salary_count_ap2_check) < 60000) {
+              fourmore++;
+            } else if (parseInt(salary_count_ap2_check) >= 60000 && parseInt(salary_count_ap2_check) < 80000) {
+              sixmore++;
+            } else if (parseInt(salary_count_ap2_check) >= 80000 && parseInt(salary_count_ap2_check) < 100000) {
+              eigmore++;
+            } else if (parseInt(salary_count_ap2_check) >= 100000) {
+              twnmore++;
+            }
+          }
+          var xValuesskill = ["0-20,000", "20,001-40,000", "40,001-60,000", "60,001-80,000", "80,001-100,000",
+            "100,001+",
+          ];
+          var yValuesskill = [twofive, twomore, fourmore, sixmore, eigmore, twnmore, ];
+          var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+          ];
+
+          new Chart("salary_ap_chart", {
+            type: "doughnut",
+            data: {
+              labels: xValuesskill,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValuesskill
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "เงินเดือนที่คนหางานต้องการ"
+              }
+            }
+          });
+          </script>
         </div>
       </div>
+      <!--position-->
       <div class="row justify-content-center">
         ตำแหน่งงาน
         <div class="col-4">
-          One of two columns
+          <?php
+            $querys = mysqli_query($conn,"set char set utf8");
+            $sqls_position_en = "SELECT `*` FROM `job_posts` INNER JOIN positions ON `job_posts`.`job_post_position_id`=`positions`.`position_id`";
+            $results = $conn->query($sqls_position_en);
+            echo "<script>var edu = [];</script>";
+            while($row = $results->fetch_assoc()):
+              $applicant_edu = $row['applicant_edu_level'];
+              echo "<script>edu.push('$applicant_edu');</script>";
+            endwhile;
+            ?>
+          <canvas id="educhart" style="width:100%;"></canvas>
+          <script>
+          var degrees = [];
+          var degrees2 = [];
+          var strings = '';
+          for (let i = 0; i < edu.length; i++) {
+            var edu2 = edu[i];
+            strings = strings + ',' + edu2;
+          }
+          degrees.push(strings.split(','));
+          degrees2 = degrees[0];
+          var bachelor = 0;
+          var master = 0;
+          var doctor = 0;
+
+          for (let index = 0; index < degrees2.length; index++) {
+            var degrees_check = degrees2[index].toLocaleLowerCase();
+            if (degrees_check.match('ปริญญาตรี')) {
+              bachelor++;
+            } else if (degrees_check.match('ปริญญาโท')) {
+              master++;
+            } else if (degrees_check.match('ปริญญาเอก')) {
+              doctor++;
+            }
+          }
+
+          var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
+          var yValues = [bachelor, master, doctor];
+          var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+          ];
+
+          new Chart("educhart", {
+            type: "doughnut",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "ระดับการศึกษา"
+              }
+            }
+          });
+          </script>
         </div>
         <div class="col-4">
           One of two columns
