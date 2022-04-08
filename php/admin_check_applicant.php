@@ -1,7 +1,15 @@
 <?php
   session_start();
-  include('connection.php');
+  require_once('connection.php');
+
+  if($_GET['applicant_id']){
+    $applicant_id = $_GET['applicant_id'];
+    $sql = "SELECT * FROM applicants  WHERE applicant_id = '$applicant_id' ";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+  }  
 ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -28,10 +36,10 @@
 
   <body>
   <?php
-        $id = $_SESSION["admin_id"];
-        $query = mysqli_query($conn, "SELECT * FROM admin WHERE admin_id = $id ");
-        $result = mysqli_fetch_array($query);
-      ?>
+    $id = $_SESSION["applicant_id"];
+    $query = mysqli_query($conn, "SELECT * FROM applicants WHERE applicant_id = $id ");
+    $result = mysqli_fetch_array($query);
+  ?>
     <header class="p-2 border-buttom admin-bar">
       <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">
@@ -39,7 +47,7 @@
             <img src="../images/meIT2.png" alt="" width="170" height="auto" >
           </a>
           <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto" style="color: white;">
-            <h3>คนหางาน</h3>
+            <h3>ข้อมูลคนหางาน</h3>
           </div>
           <div class="dropdown me-5" >
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,45 +68,67 @@
       </div>
     </header>
 
+    <!--edit admin-->
     <main class="container pt-5" >
       <form method="GET" enctype="multipart/form-data">
         <div class="p-5 bg-white rounded-30">
           <div class="row text-black">
-            <div class="col-10">
-              <h4>ตารางคนหางาน</h4>
-            </div>
             <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Tel</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Delete</th>
-                </tr>
-              </thead>
               <tbody>
-              <?php
-                $query = mysqli_query($conn, "SELECT * FROM applicants ORDER BY applicant_id ASC");
-                while ($result = mysqli_fetch_array($query)) {
-              ?>
-                <tr>
-                  <td><?= $result['applicant_id'] ?></td>
-                  <td><?= $result['applicant_firstname']," ",$result['applicant_lastname'] ?></td>
-                  <td><?= $result['applicant_email'] ?></td>
-                  <td><?= $result['applicant_telephone_number'] ?></td>
-                  <td><a href="admin_check_applicant.php?<?= $result['applicant_id'];?>" class="btn btn-editp rounded-pill px-3 ">ตรวจสอบ</a></td>
-                  <td><a href="admin_delete.php?admin_id=<?= $result['applicant_id']?>" class="btn btn-cancelg rounded-pill px-4 text-white" onclick="return confirm('คุณต้องการลบชื่อ <?= $result['admin_name'] ?> หรือไม่')">ลบ</a></td>
-                </tr>
-              <?php } ?>
+              <div class="row">
+          <div class="col-3 text-center">
+            <t class="text-dark fs-1 fw-bold mb-">Profile</t>
+            <img class="rounded-circle success my-4" src="../images/<?= $result['applicant_profile_pic']?>" alt="pic" width="200" height="200">
+          </div>
+            <div class="col-9">
+              <div class="p-5 bg-gray rounded-25 shadow-sj" >
+                <div class="row g-3 align-items-center" style="font-size: 1.15rem;">
+                  <div class="col-3">
+                    <label for="input" class="col-form-label">ชื่อ-นามสกุล</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="p-2 rounded-3 bg-white"><?= $result['applicant_firstname']?> &nbsp; <?= $result['applicant_lastname']?></div>
+                  </div>
+                  <br>
+                  <div class="col-3">
+                    <label for="input" class="col-form-label">ประวัติ</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="p-2 rounded-3 bg-white" style="height: 200px;">
+                   
+                    <label class="bi bi-person-lines-fill" > เกิดวันที่ : &emsp; <?= $result['applicant_brithday']?> </label><br>
+                    <label class="bi bi-telephone-fill" > เบอร์โทรศัพท์ : &emsp; <?= $result['applicant_telephone_number']?> </label><br>
+                    <label class="bi bi-envelope" > อีเมล :&emsp;  <?= $result['applicant_email']?> </label><br>
+                    <label class="bi bi-geo-alt-fill" > ที่อยู่ :&emsp; <?= $result['applicant_addess']?> </label><br>
+                
+                    <label class="" >&emsp; <?= $result['applicant_province']?>, &nbsp; <?= $result['applicant_district']?>, &nbsp; <?= $result['applicant_sub_district']?></label><br>
+                    <label class="bi bi-calendar" > วุฒิการศึกษา : &emsp; <?= $result['applicant_edu_level']?> </label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="col-3">
+                    <label for="input" class="col-form-label">ความสามารถ</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="p-2 rounded-3 bg-white " ><button class="btn rounded-pill success text-white ">Back End</button></div>
+                  </div>
+                  <br>
+                  <div class="col-3">
+                    <label for="input" class="col-form-label">เงินเดือนที่ต้องการ</label>
+                  </div>
+                  <div class="col-9">
+                  <div class="p-2 rounded-3 bg-white"><?= $result['applicant_expected_salary']?></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
               </tbody>
             </table>
           </div>
         </div>
       </form>
     </main>
-
   </body>
 
 </html>
