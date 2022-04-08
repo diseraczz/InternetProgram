@@ -144,6 +144,7 @@ function w3_close() {
             $my_array = array();
             echo "<script>var sin = [];</script>";
             echo "<script>var posit = [];</script>";
+            echo "<script>var salary = [];</script>";
             ?>
             <?php while($row = $result->fetch_assoc()): ?>
             <tr>
@@ -172,12 +173,16 @@ function w3_close() {
                 <?php echo $row['applicant_province'];?>
               </td>
             </tr>
+
             <?php 
             $applicant_edu_level = $row['applicant_edu_level'];
             echo "<script>sin.push('$applicant_edu_level');</script>";
 
             $applicant_position = $row['position_name'];
             echo "<script>posit.push('$applicant_position');</script>";
+            
+            $applicant_salary = $row['applicant_expected_salary'];
+            echo "<script>salary.push('$applicant_salary');</script>";
             ?>
             <?php endwhile ?>
           </tbody>
@@ -185,7 +190,7 @@ function w3_close() {
         
       </div>
 
-      <div>
+      <div class="candidate rounded-25">
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
         <script>
@@ -240,62 +245,7 @@ function w3_close() {
         </script>
       </div>
 
-            <div>
-        <canvas id="edulevel" style="width:100%;max-width:600px"></canvas>
-
-        <script>
-            var degrees = [];
-            var degrees2 = [];
-            var strings = '';
-            for (let i = 0; i < sin.length; i++) {
-              var sin2 = sin[i];
-              strings = strings + ',' + sin2;
-            }
-            degrees.push(strings.split(','));
-            degrees2 = degrees[0];
-            var bachelor = 0;
-            var master = 0;
-            var doctor = 0;
-
-            for (let index = 0; index < degrees2.length; index++) {
-              var degrees_check = degrees2[index].toLocaleLowerCase();
-              if (degrees_check.match('ปริญญาตรี')) {
-                bachelor++;
-              } else if (degrees_check.match('ปริญญาโท')) {
-                master++;
-              } else if (degrees_check.match('ปริญญาเอก')) {
-                doctor++;
-              }
-            }
-
-        var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
-        var yValues = [bachelor, master, doctor];
-        var barColors = [
-          "#b91d47",
-          "#00aba9",
-          "#2b5797",
-        ];
-
-        new Chart("myChart", {
-          type: "doughnut",
-          data: {
-            labels: xValues,
-            datasets: [{
-              backgroundColor: barColors,
-              data: yValues
-            }]
-          },
-          options: {
-            title: {
-              display: true,
-                text: "ระดับการศึกษา"
-            }
-          }
-        });
-        </script>
-      </div>
-
-      <div>
+      <div class="candidate rounded-25">
         <canvas id="position" style="width:100%;max-width:600px"></canvas>
 
         <script>
@@ -425,6 +375,59 @@ function w3_close() {
         });
         </script>
       </div>
+
+      <div class="candidate rounded-25">
+          <canvas id="salarytchart" style="width:100%;max-width:600px"></canvas>
+          <script>
+          var salary1 = 0;
+          var salary2 = 0;
+          var salary3 = 0;
+          var salary4 = 0;
+          var salary5 = 0;
+          var salary6 = 0;
+          for (let index = 0; index < salary.length; index++) {
+            var salary_check = salary[index];
+            if (parseInt(salary_check) > 0 && parseInt(salary_check) <= 20000) {
+              salary1++;
+            } else if (parseInt(salary_check) > 20000 && parseInt(salary_check) <= 40000) {
+              salary2++;
+            } else if (parseInt(salary_check) > 40000 && parseInt(salary_check) <= 60000) {
+              salary3++;
+            } else if (parseInt(salary_check) > 60000 && parseInt(salary_check) <= 80000) {
+              salary4++;
+            } else if (parseInt(salary_check) > 80000 && parseInt(salary_check) <= 100000) {
+              salary5++;
+            } else if (parseInt(salary_check) > 100000) {
+              salary6++;
+            }
+            
+          }
+
+          console.log(salary1, salary2, salary3, salary4, salary5, salary6);
+          var xSalary = ["> 20,000", "20,001 - 40,000", "40,001 - 60,000", "60,001 - 80,000", "80,001 - 100,000", " < 100,001"];
+          var ySalary = [salary1, salary2, salary3, salary4, salary5, salary6];
+          var barColorsss = ["green", "green", "green", "green", "green", "green"];
+          var salary111 = new Chart("salarychart", {
+            type: "bar",
+            data: {
+              labels: xSalary,
+              datasets: [{
+                backgroundColor: barColorsss,
+                data: ySalary
+              }]
+            },
+            options: {
+              legend: {
+                display: false
+              },
+              title: {
+                display: true,
+                text: "Salary"
+              }
+            }
+          });
+          </script>
+        </div>
 
     </div>
   </div>
