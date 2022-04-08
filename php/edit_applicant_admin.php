@@ -76,7 +76,7 @@ function w3_close() {
         <div class="d-flex flex-wrap align-items-center justify-content-start">
           <div class="d-flex align-items-center me-md-auto"></div>
           <div class="context">
-            <h1 class="text-dark fs-2">Enterprise Profile Settings</h1>
+            <h1 class="text-dark fs-2">Applicant Profile Settings</h1>
           </div>
         </div>
       </div>
@@ -134,64 +134,181 @@ function w3_close() {
             </div>
             <br>
           </div>
-          <div class="col-9">
-            <div class="domino g-3">
-              <div class="col-12">
-                <br>
-                <h3>ข้อมูลบริษัท</h3>
-              </div>
-              <div class="col-6">
-                <label class="form-label" for="enterprise_name_th">ชื่อบริษัทภาษาไทย</label>
-                <input name="enterprise_name_th" type="text" class="form-control" placeholder=""
-                  value="<?php echo $result['enterprise_name_th']; ?>">
-              </div>
-              <div class="col-6" for="enterprise_name_en">
-                <label class="form-label">ชื่อบริษัทภาษาอังกฤษ</label>
-                <input name="enterprise_name_en" type="text" class="form-control"
-                  value="<?php echo $result['enterprise_name_en']; ?>">
-              </div>
-              <div class="col-4">
-                <label class="form-label" for="enterprise_telephone_number">เบอร์โทรศัพท์บริษัท</label>
-                <input name="enterprise_telephone_number" type="tel" class="form-control"
-                  value="<?php echo $result['enterprise_telephone_number']; ?>">
-              </div>
-              <div class="col-4">
-                <label class="form-label" for="enterprise_email">E-mail บริษัท</label>
-                <input name="enterprise_email" type="email" class="form-control"
-                  value="<?php echo $result['enterprise_email']; ?>">
-              </div>
-              <div class="col-4">
-                <label class="form-label" for="enterprise_website">เว็บไซต์บริษัท</label>
-                <input name="enterprise_website" type="text" class="form-control"
-                  value="<?php echo $result['enterprise_website']; ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label" for="enterprise_address">ที่อยู่บริษัท</label>
-                <input name="enterprise_address" type="text" class="form-control"
-                  value="<?php echo $result['enterprise_address']; ?>">
-              </div>
-              <div class="col-4">
-                <label class="form-label" for="enterprise_province">จังหวัด</label>
-                <input name="enterprise_province" type="text" class="form-control"
-                  value="<?php echo $result['enterprise_province']; ?>">
-              </div>
-              <div class="col-4">
-                <label class="form-label" for="enterprise_district">อำเภอ</label>
-                <input name="enterprise_district" type="text" class="form-control"
-                  value="<?php echo $result['enterprise_district']; ?>">
-              </div>
-              <div class="col-4">
-                <label class="form-label" for="enterprise_sub_district">ตำบล</label>
-                <input name="enterprise_sub_district" type="text" class="form-control"
-                  value="<?php echo $result['enterprise_sub_district']; ?>">
-              </div>
-              <br>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-danger" type="reset" name="reset">รีเซ็ต</button>
-                <button class="btn btn-success" type="submit" name="submit">บันทึก</button>
-              </div>
+            <div class="col-8">
+                    
+                        <div class="col-12 mt-5 success rounded-25">
+                            <h4 class="fs-3 mt-2 text-white ps-3">ประวัติส่วนตัว</h4>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label class="form-label">ชื่อ</label>
+                            <input type="text" name="applicant_name" class="form-control" placeholder="" value="" required="">
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label class="form-label">นามสกุล</label>
+                            <input type="text" name="applicant_lastname" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-4 mt-3">
+                            <label class="form-label">วันเกิด</label>
+                            <input type="date" name="applicant_brithday" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-4 mt-3">
+                            <label class="form-label">เบอร์โทรศัพท์</label>
+                            <input type="tel" name="applicant_telephone_number" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000">
+                        </div>
+                        <div class="col-4 mt-3">
+                            <label class="form-label">E-mail</label>
+                            <input type="email" name="applicant_email" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">ที่อยู่</label>
+                            <input type="text" name="applicant_addess" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-4 mt-3">
+<!--ไม่ได้ใส่ Nameให้พวกจังหวัด อำเภอ ตำบล วุติ ทักษะ-->
+                            <label class="form-label">จังหวัด</label>
+                            <select class="form-select">
+                              <option selected>เลือกจังหวัด</option>
+                              <option>กรุงเทพ</option>
+                              <option>นครสวรรค์</option>
+                              <option>พิษณุโลก</option>
+                              <option>เชียงใหม่</option>
+                            </select>
+                                    </div>
+                                    <div class="col-4 mt-3">
+                                        <label class="form-label">อำเภอ</label>
+                                        <select class="form-select">
+                              <option selected>เลือกอำเภอ</option>
+                              <option>-----------</option>
+                            </select>
+                                    </div>
+                                    <div class="col-4 mt-3">
+                                        <label class="form-label">ตำบล</label>
+                                        <select class="form-select">
+                              <option selected>เลือกตำบล</option>
+                              <option>-----------</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mt-3 success rounded-25">
+                            <h4 class="fs-3 mt-2 text-white ps-3">การศึกษา</h4>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label class="form-label">มหาวิทยาลัย</label>
+                            <input type="text" name="applicant_edu_university" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-3 mt-3">
+                            <label class="form-label">จังหวัด</label>
+                            <input type="text" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-3 mt-3">
+                          <label class="form-label">วุฒิการศึกษา</label>
+                          <select class="form-select">
+                            <option selected>วุฒิการศึกษา</option>
+                            <option>ปริญญาตรี</option>
+                            <option>ปริญญาโท</option>
+                            <option>ปริญญาเอก</option>
+                          </select>
+                        </div>
+                        <div class="col-5 mt-3">
+                            <label class="form-label">คณะ</label>
+                            <input type="text" name="applicant_edu_faculty" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-5 mt-3">
+                            <label class="form-label">สาขา</label>
+                            <input type="text" name="applicant_edu_major" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-2 mt-3">
+                            <label class="form-label">GPAX</label>
+                            <input type="text" name="applicant_edu_gpax" class="form-control" value="" required="">
+                        </div>
+                        <div class="col-12 mt-3 success rounded-25">
+                            <h4 class="fs-3 mt-2 text-white ps-3">ทักษะ</h4>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                                <label class="form-check-label">
+                          HTML
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          CSS
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          JavaScript
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          SQL
+                        </label>
+                                  </div>
+                              </div>
+                              <div class="col-4">
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          PHP
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          Python
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          Java
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          Back End
+                        </label>
+                                  </div>
+                              </div>
+                              <div class="col-4">
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          Web page Design
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          MS.Office
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          OS
+                        </label>
+                                  </div>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox">
+                                      <label class="form-check-label">
+                          Network
+                        </label>
+                                  </div>
+                              </div>
+                          </div>
+                          <br>
+                          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                              <button class="btn btn-danger" type="reset">รีเซ็ต</button>
+                              <button class="btn btn-success" type="submit">บันทึก</button>
+                          </div>
+                
             </div>
-          </div>
         </div>
       </div>
     </div>
