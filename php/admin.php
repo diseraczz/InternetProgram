@@ -77,7 +77,7 @@
     <div class="container">
       <!--edu-->
       <div class="row justify-content-around">
-        <div class="col-4">
+        <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
             $sqls = "SELECT `applicant_edu_level` FROM `applicants`";
@@ -145,7 +145,7 @@
       <!--skill-->
       <div class="row justify-content-around">
         ความสามารถ
-        <div class="col-4">
+        <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
             $sqlskill_enterprise = "SELECT `*` FROM `job_posts` INNER JOIN skills ON `job_posts`.`job_post_skill_id` = `skills`.`skill_id` ";
@@ -215,18 +215,18 @@
             network
           ];
           var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
+            "#800080",
+            "#FF00FF",
+            "#000080",
+            "#0000FF",
+            "#008080",
+            "#00FFFF",
+            "#008000",
+            "#00FF00",
+            "#808000",
+            "#FFFF00",
+            "#800000",
+            "#FF0000",
           ];
 
           new Chart("skillchart_en", {
@@ -247,7 +247,7 @@
           });
           </script>
         </div>
-        <div class="col-4">
+        <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
             $sqlskill = "SELECT `*` FROM `applicants` INNER JOIN skills ON `applicants`.`applicant_skill_id` = `skills`.`skill_id` ";
@@ -318,18 +318,18 @@
             network
           ];
           var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
+            "#800080",
+            "#FF00FF",
+            "#000080",
+            "#0000FF",
+            "#008080",
+            "#00FFFF",
+            "#008000",
+            "#00FF00",
+            "#808000",
+            "#FFFF00",
+            "#800000",
+            "#FF0000",
           ];
 
           new Chart("skillchart", {
@@ -355,7 +355,7 @@
       <!--salary-->
       <div class="row justify-content-around">
         เงินเดือน
-        <div class="col-4">
+        <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
             $sqljob_en = "SELECT `job_post_income` FROM `job_posts` ";
@@ -411,12 +411,12 @@
           ];
           var yValuesskill = [twofive, twomore, fourmore, sixmore, eigmore, twnmore, ];
           var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
+            "#00FFFF",
+            "#008080",
+            "#0000FF",
+            "#000080",
+            "#FF00FF",
+            "#800080",
           ];
 
           new Chart("salary_en_chart", {
@@ -437,7 +437,7 @@
           });
           </script>
         </div>
-        <div class="col-4">
+        <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
             $sqljob_ap = "SELECT `applicant_expected_salary` FROM `applicants` ";
@@ -495,12 +495,12 @@
           ];
           var yValuesskill = [twofive, twomore, fourmore, sixmore, eigmore, twnmore, ];
           var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
+            "#00FFFF",
+            "#008080",
+            "#0000FF",
+            "#000080",
+            "#FF00FF",
+            "#800080",
           ];
 
           new Chart("salary_ap_chart", {
@@ -525,71 +525,297 @@
       <!--position-->
       <div class="row justify-content-center">
         ตำแหน่งงาน
-        <div class="col-4">
+        <div class="col-6">
           <?php
             $querys = mysqli_query($conn,"set char set utf8");
             $sqls_position_en = "SELECT `*` FROM `job_posts` INNER JOIN positions ON `job_posts`.`job_post_position_id`=`positions`.`position_id`";
             $results = $conn->query($sqls_position_en);
-            echo "<script>var edu = [];</script>";
+            echo "<script>var posen = [];</script>";
             while($row = $results->fetch_assoc()):
-              $applicant_edu = $row['applicant_edu_level'];
-              echo "<script>edu.push('$applicant_edu');</script>";
+              $job_position = $row['position_name'];
+              echo "<script>posen.push('$job_position');</script>";
             endwhile;
             ?>
-          <canvas id="educhart" style="width:100%;"></canvas>
-          <script>
-          var degrees = [];
-          var degrees2 = [];
-          var strings = '';
-          for (let i = 0; i < edu.length; i++) {
-            var edu2 = edu[i];
-            strings = strings + ',' + edu2;
-          }
-          degrees.push(strings.split(','));
-          degrees2 = degrees[0];
-          var bachelor = 0;
-          var master = 0;
-          var doctor = 0;
-
-          for (let index = 0; index < degrees2.length; index++) {
-            var degrees_check = degrees2[index].toLocaleLowerCase();
-            if (degrees_check.match('ปริญญาตรี')) {
-              bachelor++;
-            } else if (degrees_check.match('ปริญญาโท')) {
-              master++;
-            } else if (degrees_check.match('ปริญญาเอก')) {
-              doctor++;
+            <canvas id="position_en" style="width:100%;max-width:600px"></canvas>
+            <script>
+            var pos = [];
+            var pos2 = [];
+            var strings = '';
+            for (let i = 0; i < posen.length; i++) {
+              var posen2 = posen[i];
+              strings = strings + ',' + posen2;
             }
-          }
+            pos.push(strings.split(','));
+            pos2 = pos[0];
+            var an = 0;
+            var ba = 0;
+            var da = 0;
+            var de = 0;
+            var hw = 0;
+            var ita = 0;
+            var itm = 0;
+            var itp = 0;
+            var its = 0;
+            var itshd = 0;
+            var mis = 0;
+            var programmer = 0;
+            var se = 0;
+            var st = 0;
+            var sadmin = 0;
+            var sa = 0;
+            var sea = 0;
+            var mw = 0;
+            var seo = 0;
+            var network = 0;
+            var it = 0;
+            var uxui = 0;
 
-          var xValues = ["ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก"];
-          var yValues = [bachelor, master, doctor];
-          var barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-          ];
-
-          new Chart("educhart", {
-            type: "doughnut",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              title: {
-                display: true,
-                text: "ระดับการศึกษา"
+            for (let index = 0; index < pos2.length; index++) {
+              var pos_check = pos2[index];
+              if (pos_check.match('Application Network')) {
+                an++;
+              } else if (pos_check.match('Business Analyst (BA)')) {
+                ba++;
+              } else if (pos_check.match('Data Analysis')) {
+                da++;
+              } else if (pos_check.match('Data Engineer')) {
+                de++;
+              } else if (pos_check.match('Hardware')) {
+                hw++;
+              } else if (pos_check.match('IT Audit')) {
+                ita++;
+              } else if (pos_check.match('IT Manager/Senior Programmer')) {
+                itm++;
+              } else if (pos_check.match('IT Project Manager')) {
+                itp++;
+              } else if (pos_check.match('IT Security')) {
+                its++;
+              } else if (pos_check.match('IT Support Help Desk')) {
+                itshd++;
+              } else if (pos_check.match('MIS')) {
+                mis++;
+              } else if (pos_check.match('Programmer')) {
+                programmer++;
+              } else if (pos_check.match('Software Engineer')) {
+                se++;
+              } else if (pos_check.match('Software Tester')) {
+                st++;
+              } else if (pos_check.match('System Admin')) {
+                sadmin++;
+              } else if (pos_check.match('System Analyst')) {
+                sa++;
+              } else if (pos_check.match('System Engineer and Architect')) {
+                sea++;
+              } else if (pos_check.match('Mobile Wireless')) {
+                mw++;
+              } else if (pos_check.match('ดูแลเว็บไซต์ และ SEO')) {
+                seo++;
+              } else if (pos_check.match('ดูแลระบบ Network')) {
+                network++;
+              } else if (pos_check.match('ที่ปรึกษาไอที')) {
+                it++;
+              } else if (pos_check.match('นักออกแบบ UX/UI')) {
+                uxui++;
               }
             }
-          });
-          </script>
+
+            var aValues = ["Application Network", "Business Analyst (BA)", "Data Analysis", "Data Engineer", "Hardware",
+              "IT Audit", "IT Manager/Senior Programmer", "IT Manager/Senior Programmer", "IT Security",
+              "IT Support Help Desk", "MIS", "Programmer", "Software Engineer", "Software Tester", "System Admin",
+              "System Analyst", "System Engineer and Architect", "Mobile Wireless", "ดูแลเว็บไซต์ และ SEO",
+              "ดูแลระบบ Network", "ที่ปรึกษาไอที", "นักออกแบบ UX/UI"
+            ];
+            var bValues = [an, ba, da, de, hw, ita, itm, itp, its, itshd, mis, programmer, se, st, sadmin, sa, sea, mw, seo,
+              network, it, uxui
+            ];
+            var barColors2 = [
+              "#b91d47",
+              "#00aba9",
+              "#2b5797",
+              "#DFFF00",
+              "#FFBF00",
+              "#FF7F50",
+              "#DE3163",
+              "#000000",
+              "#9FE2BF",
+              "#40E0D0",
+              "#6495ED",
+              "#CCCCFF",
+              "#00FFFF",
+              "#FF0000",
+              "#800000",
+              "#FFFF00",
+              "#808000",
+              "#00FF00",
+              "#008080",
+              "#000080",
+              "#FFFFFF",
+              "#FF00FF"
+            ];
+
+            new Chart("position_en", {
+              type: "doughnut",
+              data: {
+                labels: aValues,
+                datasets: [{
+                  backgroundColor: barColors2,
+                  data: bValues
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: "ตำแหน่งงานบริษัทต้องการ"
+                }
+              }
+            });
+            </script>
         </div>
-        <div class="col-4">
-          One of two columns
+        <div class="col-6">
+        <?php
+            $querys = mysqli_query($conn,"set char set utf8");
+            $sqls_position_ap = "SELECT `*` FROM `applicants` INNER JOIN positions ON `applicants`.`applicant_position_id`=`positions`.`position_id`";
+            $result_pos_ap = $conn->query($sqls_position_ap);
+            echo "<script>var posap = [];</script>";
+            while($row_pos_ap = $result_pos_ap->fetch_assoc()):
+              $job_position_ap = $row_pos_ap['position_name'];
+              echo "<script>posap.push('$job_position_ap');</script>";
+            endwhile;
+            ?>
+            <canvas id="position_ap" style="width:100%;max-width:600px"></canvas>
+            <script>
+            var posapp = [];
+            var posapp2 = [];
+            var strings = '';
+            for (let i = 0; i < posap.length; i++) {
+              var posap2 = posap[i];
+              strings = strings + ',' + posap2;
+            }
+            posapp.push(strings.split(','));
+            posapp2 = posapp[0];
+            var an = 0;
+            var ba = 0;
+            var da = 0;
+            var de = 0;
+            var hw = 0;
+            var ita = 0;
+            var itm = 0;
+            var itp = 0;
+            var its = 0;
+            var itshd = 0;
+            var mis = 0;
+            var programmer = 0;
+            var se = 0;
+            var st = 0;
+            var sadmin = 0;
+            var sa = 0;
+            var sea = 0;
+            var mw = 0;
+            var seo = 0;
+            var network = 0;
+            var it = 0;
+            var uxui = 0;
+
+            for (let index = 0; index < posapp2.length; index++) {
+              var pos_check_ap = posapp2[index];
+              if (pos_check_ap.match('Application Network')) {
+                an++;
+              } else if (pos_check_ap.match('Business Analyst (BA)')) {
+                ba++;
+              } else if (pos_check_ap.match('Data Analysis')) {
+                da++;
+              } else if (pos_check_ap.match('Data Engineer')) {
+                de++;
+              } else if (pos_check_ap.match('Hardware')) {
+                hw++;
+              } else if (pos_check_ap.match('IT Audit')) {
+                ita++;
+              } else if (pos_check_ap.match('IT Manager/Senior Programmer')) {
+                itm++;
+              } else if (pos_check_ap.match('IT Project Manager')) {
+                itp++;
+              } else if (pos_check_ap.match('IT Security')) {
+                its++;
+              } else if (pos_check_ap.match('IT Support Help Desk')) {
+                itshd++;
+              } else if (pos_check_ap.match('MIS')) {
+                mis++;
+              } else if (pos_check_ap.match('Programmer')) {
+                programmer++;
+              } else if (pos_check_ap.match('Software Engineer')) {
+                se++;
+              } else if (pos_check_ap.match('Software Tester')) {
+                st++;
+              } else if (pos_check_ap.match('System Admin')) {
+                sadmin++;
+              } else if (pos_check_ap.match('System Analyst')) {
+                sa++;
+              } else if (pos_check_ap.match('System Engineer and Architect')) {
+                sea++;
+              } else if (pos_check_ap.match('Mobile Wireless')) {
+                mw++;
+              } else if (pos_check_ap.match('ดูแลเว็บไซต์ และ SEO')) {
+                seo++;
+              } else if (pos_check_ap.match('ดูแลระบบ Network')) {
+                network++;
+              } else if (pos_check_ap.match('ที่ปรึกษาไอที')) {
+                it++;
+              } else if (pos_check_ap.match('นักออกแบบ UX/UI')) {
+                uxui++;
+              }
+            }
+
+            var cValues = ["Application Network", "Business Analyst (BA)", "Data Analysis", "Data Engineer", "Hardware",
+              "IT Audit", "IT Manager/Senior Programmer", "IT Manager/Senior Programmer", "IT Security",
+              "IT Support Help Desk", "MIS", "Programmer", "Software Engineer", "Software Tester", "System Admin",
+              "System Analyst", "System Engineer and Architect", "Mobile Wireless", "ดูแลเว็บไซต์ และ SEO",
+              "ดูแลระบบ Network", "ที่ปรึกษาไอที", "นักออกแบบ UX/UI"
+            ];
+            var dValues = [an, ba, da, de, hw, ita, itm, itp, its, itshd, mis, programmer, se, st, sadmin, sa, sea, mw, seo,
+              network, it, uxui
+            ];
+            var barColors22 = [
+              "#b91d47",
+              "#00aba9",
+              "#2b5797",
+              "#DFFF00",
+              "#FFBF00",
+              "#FF7F50",
+              "#DE3163",
+              "#000000",
+              "#9FE2BF",
+              "#40E0D0",
+              "#6495ED",
+              "#CCCCFF",
+              "#00FFFF",
+              "#FF0000",
+              "#800000",
+              "#FFFF00",
+              "#808000",
+              "#00FF00",
+              "#008080",
+              "#000080",
+              "#FFFFFF",
+              "#FF00FF"
+            ];
+
+            new Chart("position_ap", {
+              type: "doughnut",
+              data: {
+                labels: cValues,
+                datasets: [{
+                  backgroundColor: barColors22,
+                  data: dValues
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: "ตำแหน่งงานที่ผู้สมัครต้องการ"
+                }
+              }
+            });
+            </script>
         </div>
       </div>
     </div>
