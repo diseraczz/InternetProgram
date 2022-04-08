@@ -1,13 +1,10 @@
 <?php
   session_start();
   require_once('connection.php');
+  $id = $_GET["applicant_id"];
+  $query = mysqli_query($conn, "SELECT * FROM applicants WHERE applicant_id = $id ");
+  $result = mysqli_fetch_array($query);
 
-  if($_GET['applicant_id']){
-    $applicant_id = $_GET['applicant_id'];
-    $sql = "SELECT * FROM applicants  WHERE applicant_id = '$applicant_id' ";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-  }  
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +32,7 @@
   </head>
 
   <body>
-  <?php
-    $id = $_SESSION["applicant_id"];
-    $query = mysqli_query($conn, "SELECT * FROM applicants WHERE applicant_id = $id ");
-    $result = mysqli_fetch_array($query);
-  ?>
+
     <header class="p-2 border-buttom admin-bar">
       <div class="container-header">
         <div class="d-flex flex-wrap align-items-center justify-content-start">

@@ -1,7 +1,7 @@
 <?php 
   session_start();
   require_once ('connection.php');
-  $id = $_GET['id'];
+  $id = $_GET['enterprise_id'];
   $query = mysqli_query($conn, "SELECT * FROM enterprises WHERE enterprise_id='$id' ");
     $result = mysqli_fetch_array($query);
 ?>
